@@ -14,6 +14,14 @@ trait ComponentCheck
         $color_classes_ = config('dvui.text-colors');
         $text_sizes_ = config('dvui.text-sizes');
     }
+
+    public function classesContain($class)
+    {
+        return str($this->attributes['class'])
+            ->explode(' ')
+            ->contains($class);
+    }
+
     public function somethingStartsWith($term): bool
     {
         $classes = str($this->attributes['class']);
