@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Modules\DvUi\View\Components\Alert;
 use Modules\DvUi\View\Components\Badge;
 use Modules\DvUi\View\Components\Button\Button;
+use Modules\DvUi\View\Components\Card;
 use Modules\DvUi\View\Components\Link;
 
 class DvUiServiceProvider extends ServiceProvider
@@ -122,5 +123,6 @@ class DvUiServiceProvider extends ServiceProvider
         \Blade::component('dvui::button', Button::class);
         \Blade::component('dvui::link', Link::class);
         \Blade::component('dvui::badge', Badge::class);
+        \Blade::component('dvui::card', Card::class);
     }
 }
