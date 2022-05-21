@@ -1,0 +1,13 @@
+{
+    "name": "DvUi",
+    "alias": "dvui",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\DvUi\\Providers\\DvUiServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
