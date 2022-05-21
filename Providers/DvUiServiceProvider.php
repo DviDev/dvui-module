@@ -4,6 +4,7 @@ namespace Modules\DvUi\Providers;
 
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\ServiceProvider;
+use Modules\DvUi\View\Components\Alert;
 use Modules\DvUi\View\Components\Button\Button;
 use Modules\DvUi\View\Components\Link;
 
@@ -116,6 +117,7 @@ class DvUiServiceProvider extends ServiceProvider
 
     protected function registerComponents()
     {
+        \Blade::component('dvui::alert', Alert::class);
         \Blade::component('dvui::button', Button::class);
         \Blade::component('dvui::link', Link::class);
     }
