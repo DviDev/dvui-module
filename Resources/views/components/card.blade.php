@@ -1,30 +1,35 @@
-@php
-    $header_classes = 'text-gray-900 text-base py-1.5 px-3 bg-white border-b-0 border rounded-t-md';
-@endphp
-<div {{$attributes->class(['max-h-full divide-y'])}}>
+<div {{$attributes->class([
+    'max-h-full flex flex-col divide-y',
+    'bg-white' => !$onlyClassesStartWith('bg-'),
+    'border border-x-2 rounded-md' => !$onlyClassesStartWith('border'),
+    ])}}>
     {{--    header--}}
     @if(isset($heading))
-        <div {{ $heading->attributes->class($header_classes) }}>
+        <div {{ $heading->attributes->class([$headerClasses($heading)]) }}>
             <span {{ $heading->attributes }}>{{ $heading }}</span>
         </div>
     @elseif(isset($title))
-        <div class="{{$header_classes}}">{{$title}}</div>
+        <div class="{{$headerClasses()}}">{{$title}}</div>
     @endif
 
     {{--    content--}}
-    <div class="max-h-full ">
+    @php
+        $content_classes
+    @endphp
+    <div class="max-h-full flex-grow p-1">
+
         @if(isset($slot))
             @php
-                $content_classes = 'p-3 min-h-full bg-white border-y-0 border flex justify-center items-center h-full';
+                $content_classes = 'p-3 min-h-full flex justify-center items-center h-full';
             @endphp
             @if (empty($heading) && empty($title))
                 @php
-                    $content_classes .= ' border-t rounded-t-md';
+
                 @endphp
             @endif
             @if(empty($footer))
                 @php
-                    $content_classes .= ' border-b rounded-b-md';
+                    $content_classes .= ' ';
                 @endphp
             @endif
             <div class="flex-wrap {{$content_classes}}">
@@ -44,8 +49,14 @@
     {{--    footer--}}
     @if(isset($footer))
         <div {{$footer->attributes->class([
-        'py-2 px-3 border-x !border-b rounded-b-md bg-gray-100',
+            'py-2' => !$somethingStartsWith('py-', $footer),
+            'px-3' => !$somethingStartsWith('px-', $footer),
+            '!border-b' => !$somethingStartsWith('border-', $footer),
+            'rounded-b-md bg-gray-100',
     ])}}>
+            @if($somethingStartsWith('py-'))
+                comeca com py
+            @endif
             {{$footer}}
         </div>
     @endif
