@@ -2,6 +2,8 @@
 
 namespace Modules\DvUi\Entities;
 
+use Illuminate\View\ComponentSlot;
+
 trait ComponentCheck
 {
     public $classes_;
@@ -15,17 +17,33 @@ trait ComponentCheck
         $text_sizes_ = config('dvui.text-sizes');
     }
 
-    public function classesContain($class)
+    public function classesContainColor(ComponentSlot $target = null)
     {
-        return str($this->attributes['class'])
+        $classes = $target ? $target->attributes->get('class') : $this->attributes['class'];
+        return str($classes)->contains(config('dvui.text-colors'));
+    }
+
+    public function onlyClassesStartWith($string, ComponentSlot $target = null)
+    {
+        $classes = $target ? $target->attributes->get('class') : $this->attributes['class'];
+        return str($classes)
+            ->explode(' ')
+            ->filter(fn($c) => str_starts_with($c, $string))
+            ->implode(' ');
+    }
+
+    public function classesContain($class, ComponentSlot $target = null)
+    {
+        $classes = $target ? $target->attributes->get('class') : $this->attributes['class'];
+        return str($classes)
             ->explode(' ')
             ->contains($class);
     }
 
-    public function somethingStartsWith($term): bool
+    public function somethingStartsWith($term, ComponentSlot $target = null): bool
     {
-        $classes = str($this->attributes['class']);
-        return $classes->explode(' ')
+        $classes = $target ? $target->attributes->get('class') : $this->attributes['class'];
+        return str($classes)->explode(' ')
             ->filter(fn($class) => str_starts_with($class, $term))
             ->isNotEmpty();
     }
