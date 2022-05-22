@@ -13,37 +13,23 @@
     @endif
 
     {{--    content--}}
-    @php
-        $content_classes
-    @endphp
     <div class="max-h-full flex-grow p-1">
-
         @if(isset($slot))
             @php
                 $content_classes = 'p-3 min-h-full flex justify-center items-center h-full';
             @endphp
-            @if (empty($heading) && empty($title))
-                @php
-
-                @endphp
-            @endif
-            @if(empty($footer))
-                @php
-                    $content_classes .= ' ';
-                @endphp
-            @endif
             <div class="flex-wrap {{$content_classes}}">
                 {{$slot ?? null}}
             </div>
         @elseif($content)
-                <div {{$content->attributes->class([
+            <div {{$content->attributes->class([
                     'p-3 min-h-full bg-white border-y-0 border',
                     'flex justify-center items-center h-full',
                     'border-t rounded-t-md' => empty($heading) && empty($title),
                     'border-b rounded-b-md' => empty($footer),
                 ])}}>
-                    {{$slot ?? $content ?? null}}
-                </div>
+                {{$slot ?? $content ?? null}}
+            </div>
         @endif
     </div>
     {{--    footer--}}
@@ -53,10 +39,7 @@
             'px-3' => !$somethingStartsWith('px-', $footer),
             '!border-b' => !$somethingStartsWith('border-', $footer),
             'rounded-b-md bg-gray-100',
-    ])}}>
-            @if($somethingStartsWith('py-'))
-                comeca com py
-            @endif
+        ])}}>
             {{$footer}}
         </div>
     @endif
