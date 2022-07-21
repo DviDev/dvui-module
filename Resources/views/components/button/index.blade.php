@@ -45,7 +45,7 @@
             'bg-gray-500 text-gray-100' => (!$border && $dark),
             'px-2 py-1 text-xs' => ($xs && !$sm && !$md && !$lg),
             'px-3 py-1.5 text-sm' => (!$xs && $sm && !$md && !$lg),
-            'px-6 py-2.5 text-xs' => ((!$xs && !$sm && !$md && !$lg) || ($md && !$xs && !$sm && !$lg)),
+            'px-4 py-2.5 text-md' => ((!$xs && !$sm && !$md && !$lg) || ($md && !$xs && !$sm && !$lg)),
             'px-7 py-3 text-lg' => ($lg && !$xs && !$md),
             'pointer-events-none opacity-60' => $disable,
             'w-full' => $full
