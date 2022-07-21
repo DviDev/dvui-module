@@ -5,7 +5,7 @@
         {{$attributes->class([
             'inline-block font-medium leading-tight focus:outline-none focus:ring-0 transition duration-150 ease-in-out',
             'shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg' => $shadow,
-            'active:bg-blue-800 active:text-white' => $primary,
+            'active:bg-blue-800 active:text-white text-white' => $primary,
             'active:bg-purple-800 active:text-white' => $secondary,
             'active:bg-green-700 active:text-white' => $success,
             'active:bg-red-800 active:text-white' => $danger,
