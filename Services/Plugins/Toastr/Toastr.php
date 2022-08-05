@@ -159,7 +159,7 @@ class Toastr
             'debug' => $this->debug ?? false,
             'newestOnTop' => $this->newestOnTop ?? false,
             'progressBar' => $this->progressBar ?? true,
-            'positionClass' => $this->positionClass,
+            'positionClass' => $this->positionClass ?? Position::topRight->value,
             'preventDuplicates' => $this->preventDuplicates ?? false,
             'onclick' => $this->onclick,
             'showDuration' => $this->showDuration ?? 300,
