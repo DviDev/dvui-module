@@ -1,4 +1,7 @@
-<div class="text-">
+@props([
+    'icon' => null
+])
+<div>
     <div {{
         $attributes
         ->merge(['class' => 'font-bold rounded-lg py-3 px-6 mb-4 text-sm mb-3'])
@@ -16,13 +19,15 @@
          role="alert">
         <div class="mr-3">
             <div class="flex">
-                <span class="mr-2">
-                    <i class="fas fa-user fa-2x"></i>
+                @if($icon)
+                <span class="mr-2 pt-2">
+                    <i class="fas fa-{{$icon}} fa-2x"></i>
                 </span>
+                @endif
                 @if(isset($content))
                     <span class="pt-1">{{$content}}</span>
                 @endif
-                <span class="pt-2">{{$slot}}</span>
+                <div class="">{{$slot}}</div>
             </div>
             @if(!$dismiss && isset($footer))
                 <hr {{$attributes
