@@ -4,7 +4,7 @@
 <div>
     <div {{
         $attributes
-        ->merge(['class' => 'font-bold rounded-lg py-3 px-6 mb-4 text-sm mb-3'])
+        ->merge(['class' => 'font-bold rounded-lg py-3 px-6 text-sm'])
         ->class([
             'alert  inline-flex items-center w-full alert-dismissible fade show' => isset($dismiss),
             'bg-red-600 text-white' => $red,
@@ -20,8 +20,8 @@
         <div class="mr-3">
             <div class="flex">
                 @if($icon)
-                <span class="mr-2 pt-2">
-                    <i class="fas fa-{{$icon}} fa-2x"></i>
+                <span class="mr-2 pt-1">
+                    <i class="fas fa-{{$icon}} fa-1x"></i>
                 </span>
                 @endif
                 @if(isset($content))
