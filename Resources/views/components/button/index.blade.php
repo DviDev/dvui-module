@@ -9,7 +9,7 @@
             'active:bg-purple-800 active:text-white' => $secondary,
             'active:bg-green-700 active:text-white' => $success,
             'active:bg-red-800 active:text-white' => $danger,
-            'active:bg-yellow-700 active:text-white' => $warning,
+            'active:bg-yellow-700 active:text-white' => ($warning || $attention),
             'hover:bg-blue-500 active:bg-blue-600 active:text-white' => $info,
             'bg-blue-400' => ($info && !$border),
             'hover:bg-gray-900 active:bg-gray-900 active:text-white' => $dark,
@@ -19,6 +19,7 @@
             'hover:bg-green-600 focus:bg-green-600 active:bg-green-700' => ($success && !$border),
             'hover:bg-red-700 focus:bg-red-700 active:bg-red-800' => ($danger && !$border),
             'bg-orange-500 hover:bg-yellow-600 focus:bg-yellow-600 active:bg-yellow-700' => ($warning && !$border),
+            'bg-yellow-500 hover:bg-yellow-600 focus:bg-yellow-600 active:bg-yellow-700' => ($attention && !$border),
 
             'border-r-0' => $classes->contains('rounded-l'),
             'border-l-0' => $classes->contains('rounded-r'),
@@ -44,9 +45,10 @@
             'bg-gray-300 text-white' => (!$border && $light),
             'bg-gray-500 text-gray-100' => (!$border && $dark),
             'px-2 py-1 text-xs' => ($xs && !$sm && !$md && !$lg),
-            'px-3 py-1.5 text-sm' => (!$xs && $sm && !$md && !$lg),
-            'px-4 py-2.5 text-md' => ((!$xs && !$sm && !$md && !$lg) || ($md && !$xs && !$sm && !$lg)),
-            'px-7 py-3 text-lg' => ($lg && !$xs && !$md),
+            'px-3 py-1.5 text-sm' => ($sm && !$xs && !$md && !$lg),
+            'px-5 py-2.5 text-md' => (($md && !$xs && !$sm && !$lg) || (!$xs && !$sm && !$md && !$lg)),
+            'px-6 py-3 text-lg' => ($lg && !$xs && !$md),
+            'px-8 py-3 text-lg' => ($xlg && !$lg && !$md && !$xs),
             'pointer-events-none opacity-60' => $disable,
             'w-full' => $full
         ])}}
