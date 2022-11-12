@@ -11,7 +11,7 @@ class Link extends Component
      *
      * @return void
      */
-    public function __construct(public string $url, public $text)
+    public function __construct()
     {
         //
     }
@@ -24,5 +24,31 @@ class Link extends Component
     public function render()
     {
         return view('dvui::components.link');
+    }
+
+    public function hasColor()
+    {
+        return
+        $this->attributes->has('primary') ||
+        $this->attributes->has('secondary') ||
+        $this->attributes->has('success') ||
+        $this->attributes->has('danger') ||
+        $this->attributes->has('warning') ||
+        $this->attributes->has('attention') ||
+        $this->attributes->has('info') ||
+        $this->attributes->has('light') ||
+        $this->attributes->has('dark') ||
+        $this->attributes->has('link') ||
+        $this->attributes->has('white');
+    }
+
+    public function hasSize()
+    {
+        return
+            $this->attributes->has('xs') ||
+            $this->attributes->has('sm') ||
+            $this->attributes->has('md') ||
+            $this->attributes->has('lg') ||
+            $this->attributes->has('xlg');
     }
 }
