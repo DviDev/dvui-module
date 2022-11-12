@@ -36,7 +36,7 @@
             'bg-transparent' => ($link && !$pill),
             'rounded' => $rounded,
             'rounded-full' => $pill,
-            'text-white' => (($label && !$border && !$pill && !$link) || ($pill && !$border && !$link && !$light)),
+            'text-white' => ((!$border && !$pill && !$link) || ($pill && !$border && !$link && !$light)),
             'bg-gray-50 text-gray-200' => ($link && $pill),
             'border-b' => ($link && !$rounded && !$border && !$shadow),
             'border-b-2' => ($link && $rounded && !$shadow),
@@ -47,9 +47,9 @@
             'bg-gray-500 text-gray-100' => (!$border && $dark),
             'px-2 py-1 text-xs' => ($xs && !$sm && !$md && !$lg),
             'px-3 py-1.5 text-sm' => ($sm && !$xs && !$md && !$lg),
-            'px-5 py-2.5 text-md' => (($md && !$xs && !$sm && !$lg) || (!$xs && !$sm && !$md && !$lg)),
-            'px-6 py-3 text-lg' => ($lg && !$xs && !$md),
-            'px-8 py-3 text-lg' => ($xlg && !$lg && !$md && !$xs),
+            'px-4 py-2 text-md' => (($md && !$xs && !$sm && !$lg) || (!$xs && !$sm && !$md && !$lg)),
+            'px-5 py-2.5 text-lg' => ($lg && !$xs && !$md),
+            'px-8 py-3 text-2xl' => ($xlg && !$lg && !$md && !$xs),
             'pointer-events-none opacity-60' => $disable,
             'w-full' => $full
         ])}}
