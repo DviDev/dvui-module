@@ -9,7 +9,8 @@
             'active:bg-purple-800 active:text-white' => $secondary,
             'active:bg-green-700 active:text-white' => $success,
             'active:bg-red-800 active:text-white' => $danger,
-            'active:bg-yellow-700 active:text-white' => ($warning || $attention),
+            'active:bg-yellow-700 active:text-white' => ($warning),
+            'active:bg-yellow-600 active:text-white' => ($attention),
             'hover:bg-blue-500 active:bg-blue-600 active:text-white' => $info,
             'bg-blue-400' => ($info && !$border),
             'hover:bg-gray-900 active:bg-gray-900 active:text-white' => $dark,
@@ -19,7 +20,7 @@
             'hover:bg-green-600 focus:bg-green-600 active:bg-green-700' => ($success && !$border),
             'hover:bg-red-700 focus:bg-red-700 active:bg-red-800' => ($danger && !$border),
             'bg-orange-500 hover:bg-yellow-600 focus:bg-yellow-600 active:bg-yellow-700' => ($warning && !$border),
-            'bg-yellow-500 hover:bg-yellow-600 focus:bg-yellow-600 active:bg-yellow-700' => ($attention && !$border),
+            'bg-yellow-500 hover:bg-yellow-600 focus:bg-yellow-500 active:bg-yellow-600' => ($attention && !$border),
 
             'border-r-0' => $classes->contains('rounded-l'),
             'border-l-0' => $classes->contains('rounded-r'),
