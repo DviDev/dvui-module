@@ -9,6 +9,7 @@
     'light' => false,
     'dark' => false,
     'link' => false,
+    'items_dark' => false,
     'xs' => false,
     'sm' => false,
     'md' => false,
@@ -19,15 +20,13 @@
     'dropstart' => false,
     'label',
 ])
-@php
-    $uppercase = str($attributes->get("class"))->contains('uppercase');
-@endphp
+
 <div @class([
         "dropdown" => !$dropup,
         "dropup" => $dropup,
         "dropend" => $dropend,
         "dropstart" => $dropstart,
-         "relative"
+        "relative"
      ])>
     <x-dvui::button
         :primary="$primary || (!$secondary && !$success && !$danger && !$warning && !$attention && !$info && !$light && !$dark && !$link)"
@@ -67,7 +66,10 @@
         @endif
     </x-dvui::button>
     <ul
-        class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none"
+        @class([
+             "dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none",
+             "bg-gray-800 text-gray-300" => $items_dark
+             ])
         aria-labelledby="dropdownMenuButton1">
         {{$slot}}
     </ul>
