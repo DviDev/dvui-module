@@ -39,6 +39,7 @@ class Button extends Component
         public bool    $disable = false,
         public bool    $full = false,
         public ?string $icon = null,
+        public ?string $modal = null,
     )
     {
     }
