@@ -12,6 +12,7 @@ class Button extends Component
     * @return void
     */
     public function __construct(
+        public bool    $noColor = false,
         public bool    $primary = false,
         public bool    $secondary = false,
         public bool    $success = false,

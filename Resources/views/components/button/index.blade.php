@@ -3,9 +3,9 @@
 @endphp
 <button type="{{$type ?? 'button'}}"
         {{$attributes->class([
-            'inline-block font-medium leading-tight focus:outline-none focus:ring-0 transition duration-150 ease-in-out',
+            'inline-block font-medium focus:outline-none focus:ring-0 transition duration-150 ease-in-out',
             'shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg' => $shadow,
-            'active:bg-blue-800 active:text-white text-white' => $primary,
+            'active:bg-blue-800 active:text-white text-white' => ($primary && !$noColor),
             'active:bg-purple-800 active:text-white' => $secondary,
             'active:bg-green-700 active:text-white' => $success,
             'active:bg-red-800 active:text-white' => $danger,
@@ -15,7 +15,7 @@
             'bg-blue-400' => ($info && !$border),
             'hover:bg-gray-900 active:bg-gray-900 active:text-white' => $dark,
             'hover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 active:text-white' => $light,
-            'hover:bg-blue-700' => $primary && !$border,
+            'hover:bg-blue-700' => ($primary && !$noColor) && !$border,
             'bg-purple-600 hover:bg-purple-700 active:text-white active:bg-purple-800' => ($secondary && !$border),
             'hover:bg-green-600 focus:bg-green-600 active:bg-green-700' => ($success && !$border),
             'hover:bg-red-700 focus:bg-red-700 active:bg-red-800' => ($danger && !$border),
@@ -36,14 +36,14 @@
             'bg-transparent' => ($link && !$pill),
             'rounded' => $rounded,
             'rounded-full' => $pill,
-            'text-white' => ((!$border && !$pill && !$link) || ($pill && !$border && !$link && !$light)),
+            'text-white davi' => ((!$border && !$pill && !$link && !$noColor) || ($pill && !$border && !$link && !$light && !$noColor)),
             'bg-gray-50 text-gray-200' => ($link && $pill),
             'border-b' => ($link && !$rounded && !$border && !$shadow),
             'border-b-2' => ($link && $rounded && !$shadow),
-            'bg-blue-600' => (!$border && $primary),
+            'bg-blue-600' => (!$border && ($primary && !$noColor)),
             'bg-green-500' => (!$border && $success),
             'bg-red-600' => (!$border && $danger),
-            'bg-gray-300 text-white' => (!$border && $light),
+            'bg-gray-300 text-white' => (!$border && $light && !$noColor),
             'bg-gray-500 text-gray-100' => (!$border && $dark),
             'px-2 py-1 text-xs' => ($xs && !$sm && !$md && !$lg),
             'px-3 py-1.5 text-sm' => ($sm && !$xs && !$md && !$lg),
@@ -55,7 +55,7 @@
         ])}}
         @if($ripple)
             data-mdb-ripple="true"
-        data-mdb-ripple-color="light"
+            data-mdb-ripple-color="light"
         {{--        {{$attributes->merge(['data-mdb-ripple'=> "true", 'data-mdb-ripple-color' => "light"])}}--}}
         @endif
         @if($title)

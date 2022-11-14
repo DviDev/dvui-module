@@ -49,7 +49,7 @@
         'text-md' => $md || !$hasSize(),
         'text-lg' => $lg,
         'text-xl' => $xlg,
-        'leading-tight' => !$classes->startsWith('leading-'),
-    ])}}>
+    ])}}
+>
     {{$text}}
 </a>
