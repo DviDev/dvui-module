@@ -4,7 +4,7 @@ namespace Modules\DvUi\View\Components;
 
 use Illuminate\View\Component;
 
-class Motification extends Component
+class Notification extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class Motification extends Component
      */
     public function render()
     {
-        return view('dvui::components.motification');
+        return view('dvui::components.notification');
     }
 }
