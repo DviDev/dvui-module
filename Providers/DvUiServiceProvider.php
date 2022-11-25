@@ -12,7 +12,7 @@ use Modules\DvUi\View\Components\Carousel\Item;
 use Modules\DvUi\View\Components\Chips;
 use Modules\DvUi\View\Components\Icon\Folder\Outline;
 use Modules\DvUi\View\Components\Icon\Folder\Solid;
-use Modules\DvUi\View\Components\Icon\Icon;
+use Modules\DvUi\View\Components\Icon\Index;
 use Modules\DvUi\View\Components\Link;
 
 class DvUiServiceProvider extends ServiceProvider
