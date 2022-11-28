@@ -4,7 +4,7 @@ namespace Modules\DvUi\View\Components\Icon;
 
 use Illuminate\View\Component;
 
-class Index extends Component
+class Icon extends Component
 {
     /**
      * Create a new component instance.

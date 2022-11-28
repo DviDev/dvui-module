@@ -10,9 +10,7 @@ use Modules\DvUi\View\Components\Button\Button;
 use Modules\DvUi\View\Components\Card;
 use Modules\DvUi\View\Components\Carousel\Item;
 use Modules\DvUi\View\Components\Chips;
-use Modules\DvUi\View\Components\Icon\Folder\Outline;
-use Modules\DvUi\View\Components\Icon\Folder\Solid;
-use Modules\DvUi\View\Components\Icon\Index;
+use Modules\DvUi\View\Components\Icon\Icon;
 use Modules\DvUi\View\Components\Link;
 
 class DvUiServiceProvider extends ServiceProvider
@@ -132,7 +130,7 @@ class DvUiServiceProvider extends ServiceProvider
         \Blade::component('dvui::card', Card::class);
         \Blade::component('dvui::carousel.item', Item::class);
         \Blade::component('dvui::chips', Chips::class);
-//        \Blade::component('dvui::icon', Icon::class);
+        \Blade::component('dvui::icon', Icon::class);
 //        \Blade::component('dvui::icon.folder.solid', Solid::class);
 //        \Blade::component('dvui::icon.folder.outline', Outline::class);
     }
