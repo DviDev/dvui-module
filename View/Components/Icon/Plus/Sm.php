@@ -9,6 +9,6 @@ class Sm extends Component
 
     public function render()
     {
-        return view('dvui::components.icon.plus.sm');
+        return view('dvui::components.icon.plus.index');
     }
 }

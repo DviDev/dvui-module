@@ -9,6 +9,6 @@ class Outline extends Component
 
     public function render()
     {
-        return view('dvui::components.icon.check.outline');
+        return view('dvui::components.icon.check.index');
     }
 }
