@@ -238,8 +238,8 @@
                 <x-dvui::icon.face.frown/>
                 <x-dvui::icon.face.smile/>
                 <x-dvui::icon.film/>
-
                 <x-dvui::icon.finger.print/>
+
                 <x-dvui::icon.fire/>
                 <x-dvui::icon.flag/>
                 <x-dvui::icon.folder.arrow.down/>
@@ -247,8 +247,8 @@
                 <x-dvui::icon.folder.open/>
                 <x-dvui::icon.folder.plus/>
                 <x-dvui::icon.folder/>
-
                 <x-dvui::icon.forward/>
+
                 <x-dvui::icon.funnel/>
                 <x-dvui::icon.gif/>
                 <x-dvui::icon.gift.top/>
@@ -256,8 +256,8 @@
                 <x-dvui::icon.globe.alt/>
                 <x-dvui::icon.globe.americas/>
                 <x-dvui::icon.globe.asia.australia/>
-
                 <x-dvui::icon.globe.europe.africa/>
+
                 <x-dvui::icon.hand.raised/>
                 <x-dvui::icon.hand.thumb.down/>
                 <x-dvui::icon.hand.thumb.up/>
@@ -265,8 +265,8 @@
                 <x-dvui::icon.heart/>
                 <x-dvui::icon.home.modern/>
                 <x-dvui::icon.home/>
-
                 <x-dvui::icon.identification/>
+
                 <x-dvui::icon.inbox.arrow.down/>
                 <x-dvui::icon.inbox.stack/>
                 <x-dvui::icon.inbox/>
@@ -274,8 +274,8 @@
                 <x-dvui::icon.key/>
                 <x-dvui::icon.language/>
                 <x-dvui::icon.lifebuoy/>
-
                 <x-dvui::icon.light.bulb/>
+
                 <x-dvui::icon.link/>
                 <x-dvui::icon.list.bullet/>
                 <x-dvui::icon.lock.closed/>
@@ -283,8 +283,8 @@
                 <x-dvui::icon.magnifying.glass.circle/>
                 <x-dvui::icon.magnifying.glass.minus/>
                 <x-dvui::icon.magnifying.glass.plus/>
-
                 <x-dvui::icon.magnifying.glass/>
+
                 <x-dvui::icon.map.in/>
                 <x-dvui::icon.map/>
                 <x-dvui::icon.megaphone/>
@@ -292,8 +292,8 @@
                 <x-dvui::icon.minus.circle/>
                 <x-dvui::icon.minus.small/>
                 <x-dvui::icon.minus/>
-
                 <x-dvui::icon.moon/>
+
                 <x-dvui::icon.musical.note/>
                 <x-dvui::icon.newspaper/>
                 <x-dvui::icon.nosymbol/>
@@ -301,8 +301,8 @@
                 <x-dvui::icon.paper.airplane/>
                 <x-dvui::icon.paper.clip/>
                 <x-dvui::icon.pause.circle/>
-
                 <x-dvui::icon.pause/>
+
                 <x-dvui::icon.pencil.square/>
                 <x-dvui::icon.pencil/>
                 <x-dvui::icon.phone.arrow.down.left/>
@@ -310,8 +310,8 @@
                 <x-dvui::icon.phone.xmark/>
                 <x-dvui::icon.phone/>
                 <x-dvui::icon.photo/>
-
                 <x-dvui::icon.play.circle/>
+
                 <x-dvui::icon.play.pause/>
                 <x-dvui::icon.play/>
                 <x-dvui::icon.plus.circle/>
@@ -319,8 +319,8 @@
                 <x-dvui::icon.plus/>
                 <x-dvui::icon.power/>
                 <x-dvui::icon.presentation.chart.bar/>
-
                 <x-dvui::icon.presentation.chart.line/>
+
                 <x-dvui::icon.printer/>
                 <x-dvui::icon.puzzle.piece/>
                 <x-dvui::icon.qrcode/>
@@ -328,8 +328,8 @@
                 <x-dvui::icon.queue.list/>
                 <x-dvui::icon.radio/>
                 <x-dvui::icon.receipt.percent/>
-
                 <x-dvui::icon.receipt.refund/>
+
                 <x-dvui::icon.retangle.group/>
                 <x-dvui::icon.retangle.stack/>
                 <x-dvui::icon.rocket.launch/>
@@ -337,8 +337,8 @@
                 <x-dvui::icon.scale/>
                 <x-dvui::icon.scissors/>
                 <x-dvui::icon.server.stack/>
-
                 <x-dvui::icon.server/>
+
                 <x-dvui::icon.share/>
                 <x-dvui::icon.shield.check/>
                 <x-dvui::icon.shield.exclamation/>
@@ -346,8 +346,8 @@
                 <x-dvui::icon.shopping.cart/>
                 <x-dvui::icon.signal.slach/>
                 <x-dvui::icon.signal/>
-
                 <x-dvui::icon.sparkles/>
+
                 <x-dvui::icon.speaker.wave/>
                 <x-dvui::icon.speaker.xmark/>
                 <x-dvui::icon.square.2stack/>
@@ -355,8 +355,8 @@
                 <x-dvui::icon.square.square2x2/>
                 <x-dvui::icon.square.plus/>
                 <x-dvui::icon.star/>
-
                 <x-dvui::icon.stop.circle/>
+
                 <x-dvui::icon.stop/>
                 <x-dvui::icon.sun/>
                 <x-dvui::icon.swatch/>
@@ -364,8 +364,8 @@
                 <x-dvui::icon.tag/>
                 <x-dvui::icon.ticket/>
                 <x-dvui::icon.trash/>
-
                 <x-dvui::icon.trophy/>
+
                 <x-dvui::icon.truck/>
                 <x-dvui::icon.tv/>
                 <x-dvui::icon.user.circle/>
@@ -373,8 +373,8 @@
                 <x-dvui::icon.user.minus/>
                 <x-dvui::icon.user.plus/>
                 <x-dvui::icon.user/>
-
                 <x-dvui::icon.user.users/>
+
                 <x-dvui::icon.user.variable/>
                 <x-dvui::icon.video.camera.slash/>
                 <x-dvui::icon.video.camera/>
@@ -382,8 +382,8 @@
                 <x-dvui::icon.view.finder.circle/>
                 <x-dvui::icon.wallet/>
                 <x-dvui::icon.wifi/>
-
                 <x-dvui::icon.window/>
+
                 <x-dvui::icon.wrench.screwdriver/>
                 <x-dvui::icon.wrench/>
                 <x-dvui::icon.x.circle/>
