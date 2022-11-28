@@ -23,6 +23,6 @@ class Right extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/arrow/right/right');
+        return view('dvui::components.icon.arrow.right.index');
     }
 }

@@ -23,6 +23,6 @@ class Up extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/arrow/up/up');
+        return view('dvui::components.icon.arrow.up.index');
     }
 }

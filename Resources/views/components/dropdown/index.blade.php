@@ -60,9 +60,9 @@
         @endif
 
         @if($dropend)
-            <x-dvui::icon.chevron.rightmini style="margin-right: -8px; padding-bottom:1px"/>
+            <x-dvui::icon.chevron.down mini style="margin-right: -8px; padding-bottom:1px"/>
         @elseif(!$dropstart)
-            <x-dvui::icon.chevron.down_mini/>
+            <x-dvui::icon.chevron.down mini/>
         @endif
     </x-dvui::button>
     <ul

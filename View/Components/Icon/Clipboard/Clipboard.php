@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon;
+namespace Modules\DvUi\View\Components\Icon\Clipboard;
 
 use Illuminate\View\Component;
 
@@ -23,6 +23,6 @@ class Clipboard extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/clipboard/clipboard');
+        return view('dvui::components.icon.clipboard.index');
     }
 }
