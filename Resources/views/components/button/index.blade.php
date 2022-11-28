@@ -37,7 +37,7 @@
         'bg-transparent' => ($link && !$pill),
         'rounded' => $rounded,
         'rounded-full' => $pill,
-        'text-white davi' => ((!$border && !$pill && !$link && !$noColor) || ($pill && !$border && !$link && !$light && !$noColor)),
+        'text-white' => ((!$border && !$pill && !$link && !$noColor) || ($pill && !$border && !$link && !$light && !$noColor)),
         'bg-gray-50 text-gray-200' => ($link && $pill),
         'border-b' => ($link && !$rounded && !$border && !$shadow),
         'border-b-2' => ($link && $rounded && !$shadow),
