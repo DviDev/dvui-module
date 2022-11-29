@@ -388,16 +388,6 @@
                 <x-dvui::icon.wrench/>
                 <x-dvui::icon.x.circle/>
                 <x-dvui::icon.x.mark/>
-
-
-                <x-dvui::icon.folder s6/>
-                <x-dvui::icon.trash s6/>
-                <x-dvui::icon.plus s6/>
-                <x-dvui::icon.check s6/>
-                <x-dvui::icon.pencil s6/>
-                <x-dvui::icon.arrow.magnifying.glass s6/>
-                {{--                <x-dvui::icon.user.circle_outline/>--}}
-                <x-dvui::icon.home s6/>
             </div>
         </x-dvui::card>
     </div>
