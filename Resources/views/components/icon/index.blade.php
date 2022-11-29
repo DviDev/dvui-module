@@ -1,6 +1,7 @@
 @props([
     'solid' => false,
     'outline' => false,
+    'icon' => null
     ])
 @php
     $classes = str($attributes->get('class'));
