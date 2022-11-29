@@ -2,67 +2,7 @@
     <div class="flex-col h-full p-2">
         <x-dvui::card title="Icons">
             <div class="flex flex-row flex-wrap gap-4">
-                {{--<x-page.icon.card-icon title="academic-cap">
-                    @php
-                        $str= str('<x-dvui::icon.academiccap $opt$/>')->value()
-                    @endphp
-                    <div class="flex flex-col" x-data="{
-                          option: 'outline',
-                          copyToClipboard() {
-                            const str='{{$str}}'
 
-                            if (this.option === 'outline') {
-                                navigator.clipboard.writeText(str.replace('$opt$', ''));
-                                return
-                            }
-                            if (this.option === 'solid') {
-                                navigator.clipboard.writeText(str.replace('$opt$', 'fill'));
-                                return
-                            }
-                            if (this.option === 'mini') {
-                                navigator.clipboard.writeText(str.replace('$opt$', 'mini'));
-                            }
-                          }
-                      }">
-                        <x-dvui::button.group class="shadow-none hover:shadow-none w-full">
-                            <x-page.icon.card-icon.button title="outline" @click="option='outline'">
-                                <x-dvui::icon.academiccap s6/>
-                            </x-page.icon.card-icon.button>
-                            <x-page.icon.card-icon.button title="solid" @click="option='solid'">
-                                <x-dvui::icon.academiccap :fill="true" s6/>
-                            </x-page.icon.card-icon.button>
-                            <x-page.icon.card-icon.button title="mini" @click="option='mini'">
-                                <x-dvui::icon.academiccap :mini="true" class="mt-1"/>
-                            </x-page.icon.card-icon.button>
-                        </x-dvui::button.group>
-                        <code>
-                            <div class="p-2 bg-gray-800 text-gray-200 text-xs flex" x-cloak>
-                                <span x-show="option === 'outline'" id="option">
-                                    @php
-                                        $str= str('<x-dvui::icon.academiccap/>')->value()
-                                    @endphp
-                                    {{ $str }}
-                                </span>
-                                <span x-show="option === 'solid'" id="option">
-                                    @php
-                                        $str= str('<x-dvui::icon.academiccap fill/>')->value()
-                                    @endphp
-                                    {{$str}}
-                                </span>
-                                <span x-show="option === 'mini'" id="option">
-                                    @php
-                                        $str= str('<x-dvui::icon.academiccap mini/>')->value()
-                                    @endphp
-                                    {{$str}}
-                                </span>
-                                <x-dvui::icon.clipboard @click="copyToClipboard"
-                                                                  title="copiar para área de transferência"
-                                                                  fill s4
-                                                                  class="p-0 text-gray-200 ml-1 cursor-pointer"/>
-                            </div>
-                        </code>
-                    </div>
-                </x-page.icon.card-icon>--}}
                 <x-card-icon label="adjustment.horizontal" icon="adjustment.horizontal" s6/>
                 <x-card-icon label="adjustment.vertical" icon="adjustment.vertical" s6/>
                 <x-card-icon label="arquivebox.arrowdown" icon="arquivebox.arrowdown" s6/>
@@ -358,6 +298,7 @@
         </x-dvui::card>
     </div>
 </x-layout>
+@once
 @push('scripts')
     <script>
         function teste () {
@@ -365,3 +306,4 @@
         }
     </script>
 @endpush
+@endonce
