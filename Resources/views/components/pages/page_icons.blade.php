@@ -1,5 +1,5 @@
-<x-layout>
-    <div class="flex-col h-full p-2">
+<x-page title="Icons">
+    <div class="flex-col h-full">
         <x-dvui::card title="Icons">
             <div class="flex flex-row flex-wrap gap-4">
                 <x-card-icon label="at-symbol" icon="academiccap"/>
@@ -298,7 +298,7 @@
             </div>
         </x-dvui::card>
     </div>
-</x-layout>
+</x-page>
 @once
 @push('scripts')
     <script>
