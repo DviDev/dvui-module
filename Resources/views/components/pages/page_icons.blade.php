@@ -2,6 +2,7 @@
     <div class="flex-col h-full p-2">
         <x-dvui::card title="Icons">
             <div class="flex flex-row flex-wrap gap-4">
+                <x-card-icon label="at-symbol" icon="academiccap"/>
 
                 <x-card-icon label="adjustment.horizontal" icon="adjustment.horizontal" s6/>
                 <x-card-icon label="adjustment.vertical" icon="adjustment.vertical" s6/>
@@ -49,7 +50,7 @@
                 <x-card-icon label="arrow.pointing.out" icon="arrow.pointing.out" s6/>
                 <x-card-icon label="arrow.rigthleft" icon="arrow.rigthleft" s6/>
                 <x-card-icon label="arrow.updown" icon="arrow.updown" s6/>
-                <x-card-icon label="at-symbol" icon="academiccap"/>
+
                 <x-card-icon label="backspace" icon="backspace"/>
                 <x-card-icon label="backward" icon="backward"/>
                 <x-card-icon label="banknotes" icon="banknotes"/>
@@ -293,7 +294,7 @@
                 <x-card-icon label="wrench.screwdriver" icon="wrench.screwdriver"/>
                 <x-card-icon label="wrench" icon="wrench"/>
                 <x-card-icon label="x.circle" icon="x.circle"/>
-                <x-card-icon label="x.mark" icon="x.mark"/>
+                {{--<x-card-icon label="x.mark" icon="x.mark"/>--}}
             </div>
         </x-dvui::card>
     </div>
