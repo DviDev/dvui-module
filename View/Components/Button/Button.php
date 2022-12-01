@@ -36,7 +36,7 @@ class Button extends Component
         public bool    $md = false,
         public bool    $lg = false,
         public bool    $xlg = false,
-        public bool    $disable = false,
+        public bool    $disabled = false,
         public bool    $full = false,
         public ?string $icon = null,
         public ?string $modal = null,

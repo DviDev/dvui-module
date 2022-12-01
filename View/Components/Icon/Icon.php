@@ -12,16 +12,17 @@ class Icon extends Component
      * @return void
      */
     public function __construct(
-        public ?bool $s1 = null,
-        public ?bool $s2 = null,
-        public ?bool $s3 = null,
-        public ?bool $s4 = null,
-        public ?bool $s5 = null,
-        public ?bool $s6 = null,
-        public ?bool $s7 = null,
-        public ?bool $s8 = null,
-        public ?bool $s9 = null,
-        public ?bool $s10 = null,
+        public bool $s1 = false,
+        public bool $s2 = false,
+        public bool $s3 = false,
+        public bool $s4 = false,
+        public bool $s5 = false,
+        public bool $s6 = false,
+        public bool $s7 = false,
+        public bool $s8 = false,
+        public bool $s9 = false,
+        public bool $s10 = false,
+        public bool $fill = false,
     )
     {
         //

@@ -11,6 +11,9 @@ use Modules\DvUi\View\Components\Card;
 use Modules\DvUi\View\Components\Carousel\Item;
 use Modules\DvUi\View\Components\Chips;
 use Modules\DvUi\View\Components\Icon\Icon;
+use Modules\DvUi\View\Components\Icon\Rating\Face;
+use Modules\DvUi\View\Components\Icon\Rating\Heart;
+use Modules\DvUi\View\Components\Icon\Rating\Star;
 use Modules\DvUi\View\Components\Link;
 
 class DvUiServiceProvider extends ServiceProvider
@@ -123,6 +126,7 @@ class DvUiServiceProvider extends ServiceProvider
 
     protected function registerComponents()
     {
+        //if the component uses a class, inform here
         \Blade::component('dvui::alert', Alert::class);
         \Blade::component('dvui::button', Button::class);
         \Blade::component('dvui::link', Link::class);
@@ -131,6 +135,9 @@ class DvUiServiceProvider extends ServiceProvider
         \Blade::component('dvui::carousel.item', Item::class);
         \Blade::component('dvui::chips', Chips::class);
         \Blade::component('dvui::icon', Icon::class);
+        \Blade::component('dvui::icon.rating.star', Star::class);
+        \Blade::component('dvui::icon.rating.heart', Heart::class);
+        \Blade::component('dvui::icon.rating.face', Face::class);
 //        \Blade::component('dvui::icon.folder.solid', Solid::class);
 //        \Blade::component('dvui::icon.folder.outline', Outline::class);
     }

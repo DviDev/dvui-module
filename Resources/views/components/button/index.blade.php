@@ -51,7 +51,7 @@
         'px-4 py-2 text-md' => (($md && !$xs && !$sm && !$lg) || (!$xs && !$sm && !$md && !$lg)),
         'px-5 py-2.5 text-lg' => ($lg && !$xs && !$md),
         'px-8 py-3 text-2xl' => ($xlg && !$lg && !$md && !$xs),
-        'pointer-events-none opacity-60' => $disable,
+        'pointer-events-none opacity-60' => $disabled,
         'w-full' => $full
     ])}}
     @if($ripple)
@@ -63,6 +63,8 @@
     @if($modal)
         data-bs-toggle="modal" data-bs-target="{{$modal}}"
     @endif
+
+    {{$attributes}}
 >
     @if(!empty($icon))
         <i class="fas {{$icon}}"></i>
