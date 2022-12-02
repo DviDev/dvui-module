@@ -15,6 +15,8 @@
         "border-4" => !$grow && $classes->substrCount('border-') == 0,
         "rounded-full"
     ])}}
-    role="status">
+    role="status"
+    {{$attributes}}
+>
     <span class="visually-hidden">__('loading')...</span>
 </div>
