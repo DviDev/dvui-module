@@ -46,10 +46,17 @@
         'bg-red-600' => (!$border && $danger),
         'bg-gray-300 text-white' => (!$border && $light && !$noColor),
         'bg-gray-500 text-gray-100' => (!$border && $dark),
-        'px-2 py-1 text-xs' => ($xs && !$sm && !$md && !$lg),
+        //xs
+        "px-2" => ($xs && !$sm && !$md && !$lg) && $classes->substrCount('px-') == 0,
+        "py-1" => ($xs && !$sm && !$md && !$lg) && $classes->substrCount('py-') == 0,
+        "text-xs" => ($xs && !$sm && !$md && !$lg),
+        //sm
         'px-3 py-1.5 text-sm' => ($sm && !$xs && !$md && !$lg),
+        //md
         'px-4 py-2 text-md' => (($md && !$xs && !$sm && !$lg) || (!$xs && !$sm && !$md && !$lg)),
+        //lg
         'px-5 py-2.5 text-lg' => ($lg && !$xs && !$md),
+        //xlg
         'px-8 py-3 text-2xl' => ($xlg && !$lg && !$md && !$xs),
         'pointer-events-none opacity-60' => $disabled,
         'w-full' => $full
