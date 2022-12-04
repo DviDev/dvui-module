@@ -6,9 +6,7 @@
 ])
 <div x-cloak
     x-show="show"
-     @class([
-                    "absolute top-0 right-0 mr-4 mt-4
-                     shadow-lg mx-auto w-96 max-w-full text-sm pointer-events-auto bg-clip-padding rounded-lg block"])
+     @class(["absolute top-0 right-0 mr-4 mt-4 shadow-lg mx-auto w-96 max-w-full text-sm pointer-events-auto bg-clip-padding rounded-lg block"])
      x-bind:class="toastType === 'primary' ? 'bg-blue-500' : 'bg-white'"
      id="static-example" role="alert" aria-live="assertive" aria-atomic="true" data-mdb-autohide="false">
     <div>
