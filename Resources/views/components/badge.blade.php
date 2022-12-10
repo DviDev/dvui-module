@@ -16,6 +16,7 @@
         'px-2.5' => !$somethingStartsWith('px-'),
         'inline-block leading-none text-center whitespace-nowrap align-baseline font-bold'
     ])}}
+    {{$attributes}}
 >
     {{$text}}
 </span>

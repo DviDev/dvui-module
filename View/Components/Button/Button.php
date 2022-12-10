@@ -12,11 +12,13 @@ class Button extends Component
     * @return void
     */
     public function __construct(
+        public bool    $noColor = false,
         public bool    $primary = false,
         public bool    $secondary = false,
         public bool    $success = false,
         public bool    $danger = false,
         public bool    $warning = false,
+        public bool    $attention = false,
         public bool    $info = false,
         public bool    $light = false,
         public bool    $dark = false,
@@ -33,9 +35,11 @@ class Button extends Component
         public bool    $sm = false,
         public bool    $md = false,
         public bool    $lg = false,
-        public bool    $disable = false,
+        public bool    $xlg = false,
+        public bool    $disabled = false,
         public bool    $full = false,
         public ?string $icon = null,
+        public ?string $modal = null,
     )
     {
     }

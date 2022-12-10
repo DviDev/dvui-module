@@ -13,7 +13,7 @@
             'bg-purple-100 text-purple-600' => $purple,
             'bg-green-500 text-gray-200' => $green,
             'bg-yellow-500 text-white' => $yellow,
-            'bg-gray-100 text-gray-700' => $gray
+            'bg-gray-100 text-gray-700 border' => $gray
          ])
     }}
          role="alert">
