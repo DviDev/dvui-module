@@ -26,9 +26,7 @@
     href="{{$url}}"
     aria-current="page"
     {{$attributes->class([
-        'transition duration-300 ease-in-out flex',
-
-        'text-blue-600 hover:text-blue-700' =>  $primary || !$hasColor(),
+        'text-blue-600 hover:text-blue-700' => !$btn && ($primary || !$hasColor()),
         'text-purple-600 hover:text-purple-700' => $secondary,
         'text-green-500 hover:text-green-600' => $success,
         'text-red-600 hover:text-red-700' => $danger,
@@ -37,7 +35,8 @@
         'text-gray-200 hover:text-gray-300' => $light,
         'text-gray-800 hover:text-gray-900' => $dark,
         'text-white hover:text-gray-100' => $white,
-        'bg-blue-600' => $btn && $primary || ($btn && !$hasColor() && !$classes->startsWith('bg-')),
+        'rounded px-2 py-1 items-center' => $btn,
+        'bg-blue-600 text-white' => $btn && $primary || ($btn && !$hasColor() && !$classes->startsWith('bg-')),
         'hover:bg-blue-700' => $btn && $primary || ($btn && !$hasColor() && !$classes->startsWith('hover:bg-')),
         'focus:bg-blue-700' => $btn && $primary || ($btn && !$hasColor() && !$classes->startsWith('focus:bg-')),
         'px-6' => $btn && !$classes->contains('px-'),
