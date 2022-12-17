@@ -50,5 +50,5 @@
         'text-xl' => $xlg,
     ])}}
 >
-    {{$text}}
+    {{ $slot ?? $text}}
 </a>
