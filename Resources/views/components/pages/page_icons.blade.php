@@ -302,9 +302,6 @@
 @once
 @push('scripts')
     <script>
-        function teste () {
-            alert('asdfasd fasdfs')
-        }
     </script>
 @endpush
 @endonce
