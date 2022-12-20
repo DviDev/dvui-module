@@ -50,5 +50,9 @@
         'text-xl' => $xlg,
     ])}}
 >
-    {{ $slot ?? $text}}
+    @if($text)
+        {{$text}}
+    @else
+        {{$slot}}
+    @endif
 </a>
