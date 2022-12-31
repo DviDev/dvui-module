@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Tab\Tab\Content;
+namespace Modules\DvUi\View\Components\Tab\Content;
 
 use Illuminate\View\Component;
 
