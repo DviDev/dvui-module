@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon\Chart;
+namespace Modules\DvUi\View\Components\Icon\Chart\Pie;
 
 use Illuminate\View\Component;
 

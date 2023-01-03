@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon\Chart;
+namespace Modules\DvUi\View\Components\Icon\Chart\Bar;
 
 use Illuminate\View\Component;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components;
+namespace Modules\DvUi\View\Components\Stepper;
 
 use Illuminate\View\Component;
 

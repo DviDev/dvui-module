@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon\Video;
+namespace Modules\DvUi\View\Components\Icon\Video\Camera;
 
 use Illuminate\View\Component;
 

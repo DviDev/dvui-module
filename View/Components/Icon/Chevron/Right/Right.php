@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon\Chevron;
+namespace Modules\DvUi\View\Components\Icon\Chevron\Right;
 
 use Illuminate\View\Component;
 

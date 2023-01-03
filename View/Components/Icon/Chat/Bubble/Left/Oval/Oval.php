@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon\Chat\Bubble\Left;
+namespace Modules\DvUi\View\Components\Icon\Chat\Bubble\Left\Oval;
 
 use Illuminate\View\Component;
 
