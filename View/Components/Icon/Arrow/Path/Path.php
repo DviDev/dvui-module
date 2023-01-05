@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Dropdown;
+namespace Modules\DvUi\View\Components\Icon\Arrow\Path;
 
 use Illuminate\View\Component;
 
-class Index extends Component
+class Path extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class Index extends Component
      */
     public function render()
     {
-        return view('dvui::components.dropdown/index');
+        return view('dvui::components.icon.arrow.path.index');
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon\Queue;
+namespace Modules\DvUi\View\Components\Icon\Square;
 
 use Illuminate\View\Component;
 
-class List extends Component
+class Stack2 extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class List extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/queue/list');
+        return view('dvui::components.icon/square/2stack');
     }
 }

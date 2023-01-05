@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon\Square;
+namespace Modules\DvUi\View\Components\Button;
 
 use Illuminate\View\Component;
 
-class 3Stack3d extends Component
+class Group extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class 3Stack3d extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/square/3stack3d');
+        return view('dvui::components.button/group');
     }
 }

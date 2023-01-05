@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon\Square;
+namespace Modules\DvUi\View\Components\Icon\Finger;
 
 use Illuminate\View\Component;
 
-class 2Stack extends Component
+class FingerPrint extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class 2Stack extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/square/2stack');
+        return view('dvui::components.icon/finger/print');
     }
 }

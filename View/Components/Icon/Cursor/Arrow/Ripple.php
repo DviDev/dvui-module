@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon\Finger;
+namespace Modules\DvUi\View\Components\Icon\Cursor\Arrow;
 
 use Illuminate\View\Component;
 
-class Print extends Component
+class Ripple extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class Print extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/finger/print');
+        return view('dvui::components.icon/cursor/arrow/ripple');
     }
 }

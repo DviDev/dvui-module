@@ -4,7 +4,7 @@ namespace Modules\DvUi\View\Components\Icon\Check;
 
 use Illuminate\View\Component;
 
-class Outline extends Component
+class Check extends Component
 {
 
     public function render()
