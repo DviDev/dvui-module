@@ -4,7 +4,7 @@ namespace Modules\DvUi\View\Components\Icon\Square;
 
 use Illuminate\View\Component;
 
-class 2Stack extends Component
+class Stack2 extends Component
 {
     /**
      * Create a new component instance.

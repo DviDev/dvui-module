@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon;
+namespace Modules\DvUi\View\Components\Icon\Stop;
 
 use Illuminate\View\Component;
 

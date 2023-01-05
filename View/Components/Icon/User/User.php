@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon;
+namespace Modules\DvUi\View\Components\Icon\User;
 
 use Illuminate\View\Component;
 

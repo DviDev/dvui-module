@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Tab\Tab\Content;
+namespace Modules\DvUi\View\Components\Dropdown;
 
 use Illuminate\View\Component;
 
-class Item extends Component
+class Dropdown extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class Item extends Component
      */
     public function render()
     {
-        return view('dvui::components.tab.content.item');
+        return view('dvui::components.dropdown/index');
     }
 }

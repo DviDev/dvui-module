@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon\Queue;
+namespace Modules\DvUi\View\Components\Icon\Arrow\Path;
 
 use Illuminate\View\Component;
 
-class List extends Component
+class Path extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class List extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/queue/list');
+        return view('dvui::components.icon.arrow.path.index');
     }
 }

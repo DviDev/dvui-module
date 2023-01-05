@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Tab\Tab\Content;
+namespace Modules\DvUi\View\Components\Icon\Cursor\Arrow;
 
 use Illuminate\View\Component;
 
-class Content extends Component
+class Ripple extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class Content extends Component
      */
     public function render()
     {
-        return view('dvui::components.tab.content.index');
+        return view('dvui::components.icon/cursor/arrow/ripple');
     }
 }

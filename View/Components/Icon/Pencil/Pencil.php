@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon;
+namespace Modules\DvUi\View\Components\Icon\Pencil;
 
 use Illuminate\View\Component;
 
@@ -23,6 +23,6 @@ class Pencil extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/pencil/pencil');
+        return view('dvui::components.icon.pencil.index');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon\Arquive;
+namespace Modules\DvUi\View\Components\Icon\ArquiveBox;
 
 use Illuminate\View\Component;
 

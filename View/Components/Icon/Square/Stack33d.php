@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Dropdown;
+namespace Modules\DvUi\View\Components\Icon\Square;
 
 use Illuminate\View\Component;
 
-class Index extends Component
+class Stack33d extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class Index extends Component
      */
     public function render()
     {
-        return view('dvui::components.dropdown/index');
+        return view('dvui::components.icon/square/3stack3d');
     }
 }

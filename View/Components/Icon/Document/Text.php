@@ -11,7 +11,7 @@ class Text extends Component
      *
      * @return void
      */
-    public function __construct(public bool $outline, public bool $solid, public bool $mini)
+    public function __construct(public bool $outline = false, public bool $solid = true, public bool $mini = false)
     {
         //
     }

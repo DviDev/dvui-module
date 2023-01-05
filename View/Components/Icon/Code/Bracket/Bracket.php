@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon\Code;
+namespace Modules\DvUi\View\Components\Icon\Code\Bracket;
 
 use Illuminate\View\Component;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon\Evelope;
+namespace Modules\DvUi\View\Components\Button;
 
 use Illuminate\View\Component;
 
-class Solid extends Component
+class Group extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class Solid extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/evelope/solid');
+        return view('dvui::components.button/group');
     }
 }

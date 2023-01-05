@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon\Ellipsis;
+namespace Modules\DvUi\View\Components\Icon\Ellipsis\Envelope;
 
 use Illuminate\View\Component;
 

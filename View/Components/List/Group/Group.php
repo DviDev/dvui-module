@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components\List;
+namespace Modules\DvUi\View\Components\List\Group;
 
 use Illuminate\View\Component;
 

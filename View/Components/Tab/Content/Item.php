@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon\Evelope;
+namespace Modules\DvUi\View\Components\Tab\Content;
 
 use Illuminate\View\Component;
 
-class Outline extends Component
+class Item extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class Outline extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/evelope/outline');
+        return view('dvui::components.tab.content.item');
     }
 }
