@@ -1,11 +1,6 @@
 {
-    "attention": "atenção",
-    "open": "abrir",
-    "close": "fechar",
-    "save": "salvar",
     "modal body text goes here.": "o texto do corpo modal vai aqui",
     "launch demo modal": "iniciar modal de demonstração",
-    "title": "título",
     "modal simple": "modal simples",
     "understood": "entendi",
     "static backdrop": "plano de fundo estático"
