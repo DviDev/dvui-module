@@ -13,7 +13,7 @@
         'text-white' => !$classes->contains($color_classes),
         'rounded' => !$classes->contains('rounded-full'),
         'py-1'=> !$somethingStartsWith('py-'),
-        'px-2.5' => !$somethingStartsWith('px-'),
+        'px-1' => !$somethingStartsWith('px-'),
         'inline-block leading-none text-center whitespace-nowrap align-baseline font-bold'
     ])}}
     {{$attributes}}
