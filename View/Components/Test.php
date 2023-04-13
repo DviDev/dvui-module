@@ -11,7 +11,7 @@ class Test extends Component
      *
      * @return void
      */
-    public function __construct(public $name = 'daviss')
+    public function __construct(public $name = '')
     {
         //
     }
