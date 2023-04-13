@@ -38,13 +38,13 @@ class Card extends Component
 
     public function headerClasses(ComponentSlot $target = null)
     {
-        $classes = 'text-sm py-1.5 px-3 bg-white font-bold ';
+        $classes = 'text-sm';
+        $classes .= ' py-2';
+        $classes .= ' px-3';
+        $classes .= ' font-bold';
+        $classes .= ' border-b dark:border-gray-700';
         $classes .= $this->onlyClassesStartWith('border', $target). ' ';
-        $classes .= $this->onlyClassesStartWith('rounded-', $target)
-            ? $this->onlyClassesStartWith('rounded-', $target)
-            : 'rounded-t-md ';
         $classes .= !$this->classesContainColor($target) ? 'text-gray-600 ' : '';
         return $classes;
-
     }
 }
