@@ -17,7 +17,8 @@
     'md' => false,
     'lg' => false,
     'xlg' => false,
-    'btn' => false
+    'btn' => false,
+    'group_item' => false
 ])
 @php
     $classes = str($attributes->get('class'));
@@ -34,7 +35,7 @@
         'text-blue-400 hover:text-blue-500' => $info,
         'text-gray-200 hover:text-gray-300' => $light,
         'text-gray-800 hover:text-gray-900' => $dark,
-        'text-white hover:text-gray-100' => $white,
+        'text-white hover:text-gray-100 dark:text-gray-500' => $white,
         'rounded px-2 py-1 items-center' => $btn,
         'bg-blue-600 text-white' => $btn && $primary || ($btn && !$hasColor() && !$classes->startsWith('bg-')),
         'hover:bg-blue-700' => $btn && $primary || ($btn && !$hasColor() && !$classes->startsWith('hover:bg-')),

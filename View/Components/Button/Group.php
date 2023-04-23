@@ -23,6 +23,6 @@ class Group extends Component
      */
     public function render()
     {
-        return view('dvui::components.button/group');
+        return view('dvui::components.button.group');
     }
 }

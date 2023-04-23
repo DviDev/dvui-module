@@ -6,6 +6,6 @@
      'shadow-md' => !$classes->startsWith('shadow-'),
      'hover:shadow-lg' => !$classes->startsWith('hover:shadow-'),
      'focus:shadow-lg' => !$classes->startsWith('focus:shadow-'),
-])}} role="group">
+])}} role="group" {{$attributes}}>
     {{ $slot }}
 </div>
