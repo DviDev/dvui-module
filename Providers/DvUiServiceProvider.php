@@ -150,6 +150,7 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::chips', Chips::class);
         Blade::component('dvui::dropdown', Dropdown::class);
         Blade::component('dvui::dropdown.item', DropdownItem::class);
+        #region[icons]
         Blade::component('dvui::icon', Icon\Icon::class);
         Blade::component('dvui::icon.adjustment.horizontal', Horizontal::class);
         Blade::component('dvui::icon.adjustment.vertical', Vertical::class);
@@ -484,10 +485,16 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::icon.wallet', Icon\Wallet::class);
         Blade::component('dvui::icon.wifi', Icon\Wifi::class);
         Blade::component('dvui::icon.window', Icon\Window::class);
+        #endregion
+        Blade::component('dvui::form.fileinput', Components\Form\FileInput::class);
+        Blade::component('dvui::form.input', Components\Form\Input::class);
+        Blade::component('dvui::form.textarea', Components\Form\Textarea::class);
         Blade::component('dvui::list.group', Components\List\Group\Group::class);
         Blade::component('dvui::list.group.item', Components\List\Group\Item::class);
         Blade::component('dvui::list.group.link', Components\List\Group\Link::class);
         Blade::component('dvui::offcanvas.button', Components\Offcanvas\Button::class);
+        Blade::component('dvui::form.select', Components\Form\Select::class);
+        Blade::component('dvui::form.select.item', Components\Form\Select\Item::class);
         Blade::component('dvui::stepper', Components\Stepper\Stepper::class);
         Blade::component('dvui::stepper.item', Components\Stepper\Item::class);
         Blade::component('dvui::stepper.item.content', Components\Stepper\Item\Content::class);
