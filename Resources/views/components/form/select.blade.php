@@ -6,7 +6,7 @@
         <label>{{$label}}</label>
     </div>
     <select data-te-select-init
-            class="rounded p-2 bg-transparent border mr-2 border-gray-700 dark:border-gray-500"
+            class="rounded p-2 bg-transparent border mr-2 border-gray-700 dark:border-gray-500 dark:bg-transparent"
             {{$attributes}}
     >
         {{$slot}}
