@@ -16,9 +16,8 @@
         id="{{$id}}"
         @checked($checked)
         {{$attributes}} />
-    <label
-        class="inline-block pl-[0.15rem] hover:cursor-pointer"
-        for="{{$attributes->get('id')}}">
+    <label for="{{$attributes->get('id')}}"
+        class="inline-block pl-[0.15rem] hover:cursor-pointer">
         {{$attributes->get('label')}}
     </label>
 </div>
