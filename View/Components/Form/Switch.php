@@ -4,7 +4,7 @@ namespace Modules\DvUi\View\Components\Form;
 
 use Illuminate\View\Component;
 
-class Switch extends Component
+class CheckSwitch extends Component
 {
     /**
      * Create a new component instance.
