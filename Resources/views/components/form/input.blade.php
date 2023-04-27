@@ -3,10 +3,6 @@
     'attr' => null,
 ])
 @php
-    $model = collect($attributes->getAttributes())->filter(function($value, $key) {
-        return str($key)->contains('wire:model');
-    })->values()[0];
-    $model = str($model)->explode('.')->first();
     $array = collect($attr)->except(['id'])->merge($attributes->getAttributes())->all();
     $attributes->setAttributes($array);
 @endphp
@@ -26,7 +22,7 @@
     >
         {{$label ?: $attributes->get('label')}}
     </label>
-    @error("$model.{$attr['id']}")
+    @error("model.{$attr['id']}")
     <div class="text-red-500">{{$message}}</div>
     @enderror
 </div>
