@@ -10,7 +10,7 @@
     $array = collect($attrs)->except(['id'])->merge($attributes->getAttributes())->all();
     $attributes->setAttributes($array);
 @endphp
-<div class="relative mb-3" data-te-input-wrapper-init>
+<div class="relative" data-te-input-wrapper-init>
 
     <textarea
         @class([
