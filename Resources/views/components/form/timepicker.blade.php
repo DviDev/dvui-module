@@ -45,6 +45,7 @@
                     "dark:peer-focus:text-primary",
                     "[&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                 ])
+                   x-data x-mask="99:99"
                data-te-toggle="timepicker-just-input" {{$attributes}}/>
     </div>
 </div>
