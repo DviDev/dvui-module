@@ -11,7 +11,7 @@
                 $headerClasses($heading),
                 'border-b dark:border-gray-700'
                 ]) }}>
-            <span {{ $heading->attributes }}>{{ $heading }}</span>
+                {{ $heading }}
         </div>
     @elseif(isset($title))
         <div class="{{$headerClasses()}}">
