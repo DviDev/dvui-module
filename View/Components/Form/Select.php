@@ -11,9 +11,14 @@ class Select extends Component
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(public ?array $attr = null, public ?string $label = null)
     {
-        //
+        $this->attributes = $this->attributes ?: $this->newAttributeBag();
+        $array = collect($attr)->except(['id'])->merge($this->attributes->getAttributes())
+            ->put('label', $label)
+            ->filter()
+            ->all();
+        $this->attributes->setAttributes($array);
     }
 
     /**

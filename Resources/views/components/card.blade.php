@@ -22,13 +22,18 @@
     @endif
 
     {{--    content--}}
-    <div class="max-h-full flex-grow p-4">
+    <div class="max-h-full flex-grow">
         @if(isset($content))
+            @php
+                $content_class = str($content->attributes->get('class'));
+            @endphp
             <div {{$content->attributes->class([
-                    'space-y-4',
-                    'min-h-full bg-white ',
-                    'flex justify-center items-center h-full',
-                ])}}>
+                    'min-h-full h-full flex-grow',
+                    'p-2' => !$content_class->contains('p-'),
+                    'min-h-full' => false,
+                    'bg-transparent' => false,
+                    'flex justify-center items-center h-full' => false,
+                ])}} {{$content->attributes}}>
                 {{$content ?? null}}
             </div>
         @elseif(isset($slot))

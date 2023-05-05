@@ -1,8 +1,12 @@
 @props([
-    'attr' => null
+    'attr' => null,
 ])
 @php
-    $array = collect($attr)->except(['id'])->merge($attributes->getAttributes())->all();
+    $array = [];
+    $array = collect($attr)->except(['id'])->merge($attributes->getAttributes())
+        ->put('label', $label)
+        ->filter()
+        ->all();
     $attributes->setAttributes($array);
 @endphp
 <div>

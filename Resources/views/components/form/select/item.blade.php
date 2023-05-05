@@ -1,9 +1,9 @@
 @props([
-    'value',
-    'content' => null,
+    'content',
+    'value' => null,
     'selected' => false
 ])
-<option class="bg-transparent" value="{{$value}}" @selected($selected) >
+<option class="bg-transparent" value="{{$value ?? $content}}" @selected($selected) >
     @if(isset($content))
         {{$content}}
     @endif
