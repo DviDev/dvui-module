@@ -8,7 +8,7 @@
         $attributes->setAttributes($array);
     }
 @endphp
-<div class="relative mb-3"
+<div class="relative"
 {{--     data-te-input-wrapper-init--}}
 >
     <label
