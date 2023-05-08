@@ -2,11 +2,11 @@
 
 namespace Modules\DvUi\View\Components;
 
-use Illuminate\View\Component;
 use Illuminate\View\ComponentSlot;
 use Modules\DvUi\Entities\ComponentCheck;
+use Modules\DvUi\View\BaseBladeComponent;
 
-class Card extends Component
+class Card extends BaseBladeComponent
 {
     use ComponentCheck;
 
@@ -17,13 +17,15 @@ class Card extends Component
      * @param string|null $footer Footer of the card
      */
     public function __construct(
-        public $heading = null,
+        public         $heading = null,
         public ?string $title = null,
         public ?string $content = null,
-        public ?string $footer = null,
+        public mixed   $footer = null,
+        public ?array  $attr = null,
     )
     {
-        //
+        parent::__construct($attr);
+
     }
 
     /**

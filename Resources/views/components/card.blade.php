@@ -1,3 +1,7 @@
+@php
+    $array = $attributes->getAttributes();
+    $attributes->setAttributes(collect($array)->merge($attr)->all());
+@endphp
 <!-- card -->
 <div {{$attributes->class([
         'dark:divide-gray-700 divide-y divide-dashed md:divide-solid',
@@ -11,19 +15,19 @@
                 $headerClasses($heading),
                 'border-b dark:border-gray-700'
                 ]) }}>
-                {{ $heading }}
+            {{ $heading }}
         </div>
-    @elseif(isset($title))
+    @elseif($attributes->has('title'))
         <div class="{{$headerClasses()}}">
             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                {{$title}}
+                {{$attributes->get('title')}}
             </h2>
         </div>
     @endif
 
     {{--    content--}}
     <div class="max-h-full flex-grow">
-        @if(isset($content))
+        @if($attributes->has('content'))
             @php
                 $content_class = str($content->attributes->get('class'));
             @endphp
@@ -34,7 +38,7 @@
                     'bg-transparent' => false,
                     'flex justify-center items-center h-full' => false,
                 ])}} {{$content->attributes}}>
-                {{$content ?? null}}
+                {{$attributes->get('content') ?? null}}
             </div>
         @elseif(isset($slot))
             <div @class([
