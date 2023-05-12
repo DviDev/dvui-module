@@ -27,7 +27,7 @@
 
     {{--    content--}}
     <div class="max-h-full flex-grow">
-        @if($attributes->has('content'))
+        @if($content)
             @php
                 $content_class = str($content->attributes->get('class'));
             @endphp
@@ -38,7 +38,7 @@
                     'bg-transparent' => false,
                     'flex justify-center items-center h-full' => false,
                 ])}} {{$content->attributes}}>
-                {{$attributes->get('content') ?? null}}
+                {{$content}}
             </div>
         @elseif(isset($slot))
             <div @class([
