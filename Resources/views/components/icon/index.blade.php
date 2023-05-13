@@ -6,7 +6,7 @@
 @php
     $classes = str($attributes->get('class'));
 @endphp
-<span title="{{$attributes->get('title')}}">
+<span title="{{$attributes->get('title')}}" class="my-auto">
     <svg xmlns="http://www.w3.org/2000/svg"
     {{$attributes->class([
        'h-1 w-1' => $s1 ?? null,
