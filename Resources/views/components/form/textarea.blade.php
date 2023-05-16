@@ -23,13 +23,16 @@
     </label>
     <textarea
         @class([
-              "peer block min-h-[auto] w-full rounded  dark:border bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0",
-              "border-0 dark:border-gray-700" => !$errors->get($model.'.'.$attrs['id']),
-              "border dark:border-red-500" => $errors->get($model.'.'.$attrs['id']),
+            "peer block min-h-[auto] w-full rounded  dark:border bg-transparent px-3 py-[0.32rem] leading-[1.6]",
+            "outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100",
+            "data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200",
+            "dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0",
+            "border-0 dark:border-gray-700" => !$errors->get($model.'.'.$attributes->get('id')),
+            "border dark:border-red-500" => $errors->get($model.'.'.$attributes->get('id')),
         ])
         rows="3"
       {{$attributes}}>{{$attributes->get('value')}}</textarea>
-    @error($model.'.'.($attrs['id'] ?? null))
+    @error($model.'.'.($attributes->get('id') ?? null))
     <div class="text-red-500">{{$message}}</div>
     @enderror
 </div>

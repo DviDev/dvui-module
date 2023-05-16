@@ -13,14 +13,14 @@
     @if(isset($heading))
         <div {{ $heading->attributes->class([
                 $headerClasses($heading),
-                'border-b dark:border-gray-700'
+                'border-b border-b-1 dark:border-gray-700'
                 ]) }}>
             {{ $heading }}
         </div>
-    @elseif($attributes->has('title'))
+    @elseif($title)
         <div class="{{$headerClasses()}}">
             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                {{$attributes->get('title')}}
+                {{$title}}
             </h2>
         </div>
     @endif
@@ -57,8 +57,7 @@
         @endif
     </div>
     @if(isset($footer))
-        <div
-            {{$footer->attributes->class([
+        <div {{$footer->attributes->class([
                 'border-t dark:border-gray-700',
                 'py-2' => !$somethingStartsWith('py-', $footer),
                 'px-3' => !$somethingStartsWith('px-', $footer),
