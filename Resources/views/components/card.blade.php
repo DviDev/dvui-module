@@ -1,7 +1,7 @@
 @php
     $array = $attributes->getAttributes();
 //    $array['heading'] = $heading;
-//    $array['title'] = $title;
+    $array['title'] = $title;
 //    $array['content'] = $content;
 //    $array['footer'] = $footer;
 
