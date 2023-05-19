@@ -1,6 +1,12 @@
 @php
     $array = $attributes->getAttributes();
-    $attributes->setAttributes(collect($array)->merge($attr)->all());
+//    $array['heading'] = $heading;
+//    $array['title'] = $title;
+//    $array['content'] = $content;
+//    $array['footer'] = $footer;
+
+    $attributes->setAttributes(collect($array)->merge($attr)->filter()->all());
+
 @endphp
 <!-- card -->
 <div {{$attributes->class([
@@ -17,10 +23,10 @@
                 ]) }}>
             {{ $heading }}
         </div>
-    @elseif($title)
+    @elseif($attributes->get('title'))
         <div class="{{$headerClasses()}}">
             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                {{$title}}
+                {{$attributes->get('title')}}
             </h2>
         </div>
     @endif
@@ -37,7 +43,7 @@
                     'min-h-full' => false,
                     'bg-transparent' => false,
                     'flex justify-center items-center h-full' => false,
-                ])}} {{$content->attributes}}>
+                ])}} {{$content->attributes->except(['title'])}}>
                 {{$content}}
             </div>
         @elseif(isset($slot))

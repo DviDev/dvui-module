@@ -24,6 +24,16 @@ class Card extends BaseBladeComponent
         public ?array  $attr = null,
     )
     {
+        /*$this->attributes = $this->attributes ?: $this->newAttributeBag();
+        $arr = $this->attributes->getAttributes();
+        $_arr = [
+            'heading' => $this->heading,
+            'title' => $this->title,
+            'content' => $this->content,
+            'footer' => $this->footer,
+            'attr' => $this->attr,
+        ];*/
+
         parent::__construct($attr);
 
     }
