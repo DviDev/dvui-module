@@ -10,7 +10,7 @@
     }
     $attributes->setAttributes($array->filter()->all());
 @endphp
-<div>
+<div class="w-full">
     <label>{{$attributes->get('label')}}</label>
     <select data-te-select-init multiple
             @if($size) data-te-select-size="{{$size}}" @endif
