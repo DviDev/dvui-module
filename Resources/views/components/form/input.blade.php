@@ -3,10 +3,10 @@
     'attr' => null,
 ])
 @php
-    if ($attr) {
-        $array = collect($attr)->except(['id'])->merge($attributes->getAttributes())->all();
-        $attributes->setAttributes($array);
-    }
+if ($attr) {
+    $array = collect($attr)->except(['id'])->merge($attributes->getAttributes())->all();
+    $attributes->setAttributes($array);
+}
 @endphp
 <div class="relative"
 {{--     data-te-input-wrapper-init--}}
