@@ -15,7 +15,7 @@
         'dark:bg-gray-800' => config('app.dark_mode') && !$onlyClassesStartWith('bg-'),
         'rounded' => !$onlyClassesStartWith('border'),
     ])}}>
-    {{-- header--}}
+    <!-- header -->
     @if(isset($heading))
         <div {{ $heading->attributes->class([
                 $headerClasses($heading),
