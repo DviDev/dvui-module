@@ -22,6 +22,6 @@ class Select extends Component
      */
     public function render()
     {
-        return view('dvui::components.form/select');
+        return view('dvui::components.form.select.index');
     }
 }
