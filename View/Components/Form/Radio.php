@@ -4,14 +4,17 @@ namespace Modules\DvUi\View\Components\Form;
 
 use Illuminate\View\Component;
 
-class Input extends Component
+class Radio extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(public bool $required = false)
+    public function __construct(
+        public string  $name,
+        public bool    $checked = false,
+        public ?string $label = null)
     {
         //
     }
@@ -23,6 +26,6 @@ class Input extends Component
      */
     public function render()
     {
-        return view('dvui::components.form/input');
+        return view('dvui::components.form.radio');
     }
 }

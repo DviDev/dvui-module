@@ -18,6 +18,6 @@
         {{$attributes}} />
     <label for="{{$attributes->get('id')}}"
         class="inline-block pl-[0.15rem] hover:cursor-pointer">
-        {{$attributes->get('label')}}
+        {{$label}}
     </label>
 </div>

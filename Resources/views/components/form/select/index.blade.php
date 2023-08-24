@@ -10,16 +10,18 @@
         $array->put('label', $label);
     }
     $attributes->setAttributes($array->filter()->all());
-    $id = random_int(random_int(1,5), random_int(5,9));
+    $id = 'comp_'.random_int(random_int(1,5), random_int(5,9));
 @endphp
 <div class="w-full">
-    <label for="{{$id}}">
-        {{$attributes->get('label')}}
-    </label>
+    <div>
+        <label for="{{$id}}">
+            {{$attributes->get('label')}}
+        </label>
+    </div>
     <select id="{{$id}}" data-te-select-init
             @if($size) data-te-select-size="{{$size}}" @endif
             data-te-select-filter="{{$searchable ? 'true' : 'false'}}"
-        {{--        class="rounded p-2 bg-transparent border mr-2 border-neutral-700 w-full dark:border-gray-500 dark:bg-transparent"--}}
+            class="rounded p-2 bg-transparent border mr-2 focus:border-gray-300 w-full dark:border-gray-500 dark:bg-transparent leading-[1.6]"
         {{$attributes}}>
         {{$slot}}
     </select>

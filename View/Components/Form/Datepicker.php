@@ -11,7 +11,7 @@ class Datepicker extends Component
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(public ?string $label = null, public ?string $id = null)
     {
         //
     }
