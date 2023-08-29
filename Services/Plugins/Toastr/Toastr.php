@@ -152,7 +152,7 @@ class Toastr
 
     public function dispatch()
     {
-        $this->component->dispatchBrowserEvent('toastr', [
+        $this->component->dispatch('toastr', [
             'type' => $this->type,
             'msg' => $this->msg,
             'closeButton' => $this->closeButton ?? true,
