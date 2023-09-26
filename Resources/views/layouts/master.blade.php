@@ -6,14 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Module DvUi</title>
 
-       {{-- Laravel Mix - CSS File --}}
-       {{-- <link rel="stylesheet" href="{{ mix('css/dvui.css') }}"> --}}
+       {{-- Laravel Vite - CSS File --}}
+       {{-- {{ module_vite('build-dvui', 'Resources/assets/sass/app.scss') }} --}}
 
     </head>
     <body>
         @yield('content')
 
-        {{-- Laravel Mix - JS File --}}
-        {{-- <script src="{{ mix('js/dvui.js') }}"></script> --}}
+        {{-- Laravel Vite - JS File --}}
+        {{-- {{ module_vite('build-dvui', 'Resources/assets/js/app.js') }} --}}
     </body>
 </html>

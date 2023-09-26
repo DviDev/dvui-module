@@ -11,7 +11,13 @@ class Input extends Component
      *
      * @return void
      */
-    public function __construct(public bool $required = false)
+    public function __construct(
+        public $label = null,
+        public $attr = null,
+        public bool $required = false,
+        public bool $validate = false,
+        public bool $filled_on_error = false,
+    )
     {
         //
     }
@@ -23,6 +29,6 @@ class Input extends Component
      */
     public function render()
     {
-        return view('dvui::components.form/input');
+        return view('dvui::components.form.input');
     }
 }

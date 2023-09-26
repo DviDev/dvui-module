@@ -4,7 +4,7 @@ namespace Modules\DvUi\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Modules\DvUi\View\Components;
+use Illuminate\Database\Eloquent\Factory;
 use Modules\DvUi\View\Components\Alert;
 use Modules\DvUi\View\Components\Badge;
 use Modules\DvUi\View\Components\Button\Button;
@@ -15,18 +15,15 @@ use Modules\DvUi\View\Components\Carousel\Item;
 use Modules\DvUi\View\Components\Chips;
 use Modules\DvUi\View\Components\Dropdown\Dropdown;
 use Modules\DvUi\View\Components\Dropdown\Item as DropdownItem;
+use Modules\DvUi\View\Components;
 use Modules\DvUi\View\Components\Icon;
+use Modules\DvUi\View\Components\Icon\Arrow;
 use Modules\DvUi\View\Components\Icon\Adjustment\Horizontal;
 use Modules\DvUi\View\Components\Icon\Adjustment\Vertical;
 use Modules\DvUi\View\Components\Icon\ArquiveBox\ArrowDown;
 use Modules\DvUi\View\Components\Icon\ArquiveBox\Box;
 use Modules\DvUi\View\Components\Icon\ArquiveBox\XMark;
-use Modules\DvUi\View\Components\Icon\Arrow;
 use Modules\DvUi\View\Components\Icon\Arrow\Down;
-use Modules\DvUi\View\Components\Icon\Pencil\Pencil;
-use Modules\DvUi\View\Components\Icon\Rating\Face;
-use Modules\DvUi\View\Components\Icon\Rating\Heart;
-use Modules\DvUi\View\Components\Icon\Rating\Star;
 use Modules\DvUi\View\Components\Link;
 
 class DvUiServiceProvider extends ServiceProvider
@@ -52,6 +49,7 @@ class DvUiServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+
 
         $this->registerComponents();
     }
@@ -110,6 +108,7 @@ class DvUiServiceProvider extends ServiceProvider
 
         if (is_dir($langPath)) {
             $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
+            $this->loadJsonTranslationsFrom($langPath);
         } else {
             $this->loadTranslationsFrom(module_path($this->moduleName, 'Resources/lang'), $this->moduleNameLower);
             $this->loadJsonTranslationsFrom(module_path($this->moduleName, 'Resources/lang'));

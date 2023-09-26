@@ -6,9 +6,7 @@
 ])
 <option class="bg-transparent"
         value="{{$value ?? $content}}" @selected($selected)
-        @if($icon)
-            data-te-select-icon="<x-dvui::icon.{{$icon}}/>"
-    @endif
+{{--        data-te-select-icon="{{$icon ?  "<x-dvui::icon.".$icon."/>" : ''}}"--}}
 >
     @if(isset($content))
         {!! $content !!}

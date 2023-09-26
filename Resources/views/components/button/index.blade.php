@@ -80,10 +80,8 @@
                 {{$label ?? $title}}
             </span>
         @endif
-    @else
-        {{--        <span class="{{$text_color ?? null}}">--}}
-        {{$label}}
-        {{--        </span>--}}
+    @elseif($label)
+        <span @if(is_object($label)) {{$label->attributes}} @endif >{{$label}}</span>
     @endif
     @if(!empty($slot))
         {{$slot ?? null}}
