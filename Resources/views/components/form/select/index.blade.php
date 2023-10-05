@@ -18,7 +18,7 @@
         <label for="{{$id}}" class=" relative">
             {{$attributes->get('label')}}
             @if($required)
-                <i class="fas fa-asterisk text-danger -mt-[2px] absolute top-1.5 -right-2.5" style="font-size: 7px;""></i>
+                <i class="fas fa-asterisk text-danger -mt-[2px] absolute top-1.5 -right-2.5" style="font-size: 7px;"></i>
             @endif
         </label>
     </div>
