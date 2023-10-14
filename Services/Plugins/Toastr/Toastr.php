@@ -32,11 +32,11 @@ class Toastr
         return $obj;
     }
 
-    public function success(string $msg): self
+    public function success(string $msg): void
     {
         $this->msg = $msg;
         $this->type = 'success';
-        return $this;
+        $this->dispatch();
     }
 
     public function info(string $msg): self
