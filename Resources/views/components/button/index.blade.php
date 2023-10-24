@@ -25,6 +25,7 @@
 
         'border-r-0' => $classes->contains('rounded-l'),
         'border-l-0' => $classes->contains('rounded-r'),
+        'border-0' => !$border,
         'hover:bg-black hover:bg-opacity-5 border-2'  => $border,
         'border-'. $borderColor() .'-600' => ($border && !$info && !$success),
         'border-'. $borderColor() .'-400' => ($border && $success),
