@@ -23,6 +23,6 @@ class Plus extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/plus/plus');
+        return view('dvui::components.icon.plus.index');
     }
 }

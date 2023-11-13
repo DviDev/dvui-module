@@ -2,11 +2,11 @@
 
 namespace Modules\DvUi\View\Components;
 
-use Illuminate\View\Component;
 use Illuminate\View\ComponentSlot;
 use Modules\DvUi\Entities\ComponentCheck;
+use Modules\DvUi\View\BaseBladeComponent;
 
-class Card extends Component
+class Card extends BaseBladeComponent
 {
     use ComponentCheck;
 
@@ -17,13 +17,25 @@ class Card extends Component
      * @param string|null $footer Footer of the card
      */
     public function __construct(
-        public $heading = null,
+        public         $heading = null,
         public ?string $title = null,
         public ?string $content = null,
-        public ?string $footer = null,
+        public mixed   $footer = null,
+        public ?array  $attr = null,
     )
     {
-        //
+        /*$this->attributes = $this->attributes ?: $this->newAttributeBag();
+        $arr = $this->attributes->getAttributes();
+        $_arr = [
+            'heading' => $this->heading,
+            'title' => $this->title,
+            'content' => $this->content,
+            'footer' => $this->footer,
+            'attr' => $this->attr,
+        ];*/
+
+        parent::__construct($attr);
+
     }
 
     /**
@@ -38,13 +50,13 @@ class Card extends Component
 
     public function headerClasses(ComponentSlot $target = null)
     {
-        $classes = 'text-sm py-1.5 px-3 bg-white font-bold ';
+        $classes = 'text-sm';
+        $classes .= ' py-2';
+        $classes .= ' px-3';
+        $classes .= ' font-bold';
+        $classes .= ' border-b dark:border-gray-700';
         $classes .= $this->onlyClassesStartWith('border', $target). ' ';
-        $classes .= $this->onlyClassesStartWith('rounded-', $target)
-            ? $this->onlyClassesStartWith('rounded-', $target)
-            : 'rounded-t-md ';
         $classes .= !$this->classesContainColor($target) ? 'text-gray-600 ' : '';
         return $classes;
-
     }
 }

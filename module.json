@@ -7,7 +7,5 @@
     "providers": [
         "Modules\\DvUi\\Providers\\DvUiServiceProvider"
     ],
-    "aliases": {},
-    "files": [],
-    "requires": []
+    "files": []
 }

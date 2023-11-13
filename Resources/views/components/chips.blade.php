@@ -1,5 +1,5 @@
 @props([
-    'img_url',
+    'img_url' => null,
     'label'
 ])
 @php
@@ -14,7 +14,9 @@
         $img_classes .= !$somethingStartsWith('w-') ? 'w-9 ' : $onlyClassesStartWith('w-').' ';
         $img_classes .= !$somethingStartsWith('h-') ? 'h-9 ' : $onlyClassesStartWith('h-').' ';
     @endphp
-    <img class="{{$img_classes}}" alt="{{$label}}" src="{{$img_url}}"/>
+    @if($img_url)
+        <img class="{{$img_classes}}" alt="{{$label}}" src="{{$img_url}}"/>
+    @endif
     <span class="flex items-center px-3 py-2">
       {{$label}}
     </span>

@@ -1,22 +1,20 @@
 <?php
 
-namespace Modules\DvUi\View\Components;
+namespace Modules\DvUi\View\Components\Form;
 
 use Illuminate\View\Component;
 
-class Toast extends Component
+class CheckSwitch extends Component
 {
-
-
     /**
      * Create a new component instance.
      *
      * @return void
      */
-//    public function __construct()
-//    {
-//        //
-//    }
+    public function __construct()
+    {
+        //
+    }
 
     /**
      * Get the view / contents that represent the component.
@@ -25,6 +23,6 @@ class Toast extends Component
      */
     public function render()
     {
-        return view('dvui::components.toast');
+        return view('dvui::components.form/switch');
     }
 }

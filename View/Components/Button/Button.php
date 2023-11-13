@@ -38,10 +38,18 @@ class Button extends Component
         public bool    $xlg = false,
         public bool    $disabled = false,
         public bool    $full = false,
+        public ?string $id = null,
         public ?string $icon = null,
-        public ?string $modal = null,
+        public ?string $confirm = null,
+        public ?string $action = null,
+        public ?string $confirm_type = null,
+        public ?string $popover = null,
+        public ?string $pop_title = null,
     )
     {
+        $this->id = $id ?? 'btn_'.rand(1000, 2000);
+
+        $this->pop_title = $this->pop_title ?: $this->label;
     }
 
     /**
