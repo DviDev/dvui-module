@@ -1,22 +1,20 @@
 @php
-    //dd($errors->count());
-        if ($attr) {
-
-            $array = collect($attr)->except(['id'])->merge($attributes->getAttributes())->all();
-            if (isset($array['name'])){
-                $array['name'] = trans($array['name']);
-            }
-            if (isset($array['placeholder'])){
-                $array['placeholder'] = trans($array['placeholder']);
-            }
-            if (isset($array['label'])){
-                $array['label'] = ucfirst(trans(strtolower($array['label'])));
-            }
-            $attributes->setAttributes($array);
-
+    if ($attr) {
+        $array = collect($attr)->except(['id'])->merge($attributes->getAttributes())->all();
+        if (isset($array['name'])){
+            $array['name'] = trans($array['name']);
         }
-        $field = collect($attributes)->first(fn($value, $key) => str($key)->contains('wire:model'))
-                    ?? $attributes['id'] ?? $attributes['name'] ?? $label;
+        if (isset($array['placeholder'])){
+            $array['placeholder'] = trans($array['placeholder']);
+        }
+        if (isset($array['label'])){
+            $array['label'] = ucfirst(trans(strtolower($array['label'])));
+        }
+        $attributes->setAttributes($array);
+
+    }
+    $field = collect($attributes)->first(fn($value, $key) => str($key)->contains('wire:model'))
+                ?? $attributes['id'] ?? $attributes['name'] ?? $label;
 @endphp
 <div>
     @if($label || $attributes->get('label'))
@@ -63,7 +61,7 @@
     {{-- <div
         @class([
             "relative w-full",
-            "bg-red-100 border border-red-200 px-1 rounded" => $errors->has($field) && $filled_on_error
+            "bg-red-100 border border-red-200 px-1 rounded" => $errors->has($field)
             ])
         data-te-input-wrapper-init
         @if($attributes->has('title'))

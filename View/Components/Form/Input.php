@@ -16,14 +16,12 @@ class Input extends Component
         public $attr = null,
         public bool $required = false,
         public bool $validate = false,
-        public bool $filled_on_error = false,
     )
     {
         if ($this->attr) {
             $this->label = $this->attr['label'] ?? null;
             $this->required = $this->attr['required'] ?? false;
             $this->validate = $this->attr['validate'] ?? false;
-            $this->filled_on_error = $this->attr['filled_on_error'] ?? false;
         }
     }
 
