@@ -56,9 +56,7 @@
         <div class="text-red-500">{{$message}}</div>
         @enderror
         @if($validate || $required)
-            @error($field)
             <x-dvui::error :field="$field"/>
-            @enderror
         @endif
     </div>
 
