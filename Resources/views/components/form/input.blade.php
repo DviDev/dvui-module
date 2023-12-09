@@ -16,7 +16,7 @@
     $field = collect($attributes)->first(fn($value, $key) => str($key)->contains('wire:model'))
                 ?? $attributes['id'] ?? $attributes['name'] ?? $label;
 @endphp
-<div>
+<div class="w-full">
     @if($label || $attributes->get('label'))
         <label
             @class([

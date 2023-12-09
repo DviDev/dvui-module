@@ -7,8 +7,8 @@ use Illuminate\View\Component;
 abstract class BaseBladeComponent extends Component
 {
     public function __construct(
-        public ?string $label = null,
         public ?array  $attr = null,
+        public ?string $label = null,
         public bool    $required = false,
         public bool    $validate = false,
     )
