@@ -2,29 +2,10 @@
 
 namespace Modules\DvUi\View\Components\Form;
 
-use Illuminate\View\Component;
+use Modules\DvUi\View\BaseBladeComponent;
 
-class Input extends Component
+class Input extends BaseBladeComponent
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct(
-        public $label = null,
-        public $attr = null,
-        public bool $required = false,
-        public bool $validate = false,
-    )
-    {
-        if ($this->attr) {
-            $this->label = $this->attr['label'] ?? null;
-            $this->required = $this->attr['required'] ?? false;
-            $this->validate = $this->attr['validate'] ?? false;
-        }
-    }
-
     /**
      * Get the view / contents that represent the component.
      *

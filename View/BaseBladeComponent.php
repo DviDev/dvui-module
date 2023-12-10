@@ -17,4 +17,10 @@ abstract class BaseBladeComponent extends Component
         $this->required = $this->attr['required'] ?? false;
         $this->validate = $this->attr['validate'] ?? false;
     }
+
+    public function getFormField($attributes)
+    {
+        return collect($attributes)->first(fn($value, $key) => str($key)->contains('wire:model'))
+            ?? $attributes['id'] ?? $attributes['name'] ?? $this->label;
+    }
 }

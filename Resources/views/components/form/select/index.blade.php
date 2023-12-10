@@ -12,6 +12,9 @@
     }
     $attributes->setAttributes($array->filter()->all());
     $id = 'comp_'.random_int(random_int(1,5), random_int(5,9));
+
+    $field = collect($attributes)->first(fn($value, $key) => str($key)->contains('wire:model'))
+            ?? $attributes['id'] ?? $attributes['name'] ?? $label;
 @endphp
 <div class="w-full">
     <label for="{{$id}}" class="text-neutral-700 relative">
@@ -34,4 +37,5 @@
         {{$attributes}}>
         {{$slot}}
     </select>
+    <x-dvui::error :field="$field"/>
 </div>

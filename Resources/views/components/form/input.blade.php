@@ -11,10 +11,10 @@
             $array['label'] = ucfirst(trans(strtolower($array['label'])));
         }
         $attributes->setAttributes($array);
-
     }
+
     $field = collect($attributes)->first(fn($value, $key) => str($key)->contains('wire:model'))
-                ?? $attributes['id'] ?? $attributes['name'] ?? $label;
+            ?? $attributes['id'] ?? $attributes['name'] ?? $label;
 @endphp
 <div class="w-full">
     @if($label || $attributes->get('label'))
