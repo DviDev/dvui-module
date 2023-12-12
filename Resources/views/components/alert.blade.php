@@ -47,7 +47,6 @@
             @endif
         </div>
         @if($dismiss === true)
-            @dump($dismiss)
             <button type="button"
                     {{
                         $attributes
