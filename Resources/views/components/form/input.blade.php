@@ -41,7 +41,7 @@
 
         </label>
     @endif
-    <div class="relative mb-3" data-te-input-wrapper-init>
+    <div class="relative" data-te-input-wrapper-init>
         <input
             type="{{$attributes->get('type') ?: 'text'}}"
             {{$attributes->class([
