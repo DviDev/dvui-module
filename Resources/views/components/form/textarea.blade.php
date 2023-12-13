@@ -41,7 +41,6 @@
         {{$attributes->get('value')}}
     </textarea>
     <div class="text-right text-gray-400 text-xs flex justify-end space-x-2">
-
         <span x-text="$wire.model.{{$attributes->get('name')}}.length + '/'+ {{$attributes->get('maxlength')}}"></span>
     </div>
     @error($model.'.'.($attributes->get('id') ?? null))
