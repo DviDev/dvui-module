@@ -13,7 +13,7 @@
     }
     $attributes->setAttributes($collection->all());
 @endphp
-<div class="relative"
+<div class="w-full"
     {{--     data-te-input-wrapper-init--}}
 >
     @if($label)
@@ -38,6 +38,9 @@
         ])
         rows="3"
       {{$attributes}}>{{$attributes->get('value')}}</textarea>
+        <div class="text-right text-gray-400 text-xs">
+            <span x-text="$wire.{{$attributes->get('wire:model')}}.length + '/'+ {{$attributes->get('maxlength')}}"></span>
+        </div>
     @error($model.'.'.($attributes->get('id') ?? null))
     <div class="text-red-500">{{$message}}</div>
     @enderror

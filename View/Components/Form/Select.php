@@ -2,18 +2,10 @@
 
 namespace Modules\DvUi\View\Components\Form;
 
-use Illuminate\View\Component;
+use Modules\DvUi\View\BaseBladeComponent;
 
-class Select extends Component
+class Select extends BaseBladeComponent
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct(public ?array $attr = null, public ?string $label = null)
-    {
-    }
 
     /**
      * Get the view / contents that represent the component.
