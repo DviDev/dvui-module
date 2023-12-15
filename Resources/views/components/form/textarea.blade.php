@@ -16,7 +16,7 @@
 <div class="w-full"
     {{--     data-te-input-wrapper-init--}}
 >
-    @if($label)
+    @if($attributes->get('label'))
         <label
             for="{{$attrs['id']??null}}"
             @class([
