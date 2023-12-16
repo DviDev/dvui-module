@@ -52,9 +52,7 @@
         @error("model.{$attributes->get('id')}")
         <div class="text-red-500">{{$message}}</div>
         @enderror
-        @if($validate)
-            <x-dvui::error :field="$field"/>
-        @endif
+        <x-dvui::error :field="$field"/>
     </div>
 
     {{-- <div
@@ -122,13 +120,3 @@
             @endif
         </div>--}}
 </div>
-
-{{--@push('scripts')
-    <script type="module">
-        import {
-            initTE,
-            Input
-        } from "{{Vite::asset('node_modules/tw-elements/dist/js/tw-elements.es.min.js')}}";
-        initTE({Input});
-    </script>
-@endpush--}}
