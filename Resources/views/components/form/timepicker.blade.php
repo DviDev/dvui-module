@@ -58,7 +58,7 @@
         import {
             initTE,
             Input,
-            Timepicker,
+            Timepicker
         } from "{{Vite::asset('node_modules/tw-elements/dist/js/tw-elements.es.min.js')}}";
 
         initTE({Timepicker, Input});

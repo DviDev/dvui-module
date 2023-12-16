@@ -123,11 +123,12 @@
         </div>--}}
 </div>
 
-@pushonce('scripts')
+@push('scripts')
     <script type="module">
-        // Initialization for ES Users
-        import {initTE, Input,} from "{{Vite::asset('node_modules/tw-elements/dist/js/tw-elements.es.min.js')}}";
-
+        import {
+            initTE,
+            Input
+        } from "{{Vite::asset('node_modules/tw-elements/dist/js/tw-elements.es.min.js')}}";
         initTE({Input});
     </script>
-@endpushonce
+@endpush
