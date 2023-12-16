@@ -123,7 +123,7 @@
         </div>--}}
 </div>
 
-@push('scripts')
+{{--@push('scripts')
     <script type="module">
         import {
             initTE,
@@ -131,4 +131,4 @@
         } from "{{Vite::asset('node_modules/tw-elements/dist/js/tw-elements.es.min.js')}}";
         initTE({Input});
     </script>
-@endpush
+@endpush--}}
