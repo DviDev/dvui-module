@@ -45,10 +45,10 @@
 @push('scripts')
     <script type="module">
         import {
+            initTE,
             Datepicker,
-            Input,
-            initTE
-        } from "{{Vite::asset('node_modules/tw-elements/dist/js/tw-elements.es.min.js')}}";
+            Input
+        } from "{{Vite::asset('node_modules/tw-elements/dist/js/tw-elements.umd.min.js?commonjs-entry')}}"
 
         initTE({Datepicker, Input});
 
@@ -58,5 +58,7 @@
             confirmDateOnSelect: true,
             removeClearBtn: true,
         })
+
+
     </script>
 @endpush
