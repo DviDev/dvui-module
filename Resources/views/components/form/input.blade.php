@@ -122,7 +122,9 @@
             @endif
         </div>--}}
 </div>
-
+@php
+    DB::query()->from('store_order_status')->get('*')->all();
+@endphp
 {{--@push('scripts')
     <script type="module">
         import {
