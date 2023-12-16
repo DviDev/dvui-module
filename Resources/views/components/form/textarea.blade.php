@@ -3,10 +3,10 @@
     'attrs' => []
 ])
 @php
-    $model = collect($attributes->getAttributes())->filter(function($value, $key) {
+    $model_ = collect($attributes->getAttributes())->filter(function($value, $key) {
         return str($key)->contains('wire:model');
     })->first();
-    $model = str($model)->explode('.')->first();
+    $model_ = str($model_)->explode('.')->first();
     $collection = collect($attrs)->except(['id'])->merge($attributes->getAttributes());
     if ($label){
         $collection = $collection->merge(['label' => $label]);
@@ -16,7 +16,7 @@
 <div class="w-full"
     {{--     data-te-input-wrapper-init--}}
 >
-    @if($label)
+    @if($attributes->get('label'))
         <label
             for="{{$attrs['id']??null}}"
             @class([
@@ -33,15 +33,17 @@
             "outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100",
             "data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200",
             "dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0",
-            "border-gray-300 dark:border-gray-700" => !$errors->get($model.'.'.$attributes->get('id')),
-            "border dark:border-red-500" => $errors->get($model.'.'.$attributes->get('id')),
+            "border-gray-300 dark:border-gray-700" => !$errors->get($model_.'.'.$attributes->get('id')),
+            "border dark:border-red-500" => $errors->get($model_.'.'.$attributes->get('id')),
         ])
         rows="3"
-      {{$attributes}}>{{$attributes->get('value')}}</textarea>
-        <div class="text-right text-gray-400 text-xs">
-            <span x-text="$wire.{{$attributes->get('wire:model')}}.length + '/'+ {{$attributes->get('maxlength')}}"></span>
-        </div>
-    @error($model.'.'.($attributes->get('id') ?? null))
+      {{$attributes}}>
+        {{$attributes->get('value')}}
+    </textarea>
+    <div class="text-right text-gray-400 text-xs flex justify-end space-x-2">
+        <span x-text="$wire.model.description.length + '/'+ {{$attributes->get('maxlength')}}"></span>
+    </div>
+    @error($model_.'.'.($attributes->get('id') ?? null))
     <div class="text-red-500">{{$message}}</div>
     @enderror
 </div>
