@@ -48,7 +48,7 @@
             initTE,
             Datepicker,
             Input
-        } from "{{Vite::asset('node_modules/tw-elements/dist/js/tw-elements.umd.es.js')}}"
+        } from "{{Vite::asset('node_modules/tw-elements/dist/js/tw-elements.es.min.js')}}"
 
         initTE({Datepicker, Input});
 
