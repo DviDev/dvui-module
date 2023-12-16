@@ -47,7 +47,7 @@
         import {
             Datepicker,
             Input,
-            initTE,
+            initTE
         } from "{{Vite::asset('node_modules/tw-elements/dist/js/tw-elements.es.min.js')}}";
 
         initTE({Datepicker, Input});
