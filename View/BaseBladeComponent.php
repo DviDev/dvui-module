@@ -12,12 +12,14 @@ abstract class BaseBladeComponent extends Component
         public bool    $required = false,
         public bool    $validate = false,
         public         $value = null,
+        public string|int|null         $id = null,
     )
     {
         $this->attr['label'] = $label ?? $this->attr['label'] ?? null;
         $this->attr['required'] = $required ?? $this->attr['required'] ?? false;
         $this->attr['validate'] = $validate ?? $this->attr['validate'] ?? false;
         $this->attr['value'] = $value ?? $this->attr['value'] ?? null;
+        $this->attr['id'] = $id ?? $this->attr['id'] ?? null;
     }
 
     public function getFormField($attributes)
