@@ -3,18 +3,10 @@
 namespace Modules\DvUi\View\Components\Icon\Adjustment;
 
 use Illuminate\View\Component;
+use Modules\DvUi\View\Components\Icon\Icon;
 
-class Horizontal extends Component
+class Horizontal extends Icon
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
 
     /**
      * Get the view / contents that represent the component.
