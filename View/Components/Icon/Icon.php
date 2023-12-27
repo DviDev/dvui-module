@@ -22,7 +22,9 @@ class Icon extends Component
         public bool $s8 = false,
         public bool $s9 = false,
         public bool $s10 = false,
-        public bool $fill = false,
+        public bool $solid = false,
+        public bool $mini = false,
+        public bool $micro = false,
     )
     {
         //
