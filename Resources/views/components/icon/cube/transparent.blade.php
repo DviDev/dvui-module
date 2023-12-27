@@ -2,7 +2,7 @@
     'fill' => false,
     'mini' => false,
 ])
-<x-dvui::icon {{$attributes}} :outline="!$fill" :solid="$fill">
+<x-dvui::icon {{$attributes}} solid>
     @if($fill)
     @elseif($mini)
     @else

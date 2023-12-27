@@ -23,6 +23,6 @@ class Rays extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/currency/arrow/rays');
+        return view('dvui::components.icon.cursor.arrow.rays');
     }
 }

@@ -23,6 +23,6 @@ class Ripple extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/cursor/arrow/ripple');
+        return view('dvui::components.icon.cursor.arrow.ripple');
     }
 }

@@ -23,6 +23,6 @@ class Library extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/buinding/library');
+        return view('dvui::components.icon.building.library');
     }
 }

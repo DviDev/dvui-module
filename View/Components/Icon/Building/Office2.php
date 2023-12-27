@@ -23,6 +23,6 @@ class Office2 extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/buinding/office2');
+        return view('dvui::components.icon.building.office2');
     }
 }

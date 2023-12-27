@@ -23,6 +23,6 @@ class Down extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/arrow/down');
+        return view('dvui::components.icon.arrow.down.index');
     }
 }
