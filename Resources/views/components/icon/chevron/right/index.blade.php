@@ -1,11 +1,22 @@
 @props([
     'fill' => false,
     'mini' => false,
+    'micro' => false,
 ])
-<x-dvui::icon {{$attributes}} :outline="!$fill" :solid="$fill">
-    @if($mini)
-        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-    @else
+@if($fill)
+    <x-dvui::icon {{$attributes}} solid>
+    </x-dvui::icon>
+@elseif($mini)
+    <x-dvui::icon {{$attributes}} mini>
+        <path fill-rule="evenodd"
+              d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+              clip-rule="evenodd"/>
+    </x-dvui::icon>
+@elseif($micro)
+    <x-dvui::icon {{$attributes}} micro>
+    </x-dvui::icon>
+@else
+    <x-dvui::icon {{$attributes}} outline>
         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
-    @endif
-</x-dvui::icon>
+    </x-dvui::icon>
+@endif
