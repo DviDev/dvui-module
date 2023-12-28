@@ -8,13 +8,16 @@
             </div>
         </x-lte::card.header>
         <x-lte::card.body>
-            <div class="grid grid-cols-4 divide-x">
+            <div class="flex space-x-1">
                 <x-dynamic-component :component="'dvui::icon.'.$icon" title="outline"
                                      class="hover:text-blue-500 cursor-pointer"/>
                 <x-dynamic-component :component="'dvui::icon.'.$icon" fill title="fill"
                                      class="hover:text-blue-500 cursor-pointer"/>
-                <x-dynamic-component :component="'dvui::icon.'.$icon" mini title="mini"
-                                     class="hover:text-blue-500 cursor-pointer"/>
+                <div class="my-auto">
+                    <x-dynamic-component :component="'dvui::icon.'.$icon" mini title="mini"
+                                         class="hover:text-blue-500 cursor-pointer my-auto"/>
+
+                </div>
                 <x-dynamic-component :component="'dvui::icon.'.$icon" micro title="micro"
                                      class="hover:text-blue-500 cursor-pointer"/>
             </div>

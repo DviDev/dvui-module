@@ -3,7 +3,7 @@
         <x-lte::card title="Icons">
             <x-lte::card.body>
                 <div class="flex flex-row flex-wrap gap-4">
-                    <x-dvui::card-icon title="academic.cap" icon="academic.cap"/>
+                    {{--<x-dvui::card-icon title="academic.cap" icon="academic.cap"/>
                     <x-dvui::card-icon title="adjustment.horizontal" icon="adjustment.horizontal"/>
                     <x-dvui::card-icon title="adjustment.vertical" icon="adjustment.vertical"/>
                     <x-dvui::card-icon title="arquivebox.arrowdown" icon="arquivebox.arrowdown"/>
@@ -50,6 +50,7 @@
                     <x-dvui::card-icon title="arrow.pointing.out" icon="arrow.pointing.out"/>
                     <x-dvui::card-icon title="arrow.rigthleft" icon="arrow.rigthleft"/>
                     <x-dvui::card-icon title="arrow.updown" icon="arrow.updown"/>
+                    <x-dvui::card-icon title="at-symbol" icon="atsymbol"/>--}}
 
                     <x-dvui::card-icon title="backspace" icon="backspace"/>
                     <x-dvui::card-icon title="backward" icon="backward"/>
@@ -82,7 +83,7 @@
                     <x-dvui::card-icon title="building.office2" icon="building.office2"/>
                     <x-dvui::card-icon title="building.office" icon="building.office"/>
                     <x-dvui::card-icon title="building.storefront" icon="building.storefront"/>
-                    <x-dvui::card-icon title="cake" icon="cake"/>
+                    {{--<x-dvui::card-icon title="cake" icon="cake"/>
                     <x-dvui::card-icon title="calculator" icon="calculator"/>
                     <x-dvui::card-icon title="calendar.days" icon="calendar.days"/>
                     <x-dvui::card-icon title="calendar" icon="calendar"/>
@@ -294,7 +295,7 @@
                     <x-dvui::card-icon title="wrench.screwdriver" icon="wrench.screwdriver"/>
                     <x-dvui::card-icon title="wrench" icon="wrench"/>
                     <x-dvui::card-icon title="x.circle" icon="x.circle"/>
-                    <x-dvui::card-icon title="x.mark" icon="x.mark"/>
+                    <x-dvui::card-icon title="x.mark" icon="x.mark"/>--}}
                 </div>
             </x-lte::card.body>
         </x-lte::card>

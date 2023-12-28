@@ -13,7 +13,7 @@
 
 Route::middleware('auth')->prefix('dvui')->group(function() {
     Route::get('/icons', function() {
-//        cache()->delete('dvui.page.icons');
+        cache()->delete('dvui.page.icons');
         return cache()->rememberForever('dvui.page.icons', fn() => view('dvui::components.pages.page_icons')->render());
     });
 });
