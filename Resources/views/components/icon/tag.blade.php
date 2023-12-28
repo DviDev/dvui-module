@@ -1,13 +1,21 @@
 @props([
     'fill' => false,
     'mini' => false,
+    'micro' => false,
 ])
-<x-dvui::icon {{$attributes}} solid>
-    @if($fill)
-    @elseif($mini)
-    @else
+@if($fill)
+    <x-dvui::icon {{$attributes}} solid>
+    </x-dvui::icon>
+@elseif($mini)
+    <x-dvui::icon {{$attributes}} mini>
+    </x-dvui::icon>
+@elseif($micro)
+    <x-dvui::icon {{$attributes}} micro>
+    </x-dvui::icon>
+@else
+    <x-dvui::icon {{$attributes}} outline>
         <path stroke-linecap="round" stroke-linejoin="round"
               d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"/>
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z"/>
-    @endif
-</x-dvui::icon>
+    </x-dvui::icon>
+@endif
