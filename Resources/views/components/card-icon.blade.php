@@ -22,13 +22,15 @@
                 $code = '<x-dvui::icon.'.$icon.'/>';
             @endphp
 
-            <div class="flex justify-center" x-show="show_code" style="display: none">
+        </x-lte::card.body>
+        <x-lte::card.footer x-show="show_code" style="display: none">
+            <div class="flex justify-center">
                 <div class="bg-red rounded p-0.5 my-auto flex">
                     <code class="my-auto bg-gray-800 text-white text-center p-1 px-2 rounded">
                         {{$code}}
                     </code>
                 </div>
             </div>
-        </x-lte::card.body>
+        </x-lte::card.footer>
     </x-lte::card>
 </div>

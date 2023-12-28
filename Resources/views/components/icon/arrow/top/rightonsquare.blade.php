@@ -1,6 +1,7 @@
 @props([
     'fill' => false,
     'mini' => false,
+    'micro' => false,
 ])
 @if($fill)
     <x-dvui::icon {{$attributes}} solid>

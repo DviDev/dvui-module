@@ -13,44 +13,43 @@
                     <x-dvui::card-icon title="arrow.down.circle" icon="arrow.down.circle"/>
                     <x-dvui::card-icon title="arrow.down.left" icon="arrow.down.left"/>
                     <x-dvui::card-icon title="arrow.down.onsquare" icon="arrow.down.onsquare"/>
-                    {{--
-                    <x-dvui::card-icon title="arrow.down.onsquarestack" icon="arrow.down.onsquarestack" s6/>
-                    <x-dvui::card-icon title="arrow.down.right" icon="arrow.down.right" s6/>
-                    <x-dvui::card-icon title="arrow.down.tray" icon="arrow.down.tray" s6/>
-                    <x-dvui::card-icon title="arrow.left" icon="arrow.left" s6/>
-                    <x-dvui::card-icon title="arrow.left.circle" icon="arrow.left.circle" s6/>
-                    <x-dvui::card-icon title="arrow.left.onrectangle" icon="arrow.left.onrectangle" s6/>
-                    <x-dvui::card-icon title="arrow.down.long" icon="arrow.down.long" s6/>
-                    <x-dvui::card-icon title="arrow.left.long" icon="arrow.left.long" s6/>
-                    <x-dvui::card-icon title="arrow.right.long" icon="arrow.right.long" s6/>
-                    <x-dvui::card-icon title="arrow.up.long" icon="arrow.up.long" s6/>
-                    <x-dvui::card-icon title="arrow.path" icon="arrow.path" s6/>
-                    <x-dvui::card-icon title="arrow.path.roundedsquare" icon="arrow.path.roundedsquare" s6/>
-                    <x-dvui::card-icon title="arrow.right" icon="arrow.right" s6/>
-                    <x-dvui::card-icon title="arrow.right.circle" icon="arrow.right.circle" s6/>
-                    <x-dvui::card-icon title="arrow.right.onrectangle" icon="arrow.right.onrectangle" s6/>
-                    <x-dvui::card-icon title="arrow.down.small" icon="arrow.down.small" s6/>
-                    <x-dvui::card-icon title="arrow.left.small" icon="arrow.left.small" s6/>
-                    <x-dvui::card-icon title="arrow.right.small" icon="arrow.right.small" s6/>
-                    <x-dvui::card-icon title="arrow.up.small" icon="arrow.up.small" s6/>
-                    <x-dvui::card-icon title="arrow.top.rightonsquare" icon="arrow.top.rightonsquare" s6/>
-                    <x-dvui::card-icon title="arrow.down.trending" icon="arrow.down.trending" s6/>
-                    <x-dvui::card-icon title="arrow.up.trending" icon="arrow.up.trending" s6/>
-                    <x-dvui::card-icon title="arrow.up" icon="arrow.up" s6/>
-                    <x-dvui::card-icon title="arrow.up.circle" icon="arrow.up.circle" s6/>
-                    <x-dvui::card-icon title="arrow.up.left" icon="arrow.up.left" s6/>
-                    <x-dvui::card-icon title="arrow.up.onsquare" icon="arrow.up.onsquare" s6/>
-                    <x-dvui::card-icon title="arrow.up.onsquarestack" icon="arrow.up.onsquarestack" s6/>
-                    <x-dvui::card-icon title="arrow.up.right" icon="arrow.up.right" s6/>
-                    <x-dvui::card-icon title="arrow.up.tray" icon="arrow.up.tray" s6/>
-                    <x-dvui::card-icon title="arrow.down.uturn" icon="arrow.down.uturn" s6/>
-                    <x-dvui::card-icon title="arrow.left.uturn" icon="arrow.left.uturn" s6/>
-                    <x-dvui::card-icon title="arrow.right.uturn" icon="arrow.right.uturn" s6/>
-                    <x-dvui::card-icon title="arrow.up.uturn" icon="arrow.up.uturn" s6/>
-                    <x-dvui::card-icon title="arrow.pointing.in" icon="arrow.pointing.in" s6/>
-                    <x-dvui::card-icon title="arrow.pointing.out" icon="arrow.pointing.out" s6/>
-                    <x-dvui::card-icon title="arrow.rigthleft" icon="arrow.rigthleft" s6/>
-                    <x-dvui::card-icon title="arrow.updown" icon="arrow.updown" s6/>
+                    <x-dvui::card-icon title="arrow.down.onsquarestack" icon="arrow.down.onsquarestack"/>
+                    <x-dvui::card-icon title="arrow.down.right" icon="arrow.down.right"/>
+                    <x-dvui::card-icon title="arrow.down.tray" icon="arrow.down.tray"/>
+                    <x-dvui::card-icon title="arrow.left" icon="arrow.left"/>
+                    <x-dvui::card-icon title="arrow.left.circle" icon="arrow.left.circle"/>
+                    <x-dvui::card-icon title="arrow.left.onrectangle" icon="arrow.left.onrectangle"/>
+                    <x-dvui::card-icon title="arrow.down.long" icon="arrow.down.long"/>
+                    <x-dvui::card-icon title="arrow.left.long" icon="arrow.left.long"/>
+                    <x-dvui::card-icon title="arrow.right.long" icon="arrow.right.long"/>
+                    <x-dvui::card-icon title="arrow.up.long" icon="arrow.up.long"/>
+                    <x-dvui::card-icon title="arrow.path" icon="arrow.path"/>
+                    <x-dvui::card-icon title="arrow.path.roundedsquare" icon="arrow.path.roundedsquare"/>
+                    <x-dvui::card-icon title="arrow.right" icon="arrow.right"/>
+                    <x-dvui::card-icon title="arrow.right.circle" icon="arrow.right.circle"/>
+                    <x-dvui::card-icon title="arrow.right.onrectangle" icon="arrow.right.onrectangle"/>
+                    <x-dvui::card-icon title="arrow.down.small" icon="arrow.down.small"/>
+                    <x-dvui::card-icon title="arrow.left.small" icon="arrow.left.small"/>
+                    <x-dvui::card-icon title="arrow.right.small" icon="arrow.right.small"/>
+                    <x-dvui::card-icon title="arrow.up.small" icon="arrow.up.small"/>
+                    <x-dvui::card-icon title="arrow.top.rightonsquare" icon="arrow.top.rightonsquare"/>
+                    <x-dvui::card-icon title="arrow.down.trending" icon="arrow.down.trending"/>
+                    <x-dvui::card-icon title="arrow.up.trending" icon="arrow.up.trending"/>
+                    <x-dvui::card-icon title="arrow.up" icon="arrow.up"/>
+                    <x-dvui::card-icon title="arrow.up.circle" icon="arrow.up.circle"/>
+                    <x-dvui::card-icon title="arrow.up.left" icon="arrow.up.left"/>
+                    <x-dvui::card-icon title="arrow.up.onsquare" icon="arrow.up.onsquare"/>
+                    <x-dvui::card-icon title="arrow.up.onsquarestack" icon="arrow.up.onsquarestack"/>
+                    <x-dvui::card-icon title="arrow.up.right" icon="arrow.up.right"/>
+                    <x-dvui::card-icon title="arrow.up.tray" icon="arrow.up.tray"/>
+                    <x-dvui::card-icon title="arrow.down.uturn" icon="arrow.down.uturn"/>
+                    <x-dvui::card-icon title="arrow.left.uturn" icon="arrow.left.uturn"/>
+                    <x-dvui::card-icon title="arrow.right.uturn" icon="arrow.right.uturn"/>
+                    <x-dvui::card-icon title="arrow.up.uturn" icon="arrow.up.uturn"/>
+                    <x-dvui::card-icon title="arrow.pointing.in" icon="arrow.pointing.in"/>
+                    <x-dvui::card-icon title="arrow.pointing.out" icon="arrow.pointing.out"/>
+                    <x-dvui::card-icon title="arrow.rigthleft" icon="arrow.rigthleft"/>
+                    <x-dvui::card-icon title="arrow.updown" icon="arrow.updown"/>
 
                     <x-dvui::card-icon title="backspace" icon="backspace"/>
                     <x-dvui::card-icon title="backward" icon="backward"/>
@@ -294,8 +293,8 @@
                     <x-dvui::card-icon title="window" icon="window"/>
                     <x-dvui::card-icon title="wrench.screwdriver" icon="wrench.screwdriver"/>
                     <x-dvui::card-icon title="wrench" icon="wrench"/>
-                    <x-dvui::card-icon title="x.circle" icon="x.circle"/>--}}
-                    {{--<x-dvui::card-icon title="x.mark" icon="x.mark"/>--}}
+                    <x-dvui::card-icon title="x.circle" icon="x.circle"/>
+                    <x-dvui::card-icon title="x.mark" icon="x.mark"/>
                 </div>
             </x-lte::card.body>
         </x-lte::card>
