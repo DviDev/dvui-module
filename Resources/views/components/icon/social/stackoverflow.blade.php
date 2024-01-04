@@ -1,8 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
-    {{$attributes->class([
-       "w-5 h-5" => !$attributes->has('class')
-   ])}}>
-    <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-    <path fill="currentColor"
-          d="M290.7 311L95 269.7 86.8 309l195.7 41zm51-87L188.2 95.7l-25.5 30.8 153.5 128.3zm-31.2 39.7L129.2 179l-16.7 36.5L293.7 300zM262 32l-32 24 119.3 160.3 32-24zm20.5 328h-200v39.7h200zm39.7 80H42.7V320h-40v160h359.5V320h-40z"/>
-</svg>
+@props([
+    'fill' => false,
+    'mini' => false,
+    'micro' => false,
+])
+@if($fill)
+    <x-dvui::icon {{$attributes}} solid>
+    </x-dvui::icon>
+@elseif($mini)
+    <x-dvui::icon {{$attributes}} mini>
+    </x-dvui::icon>
+@elseif($micro)
+    <x-dvui::icon {{$attributes}} micro>
+    </x-dvui::icon>
+@else
+    <x-dvui::icon {{$attributes}} outline>
+    </x-dvui::icon>
+@endif

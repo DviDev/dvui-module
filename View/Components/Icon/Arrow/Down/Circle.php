@@ -2,25 +2,10 @@
 
 namespace Modules\DvUi\View\Components\Icon\Arrow\Down;
 
-use Illuminate\View\Component;
+use Modules\DvUi\View\Components\Icon\Icon;
 
-class Circle extends Component
+class Circle extends Icon
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
     public function render()
     {
         return view('dvui::components.icon/arrow/down/circle');

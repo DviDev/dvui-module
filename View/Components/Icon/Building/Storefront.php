@@ -23,6 +23,6 @@ class Storefront extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/buinding/storefront');
+        return view('dvui::components.icon.building.storefront');
     }
 }

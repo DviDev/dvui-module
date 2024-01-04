@@ -23,6 +23,6 @@ class Check extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/clibboard/document/check');
+        return view('dvui::components.icon.clipboard.document.check');
     }
 }
