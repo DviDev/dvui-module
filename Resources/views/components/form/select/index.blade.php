@@ -18,13 +18,14 @@
 @endphp
 <div class="w-full" wire:ignore>
     @if($attributes->has('label'))
-        <label for="{{$id}}" class="text-neutral-700 mb-0 relative">
+        <x-lte::label :for="$field" :value="$attributes->get('label')" :required="$required"/>
+        {{--<label for="{{$id}}" class="text-neutral-700 mb-0 relative">
             {{$attributes->get('label')}}
             @if($required)
                 <i class="fas fa-asterisk text-danger -mt-[2px] absolute top-1.5 -right-2.5"
                    style="font-size: 7px;"></i>
             @endif
-        </label>
+        </label>--}}
     @endif
     <select
         data-te-select-init

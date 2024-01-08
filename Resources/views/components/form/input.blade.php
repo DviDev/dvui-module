@@ -17,7 +17,9 @@
 @endphp
 <div class="w-full">
     @if($label || $attributes->get('label'))
-        <label
+        <x-lte::label :for="$field" :value="$label" required/>
+
+        {{--<label
             @class([
                 "pointer-events-none max-w-[90%]",
                 "origin-[0_0] truncate" => false,
@@ -26,6 +28,7 @@
                 "transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none",
                 "text-neutral-700 dark:text-neutral-200",
                 "peer-focus:text-primary dark:peer-focus:text-primary",
+
                 "absolute top-0 mb-0" => false,
                 "text-red-700 text-bold" => $errors->has($field),
                 "relative",
@@ -38,7 +41,7 @@
                    style="font-size: 7px;"></i>
             @endif
 
-        </label>
+        </label>--}}
     @endif
     <div class="relative" data-te-input-wrapper-init>
         <input
