@@ -41,8 +41,8 @@
         {{$attributes->get('value')}}
     </textarea>
     <div class="text-right text-gray-400 text-xs flex justify-end space-x-2"
-         x-data="{ model_value: @entangle($attributes->get('wire:model')) }">
-        <span x-text="model_value.length + {{$attributes->has('maxlength') ? ("'/".$attributes->get('maxlength')."'") : '' }}"></span>
+         x-data="{ model_value: @if($attributes->has('wire:model')) @entangle($attributes->get('wire:model')) @else null  @endif }">
+        <span x-text="model_value.length + @if($attributes->has('maxlength'))  {{"'/".$attributes->get('maxlength')."'" }} @else '' @endif "></span>
     </div>
     @error($model_.'.'.($attributes->get('id') ?? null))
     <div class="text-red-500">{{$message}}</div>
