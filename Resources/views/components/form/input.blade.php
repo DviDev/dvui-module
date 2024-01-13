@@ -17,7 +17,7 @@
 @endphp
 <div class="w-full">
     @if($label || $attributes->get('label'))
-        <x-lte::label :for="$field" :value="$label" required/>
+        <x-lte::label :for="$field" :value="$label ?? $attributes->get('label')" required/>
 
         {{--<label
             @class([
