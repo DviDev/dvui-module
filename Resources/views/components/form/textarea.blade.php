@@ -13,7 +13,7 @@
     }
     $attributes->setAttributes($collection->all());
 @endphp
-<div class="w-full"
+<div class="w-full" x-data="{ model_value: '{{$attributes->get('value', '')}}' }"
     {{--     data-te-input-wrapper-init--}}
 >
     @if($attributes->get('label'))
@@ -36,13 +36,14 @@
             "border-gray-300 dark:border-gray-700" => !$errors->get($model_.'.'.$attributes->get('id')),
             "border dark:border-red-500" => $errors->get($model_.'.'.$attributes->get('id')),
         ])
-        rows="3"
-      {{$attributes}}>
+
+      {{$attributes}} x-model="model_value">
         {{$attributes->get('value')}}
     </textarea>
-    <div class="text-right text-gray-400 text-xs flex justify-end space-x-2"
-         x-data="{ model_value: @if($attributes->has('wire:model')) @entangle($attributes->get('wire:model')) @else null  @endif }">
-        <span x-text="model_value.length + @if($attributes->has('maxlength'))  {{"'/".$attributes->get('maxlength')."'" }} @else '' @endif "></span>
+
+    <div class="text-right text-gray-400 text-xs flex justify-end" >
+        <span x-text="model_value.length"></span>
+        <span>/{{$attributes->get('maxlength', 0) }}</span>
     </div>
     @error($model_.'.'.($attributes->get('id') ?? null))
     <div class="text-red-500">{{$message}}</div>
