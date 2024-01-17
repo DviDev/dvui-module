@@ -12,21 +12,17 @@
         $collection = $collection->merge(['label' => $label]);
     }
     $attributes->setAttributes($collection->all());
+
+    $field = collect($attributes)->first(fn($value, $key) => str($key)->contains('wire:model'))
+            ?? $attributes['id'] ?? $attributes['name'] ?? $label;
 @endphp
 <div class="w-full" x-data="{ model_value: '{{$attributes->get('value', '')}}' }"
     {{--     data-te-input-wrapper-init--}}
 >
-    @if($attributes->get('label'))
-        <label
-            for="{{$attrs['id']??null}}"
-            @class([
-                "pointer-events-none  mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6]  transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary",
-                "absolute left-3 top-0" => false
-            ])>
-            {{$attributes->get('label')}}
-        </label>
+    @if($label || $attributes->get('label'))
+        <x-lte::label :for="$field" :value="$label ?? $attributes->get('label')"
+                      :required="$attributes->get('required')"/>
     @endif
-
     <textarea
         @class([
             "peer block min-h-[auto] w-full rounded dark:border bg-transparent px-3 py-[0.32rem] leading-[1.6]",
@@ -37,11 +33,11 @@
             "border dark:border-red-500" => $errors->get($model_.'.'.$attributes->get('id')),
         ])
 
-      {{$attributes}} x-model="model_value">
+        {{$attributes}} x-model="model_value">
         {{$attributes->get('value')}}
     </textarea>
 
-    <div class="text-right text-gray-400 text-xs flex justify-end" >
+    <div class="text-right text-gray-400 text-xs flex justify-end">
         <span x-text="model_value.length"></span>
         <span>/{{$attributes->get('maxlength', 0) }}</span>
     </div>
