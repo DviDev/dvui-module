@@ -16,14 +16,15 @@
     $field = collect($attributes)->first(fn($value, $key) => str($key)->contains('wire:model'))
             ?? $attributes['id'] ?? $attributes['name'] ?? $label;
 @endphp
-<div class="w-full" x-data="{ model_value: '{{$attributes->get('value', '')}}' }"
+@dump($attributes->get('value', ''))
+<div class="w-full" x-data="{ model_value: $wire.model.{{$attributes['name']}} }"
     {{--     data-te-input-wrapper-init--}}
 >
     @if($label || $attributes->get('label'))
         <x-lte::label :for="$field" :value="$label ?? $attributes->get('label')"
                       :required="$attributes->get('required')"/>
     @endif
-    <textarea
+    <textarea x-cloak
         @class([
             "peer block min-h-[auto] w-full rounded dark:border bg-transparent px-3 py-[0.32rem] leading-[1.6]",
             "outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100",
@@ -38,7 +39,7 @@
     </textarea>
 
     <div class="text-right text-gray-400 text-xs flex justify-end">
-        <span x-text="model_value.length"></span>
+        <span x-html="model_value.length"></span>
         <span>/{{$attributes->get('maxlength', 0) }}</span>
     </div>
     @error($model_.'.'.($attributes->get('id') ?? null))
