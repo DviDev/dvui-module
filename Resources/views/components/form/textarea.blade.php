@@ -16,7 +16,6 @@
     $field = collect($attributes)->first(fn($value, $key) => str($key)->contains('wire:model'))
             ?? $attributes['id'] ?? $attributes['name'] ?? $label;
 @endphp
-@dump($attributes->get('value', ''))
 <div class="w-full" x-data="{ model_value: $wire.model.{{$attributes['name']}} }"
     {{--     data-te-input-wrapper-init--}}
 >
