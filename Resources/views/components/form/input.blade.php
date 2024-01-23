@@ -17,31 +17,7 @@
 @endphp
 <div class="w-full">
     @if($label || $attributes->get('label'))
-        <x-lte::label :for="$field" :value="$label ?? $attributes->get('label')" required/>
-
-        {{--<label
-            @class([
-                "pointer-events-none max-w-[90%]",
-                "origin-[0_0] truncate" => false,
-                "leading-[1.5]" => false,
-                "mb-0",
-                "transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none",
-                "text-neutral-700 dark:text-neutral-200",
-                "peer-focus:text-primary dark:peer-focus:text-primary",
-
-                "absolute top-0 mb-0" => false,
-                "text-red-700 text-bold" => $errors->has($field),
-                "relative",
-            ]) title="{{$label}} @if($required){{trans('required')}}@endif"
-            for="{{$attributes->get('id')}}"
-        >
-            {{trim($label ?: $attributes->get('label'))}}
-            @if($required)
-                <i class="fas fa-asterisk text-danger -mt-[2px] absolute top-1.5 -right-2.5"
-                   style="font-size: 7px;"></i>
-            @endif
-
-        </label>--}}
+        <x-lte::label :for="$field" :value="$label ?? $attributes->get('label')" :required="$attributes->get('required')"/>
     @endif
     <div class="relative" data-te-input-wrapper-init>
         <input
