@@ -25,12 +25,13 @@
     @endif
     <textarea x-cloak
         @class([
-            "peer block min-h-[auto] w-full rounded dark:border bg-transparent px-3 py-[0.32rem] leading-[1.6]",
-            "outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100",
-            "data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200",
-            "dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0",
-            "border-gray-300 dark:border-gray-700" => !$errors->get($model_.'.'.$attributes->get('id')),
-            "border dark:border-red-500" => $errors->get($model_.'.'.$attributes->get('id')),
+            "border border-gray-200",
+            "dark:border-gray-700" => !$errors->get($model_.'.'.$attributes->get('id')),
+            "dark:border-red-500" => $errors->get($model_.'.'.$attributes->get('id')),
+            "min-h-[auto] w-full rounded",
+            "px-3 py-[0.32rem] leading-[1.6]",
+            "text-neutral-700 dark:text-neutral-200",
+            "dark:placeholder:text-neutral-200" => false,
         ])
 
         {{$attributes}} x-model="model_value">
