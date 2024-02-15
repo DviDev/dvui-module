@@ -2,10 +2,10 @@
 
 namespace Modules\DvUi\Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Base\Database\Seeders\BaseSeeder;
 
-class DvUiDatabaseSeeder extends Seeder
+class DvUiDatabaseSeeder extends BaseSeeder
 {
     /**
      * Run the database seeds.
