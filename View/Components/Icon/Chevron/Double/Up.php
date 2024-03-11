@@ -23,6 +23,6 @@ class Up extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/chevron/double/up');
+        return view('dvui::components.icon.chevron.up.double');
     }
 }

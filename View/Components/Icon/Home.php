@@ -9,6 +9,6 @@ class Home extends Component
 
     public function render()
     {
-        return view('dvui::components.icon.home');
+        return view('dvui::components.icon.home.home');
     }
 }
