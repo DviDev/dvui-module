@@ -23,6 +23,6 @@ class Trash extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon.trash.trash');
+        return view('dvui::components.icon.trash.index');
     }
 }
