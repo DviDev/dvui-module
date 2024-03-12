@@ -52,7 +52,8 @@
                     <x-dvui::card-icon title="arrow.updown" icon="arrow.updown"/>
                     <x-dvui::card-icon title="at-symbol" icon="atsymbol"/>--}}
 
-                    <x-dvui::card-icon title="backspace" icon="backspace"/>
+                    {{--B--}}
+                    {{--<x-dvui::card-icon title="backspace" icon="backspace"/>
                     <x-dvui::card-icon title="backward" icon="backward"/>
                     <x-dvui::card-icon title="banknotes" icon="banknotes"/>
                     <x-dvui::card-icon title="bars.bars2" icon="bars.bars2"/>
@@ -82,7 +83,9 @@
                     <x-dvui::card-icon title="building.library" icon="building.library"/>
                     <x-dvui::card-icon title="building.office2" icon="building.office2"/>
                     <x-dvui::card-icon title="building.office" icon="building.office"/>
-                    <x-dvui::card-icon title="building.storefront" icon="building.storefront"/>
+                    <x-dvui::card-icon title="building.storefront" icon="building.storefront"/>--}}
+
+                    {{--#C--}}
                     {{--<x-dvui::card-icon title="cake" icon="cake"/>
                     <x-dvui::card-icon title="calculator" icon="calculator"/>
                     <x-dvui::card-icon title="calendar.days" icon="calendar.days"/>
@@ -101,8 +104,8 @@
                     <x-dvui::card-icon title="check.badge" icon="check.badge"/>
                     <x-dvui::card-icon title="check.circle" icon="check.circle"/>
                     <x-dvui::card-icon title="check" icon="check"/>
-                    <x-dvui::card-icon title="chevron.double.down" icon="chevron.double.down"/>
-                    <x-dvui::card-icon title="chevron.double.left" icon="chevron.double.left"/>
+                    <x-dvui::card-icon title="chevron.down.double" icon="chevron.down.double"/>
+                    <x-dvui::card-icon title="chevron.left.double" icon="chevron.left.double"/>
                     <x-dvui::card-icon title="chevron.double.right" icon="chevron.double.right"/>
                     <x-dvui::card-icon title="chevron.double.up" icon="chevron.double.up"/>
                     <x-dvui::card-icon title="chevron.down" icon="chevron.down"/>
@@ -137,7 +140,8 @@
                     <x-dvui::card-icon title="currency.rupee" icon="currency.rupee"/>
                     <x-dvui::card-icon title="currency.yen" icon="currency.yen"/>
                     <x-dvui::card-icon title="cursor.arrow.rays" icon="cursor.arrow.rays"/>
-                    <x-dvui::card-icon title="cursor.arrow.ripple" icon="cursor.arrow.ripple"/>
+                    <x-dvui::card-icon title="cursor.arrow.ripple" icon="cursor.arrow.ripple"/>--}}
+                    {{--D--}}
                     <x-dvui::card-icon title="device.phone.mobile" icon="device.phone.mobile"/>
                     <x-dvui::card-icon title="device.tablet" icon="device.tablet"/>
                     <x-dvui::card-icon title="document.arrow.down" icon="document.arrow.down"/>
@@ -150,6 +154,8 @@
                     <x-dvui::card-icon title="document.plus" icon="document.plus"/>
                     <x-dvui::card-icon title="document.text" icon="document.text"/>
                     <x-dvui::card-icon title="document" icon="document"/>
+
+                    {{--E--}}
                     <x-dvui::card-icon title="ellipsis.horizontal.circle" icon="ellipsis.horizontal.circle"/>
                     <x-dvui::card-icon title="ellipsis.horizontal" icon="ellipsis.horizontal"/>
                     <x-dvui::card-icon title="ellipsis.vertical" icon="ellipsis.vertical"/>
@@ -160,7 +166,7 @@
                     <x-dvui::card-icon title="eye.dropper" icon="eye.dropper"/>
                     <x-dvui::card-icon title="eye.slash" icon="eye.slash"/>
                     <x-dvui::card-icon title="eye" icon="eye"/>
-                    <x-dvui::card-icon title="face.frown" icon="face.frown"/>
+                    {{--<x-dvui::card-icon title="face.frown" icon="face.frown"/>
                     <x-dvui::card-icon title="face.smile" icon="face.smile"/>
                     <x-dvui::card-icon title="film" icon="film"/>
                     <x-dvui::card-icon title="finger.print" icon="finger.print"/>

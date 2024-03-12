@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\View\Components\Icon;
+namespace Modules\DvUi\View\Components\Icon\Clock;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;

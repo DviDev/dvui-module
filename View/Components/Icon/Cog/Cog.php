@@ -23,6 +23,6 @@ class Cog extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/cog/cog');
+        return view('dvui::components.icon.cog.index');
     }
 }

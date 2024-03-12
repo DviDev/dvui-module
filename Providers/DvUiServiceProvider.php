@@ -291,7 +291,6 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::icon.document.minus', Icon\Document\Minus::class);
         Blade::component('dvui::icon.document.plus', Icon\Document\Plus::class);
         Blade::component('dvui::icon.document.text', Icon\Document\Text::class);
-        Blade::component('dvui::icon.dropdown', Icon\Dropdown\Index::class);
         Blade::component('dvui::icon.ellipsis.envelope', Icon\Ellipsis\Envelope\Envelope::class);
         Blade::component('dvui::icon.ellipsis.envelope.open', Icon\Ellipsis\Envelope\Open::class);
         Blade::component('dvui::icon.ellipsis.exclamation.circle', Icon\Ellipsis\Exclamation\Circle::class);
@@ -323,7 +322,6 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::icon.globe.americas', Icon\Globe\Americas::class);
         Blade::component('dvui::icon.hand.thumb.down', Icon\Hand\Thumb\Down::class);
         Blade::component('dvui::icon.hand.thumb.up', Icon\Hand\Thumb\Up::class);
-        Blade::component('dvui::icon.hand.hashtag', Icon\Hand\Hashtag::class);
         Blade::component('dvui::icon.hand.raised', Icon\Hand\Raised::class);
         Blade::component('dvui::icon.home', Icon\Home\Home::class);
         Blade::component('dvui::icon.home.modern', Icon\Home\Modern::class);
@@ -335,7 +333,6 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::icon.list.bullet', Icon\List\Bullet::class);
         Blade::component('dvui::icon.lock.closed', Icon\Lock\Closed::class);
         Blade::component('dvui::icon.lock.open', Icon\Lock\Open::class);
-        Blade::component('dvui::icon.magnifying', Icon\Magnifying\Magnifying::class);
         Blade::component('dvui::icon.magnifying.glass', Icon\Magnifying\Glass::class);
         Blade::component('dvui::icon.magnifying.glass.circle', Icon\Magnifying\Glass\Circle::class);
         Blade::component('dvui::icon.magnifying.glass.minus', Icon\Magnifying\Glass\Minus::class);
@@ -345,7 +342,6 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::icon.menu.menu', Icon\Menu\Menu::class);
         Blade::component('dvui::icon.minus', Icon\Minus\Minus::class);
         Blade::component('dvui::icon.minus.circle', Icon\Minus\Circle::class);
-        Blade::component('dvui::icon.minus.small', Icon\Minus\Small::class);
         Blade::component('dvui::icon.musical.note', Icon\Musical\Note::class);
         Blade::component('dvui::icon.paint.brush', Icon\Paint\Brush::class);
         Blade::component('dvui::icon.paper.airplane', Icon\Paper\Airplane::class);
@@ -363,7 +359,6 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::icon.play.pause', Icon\Play\Pause::class);
         Blade::component('dvui::icon.plus', Icon\Plus\Plus::class);
         Blade::component('dvui::icon.plus.circle', Icon\Plus\Circle::class);
-        Blade::component('dvui::icon.plus.small', Icon\Plus\Small::class);
         Blade::component('dvui::icon.presentation.chart.bar', Icon\Presentation\Chart\Bar::class);
         Blade::component('dvui::icon.presentation.chart.line', Icon\Presentation\Chart\Line::class);
         Blade::component('dvui::icon.puzzle.piece', Icon\Puzzle\Piece::class);
@@ -416,7 +411,6 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::icon.stop.circle', Icon\Stop\Circle::class);
         Blade::component('dvui::icon.table.cells', Icon\Table\Cells::class);
         Blade::component('dvui::icon.trash', Icon\Trash\Trash::class);
-        Blade::component('dvui::icon.up.left', Icon\Up\Left::class);
         Blade::component('dvui::icon.user', Icon\User\User::class);
         Blade::component('dvui::icon.user.circle', Icon\User\Circle::class);
         Blade::component('dvui::icon.user.group', Icon\User\Group::class);
@@ -439,7 +433,7 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::icon.briefcase', Icon\Briefcase\Briefcase::class);
         Blade::component('dvui::icon.cake', Icon\Cake\Cake::class);
         Blade::component('dvui::icon.calculator', Icon\Calculator\Calculator::class);
-        Blade::component('dvui::icon.clock', Icon\Clock::class);
+        Blade::component('dvui::icon.clock', Icon\Clock\Clock::class);
         Blade::component('dvui::icon.film', Icon\Film\Film::class);
         Blade::component('dvui::icon.fire', Icon\Fire\Fire::class);
         Blade::component('dvui::icon.flag', Icon\Flag\Flag::class);
@@ -448,7 +442,6 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::icon.gift', Icon\Gif\Gif::class);
         Blade::component('dvui::icon.hashtag', Icon\Hashtag\Hashtag::class);
         Blade::component('dvui::icon.heart', Icon\Heart\Heart::class);
-        Blade::component('dvui::icon.home', Icon\Home::class);
         Blade::component('dvui::icon.identification', Icon\Identification\Identification::class);
         Blade::component('dvui::icon.index', Icon\Icon::class);
         Blade::component('dvui::icon.instagram', Icon\Instagram\Instagram::class);
@@ -466,7 +459,6 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::icon.printer', Icon\Printer\Printer::class);
         Blade::component('dvui::icon.qrcode', Icon\Qrcode\Qrcode::class);
         Blade::component('dvui::icon.radio', Icon\Radio\Radio::class);
-        Blade::component('dvui::icon.receiptpercent', Icon\ReceiptPercent\ReceiptPercent::class);
         Blade::component('dvui::icon.rss', Icon\Rss\Rss::class);
         Blade::component('dvui::icon.scale', Icon\Scale\Scale::class);
         Blade::component('dvui::icon.scissors', Icon\Scissors\Scissors::class);
