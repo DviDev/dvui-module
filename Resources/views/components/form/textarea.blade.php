@@ -39,8 +39,8 @@
     </textarea>
 
     <div class="text-right text-gray-400 text-xs flex justify-end">
-        <span x-html="model_value.length"></span>
-        <span>/{{$attributes->get('maxlength', 0) }}</span>
+        {{--        <span x-html="model_value ? model_value.length : 0"></span>/--}}
+        <span>{{$attributes->get('maxlength', 0) }}</span>
     </div>
     @error($model_.'.'.($attributes->get('id') ?? null))
     <div class="text-red-500">{{$message}}</div>

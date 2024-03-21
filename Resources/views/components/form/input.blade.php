@@ -19,7 +19,7 @@
     @if($label || $attributes->get('label'))
         <x-lte::label :for="$field" :value="$label ?? $attributes->get('label')" :required="$attributes->get('required')"/>
     @endif
-    <div class="relative" data-te-input-wrapper-init>
+        <div class="relative">
         <input
             type="{{$attributes->get('type') ?: 'text'}}"
             {{$attributes->class([
