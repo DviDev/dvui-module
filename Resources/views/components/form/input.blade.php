@@ -25,8 +25,8 @@
             {{$attributes->class([
                 "leading-[1.5]" => !$attributes->has('type') || $attributes->get('type') == 'date',
                 "leading-[1.6]" => $attributes->get('type') !== 'date',
-
-                "border peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem]  outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0",
+                "bg-transparent" => false, //se usar wire:loading.class="bg-gray-200" ñ funciona se bg-transparent=true
+                "border peer block min-h-[auto] w-full rounded  px-3 py-[0.32rem]  outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0",
                 "border-gray-200 dark:border-0 dark:border-gray-700" => !$errors->has($field),
                 "border-red-500" => $errors->has($field),
             ])}}
