@@ -23,6 +23,6 @@ class Down extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/chevron/double/down');
+        return view('dvui::components.icon.chevron.down.double');
     }
 }

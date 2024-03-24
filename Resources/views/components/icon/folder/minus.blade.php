@@ -5,12 +5,21 @@
 ])
 @if($fill)
     <x-dvui::icon {{$attributes}} solid>
+        <path fill-rule="evenodd"
+              d="M19.5 21a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3h-5.379a.75.75 0 0 1-.53-.22L11.47 3.66A2.25 2.25 0 0 0 9.879 3H4.5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h15ZM9 12.75a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5H9Z"
+              clip-rule="evenodd"/>
     </x-dvui::icon>
 @elseif($mini)
     <x-dvui::icon {{$attributes}} mini>
+        <path fill-rule="evenodd"
+              d="M2 4.75C2 3.784 2.784 3 3.75 3h4.836c.464 0 .909.184 1.237.513l1.414 1.414a.25.25 0 0 0 .177.073h4.836c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 16.25 17H3.75A1.75 1.75 0 0 1 2 15.25V4.75Zm10.25 7a.75.75 0 0 0 0-1.5h-4.5a.75.75 0 0 0 0 1.5h4.5Z"
+              clip-rule="evenodd"/>
     </x-dvui::icon>
 @elseif($micro)
     <x-dvui::icon {{$attributes}} micro>
+        <path fill-rule="evenodd"
+              d="M3.5 2A1.5 1.5 0 0 0 2 3.5v9A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 12.5 4H9.621a1.5 1.5 0 0 1-1.06-.44L7.439 2.44A1.5 1.5 0 0 0 6.38 2H3.5Zm6.75 7.75a.75.75 0 0 0 0-1.5h-4.5a.75.75 0 0 0 0 1.5h4.5Z"
+              clip-rule="evenodd"/>
     </x-dvui::icon>
 @else
     <x-dvui::icon {{$attributes}} outline>

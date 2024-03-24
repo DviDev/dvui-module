@@ -23,6 +23,6 @@ class Right extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/chevron/double/right');
+        return view('dvui::components.icon/chevron/right/double');
     }
 }

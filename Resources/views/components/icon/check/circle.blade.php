@@ -11,9 +11,15 @@
     </x-dvui::icon>
 @elseif($mini)
     <x-dvui::icon {{$attributes}} mini>
+        <path fill-rule="evenodd"
+              d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+              clip-rule="evenodd"/>
     </x-dvui::icon>
 @elseif($micro)
     <x-dvui::icon {{$attributes}} micro>
+        <path fill-rule="evenodd"
+              d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Zm3.844-8.791a.75.75 0 0 0-1.188-.918l-3.7 4.79-1.649-1.833a.75.75 0 1 0-1.114 1.004l2.25 2.5a.75.75 0 0 0 1.15-.043l4.25-5.5Z"
+              clip-rule="evenodd"/>
     </x-dvui::icon>
 @else
     <x-dvui::icon {{$attributes}} outline>
