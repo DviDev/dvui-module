@@ -4,7 +4,7 @@ namespace Modules\DvUi\View\Components\Icon\Arrow\Right;
 
 use Illuminate\View\Component;
 
-class OnRectangle extends Component
+class StartOnRectangle extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class OnRectangle extends Component
      */
     public function render()
     {
-        return view('dvui::components.icon/arrow/right/onrectangle');
+        return view('dvui::components.icon.arrow.right.startonrectangle');
     }
 }

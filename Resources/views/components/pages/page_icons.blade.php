@@ -27,7 +27,8 @@
                     <x-dvui::card-icon title="arrow.path.roundedsquare" icon="arrow.path.roundedsquare"/>
                     <x-dvui::card-icon title="arrow.right" icon="arrow.right"/>
                     <x-dvui::card-icon title="arrow.right.circle" icon="arrow.right.circle"/>
-                    <x-dvui::card-icon title="arrow.right.onrectangle" icon="arrow.right.onrectangle"/>
+                    <x-dvui::card-icon title="arrow.right.endonrectangle" icon="arrow.right.endonrectangle"/>
+                    <x-dvui::card-icon title="arrow.right.startonrectangle" icon="arrow.right.startonrectangle"/>
                     <x-dvui::card-icon title="arrow.down.small" icon="arrow.down.small"/>
                     <x-dvui::card-icon title="arrow.left.small" icon="arrow.left.small"/>
                     <x-dvui::card-icon title="arrow.right.small" icon="arrow.right.small"/>

@@ -181,7 +181,7 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::icon.arrow.right', Arrow\Right\Right::class);
         Blade::component('dvui::icon.arrow.right.circle', Arrow\Right\Circle::class);
         Blade::component('dvui::icon.arrow.right.long', Arrow\Right\Long::class);
-        Blade::component('dvui::icon.arrow.right.onretangle', Arrow\Right\OnRectangle::class);
+        Blade::component('dvui::icon.arrow.right.onretangle', Arrow\Right\StartOnRectangle::class);
         Blade::component('dvui::icon.arrow.right.small', Arrow\Right\Small::class);
         Blade::component('dvui::icon.arrow.right.uturn', Arrow\Right\Uturn::class);
         Blade::component('dvui::icon.arrow.right.uturn', Arrow\Right\Uturn::class);
