@@ -15,7 +15,8 @@
     <button
         type="{{$type ?? 'button'}}"
         {{$attributes->class([
-            'inline-block font-medium focus:outline-none focus:ring-0 transition duration-150 ease-in-out',
+            'inline-block font-medium transition duration-150 ease-in-out',
+            'focus:outline-none focus:ring-0' => false,
             'shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg' => $shadow,
             'active:bg-blue-800 active:text-white text-white' => ($primary && !$noColor),
             'active:bg-purple-800 active:text-white' => $secondary,
