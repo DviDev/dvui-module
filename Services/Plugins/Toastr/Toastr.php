@@ -46,18 +46,18 @@ class Toastr
         return $this;
     }
 
-    public function warning(string $msg): self
+    public function warning(string $msg): void
     {
         $this->msg = $msg;
         $this->type = 'warning';
-        return $this;
+        $this->dispatch();
     }
 
-    public function error(string $msg): self
+    public function error(string $msg): void
     {
         $this->msg = $msg;
         $this->type = 'error';
-        return $this;
+        $this->dispatch();
     }
 
     public function position(Position $position): self
