@@ -1,18 +1,15 @@
 @php
     $array = $attributes->getAttributes();
-//    $array['heading'] = $heading;
     $array['title'] = $title;
-//    $array['content'] = $content;
-//    $array['footer'] = $footer;
 
     $attributes->setAttributes(collect($array)->merge($attr)->filter()->all());
 
 @endphp
 <!-- card -->
 <div {{$attributes->class([
-        'dark:divide-gray-700 divide-y divide-dashed md:divide-solid',
-        'bg-white' => !config('app.dark_mode') && !$onlyClassesStartWith('bg-'),
-        'dark:bg-gray-800' => config('app.dark_mode') && !$onlyClassesStartWith('bg-'),
+        'dark:divide-gray-700 divide-y',
+        'bg-white' => !$onlyClassesStartWith('bg-'),
+        'dark:bg-gray-800' => !$onlyClassesStartWith('bg-'),
         'rounded' => !$onlyClassesStartWith('border'),
     ])}}>
     <!-- header -->
