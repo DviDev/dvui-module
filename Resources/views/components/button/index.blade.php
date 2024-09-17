@@ -100,7 +100,7 @@
         {{$attributes}}
     >
         @if(!empty($icon))
-            <i class="fas {{$icon}}"></i>
+            <i class="{{$icon}}"></i>
             @if(!empty($label) or !empty($title))
                 <span class="ml-1">
                 {{$label ?? $title}}
