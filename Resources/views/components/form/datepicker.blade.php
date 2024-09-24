@@ -10,18 +10,21 @@
 
     $attributes->setAttributes($array);
 @endphp
-<div @class(["w-full"])>
-    <label
+<div @class(["w-full flex flex-col"])>
+    @if($attributes->has('label'))
+        <label>{{$attributes->get('label')}}</label>
+    @endif
+    {{--<label
         for="{{$attributes->get('id')}}"
         @class([
             "pointer-events-none left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary",
             "absolute top-0" => false
         ])>
         {{$attributes->get('label')}}
-    </label>
-    <div class="relative"
+    </label>--}}
+    {{--<div class="relative"
          id="{{$attributes->get('id')}}"
-         {{--         data-te-datepicker-init--}}
+         --}}{{--         data-te-datepicker-init--}}{{--
          data-te-input-wrapper-init
          data-te-format="yyyy-mm-dd"
     >
@@ -39,10 +42,12 @@
             class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">
             date
         </label>
-    </div>
+    </div>--}}
+    @dump('wip')
+    {{--<input type="date" {{$attributes}}>--}}
 </div>
 
-@push('scripts')
+{{--@push('scripts')
     <script type="module">
         import {
             initTE,
@@ -61,4 +66,4 @@
 
 
     </script>
-@endpush
+@endpush--}}
