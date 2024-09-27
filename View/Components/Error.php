@@ -11,7 +11,7 @@ class Error extends Component
      *
      * @return void
      */
-    public function __construct(public string $field)
+    public function __construct()
     {
         //
     }
