@@ -2,7 +2,7 @@
     'field' => null
 ])
 @php
-    $field = collect($attributes)->first(function($value, $key) {
+    $field = $field ?: collect($attributes)->first(function($value, $key) {
         return str($key)->contains('wire:model')
             ?? $attributes['id'] ?? $attributes['name'] ?? $attributes->get('label');
     })
