@@ -17,7 +17,7 @@
     $field = collect($attributes)->first(fn($value, $key) => str($key)->contains('wire:model'))
             ?? $attributes['id'] ?? $attributes['name'] ?? $label;
 @endphp
-<div class="w-full" x-data="{ model_value: $wire.model.{{$attributes['name']}} }"
+<div class="w-full" x-data="{ model_value: $wire.{{$model_}}.{{$attributes['name']}} }"
     {{--     data-te-input-wrapper-init--}}
 >
     @if($label || $attributes->get('label'))
