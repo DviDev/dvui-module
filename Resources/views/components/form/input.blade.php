@@ -31,9 +31,7 @@
                 "border-red-500" => $errors->has($field),
             ])}}
             {{$attributes}}/>
-        @error("model.{$attributes->get('id')}")
-        <div class="text-red-500">{{$message}}</div>
-        @enderror
+
         <x-dvui::error :field="$field"/>
     </div>
 </div>
