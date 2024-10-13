@@ -1,6 +1,7 @@
 @props([
     'label' => null,
-    'attrs' => []
+    'attrs' => [],
+    "validate" => true
 ])
 @php
     $model_ = collect($attributes->getAttributes())->filter(function($value, $key) {
@@ -26,8 +27,9 @@
     <textarea x-cloak
         @class([
             "border border-gray-200",
-            "dark:border-gray-700" => !$errors->get($model_.'.'.$attributes->get('id')),
-            "dark:border-red-500" => $errors->get($model_.'.'.$attributes->get('id')),
+            "dark:border-gray-700" => !$errors->has($model_.'.'.$attributes->get('id')),
+            "dark:border-red-500" => $errors->has($model_.'.'.$attributes->get('id')),
+            "border-red-600" => $errors->has($model_.'.'.$attributes->get('id')),
             "min-h-[auto] w-full rounded",
             "px-3 py-[0.32rem] leading-[1.6]",
             "text-neutral-700 dark:text-neutral-200",
@@ -42,7 +44,10 @@
         <span x-html="model_value ? model_value.length : 0"></span>/
         <span>{{$attributes->get('maxlength', 0) }}</span>
     </div>
-    @error($model_.'.'.($attributes->get('id') ?? null))
-    <div class="text-red-500">{{$message}}</div>
-    @enderror
+
+    @if($validate)
+        @error($model_.'.'.($attributes->get('id') ?? null))
+        <div class="text-red-500">{{$message}}</div>
+        @enderror
+    @endif
 </div>
