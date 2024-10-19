@@ -24,7 +24,7 @@
         <x-lte::label :for="$field" :value="$label ?? $attributes->get('label')"
                       :required="$attributes->get('required')"/>
     @endif
-    <textarea x-cloak
+        <textarea
         @class([
             "border border-gray-200",
             "dark:border-gray-700" => !$errors->has($model_.'.'.$attributes->get('id')),
@@ -35,8 +35,8 @@
             "text-neutral-700 dark:text-neutral-200",
             "dark:placeholder:text-neutral-200" => false,
         ])
-
-        {{$attributes}} x-model="model_value">
+        {{$attributes}}
+        x-model="model_value">
         {{$attributes->get('value')}}
     </textarea>
 
