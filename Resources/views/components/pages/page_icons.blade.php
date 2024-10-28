@@ -1,3 +1,10 @@
+@pushonce('livewire_styles')
+    @livewireStyles
+@endpushonce
+@pushonce('livewire_scripts')
+    @livewireScripts
+    @livewireScriptConfig
+@endpushonce
 <x-lte::layout.v1.page title="Icons" header="DvUi Heroicons Blade components">
     <div class="flex-col h-full">
         <x-lte::card title="Icons">

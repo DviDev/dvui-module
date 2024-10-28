@@ -10,7 +10,7 @@
     $primary = !$orange
 @endphp
 <div class="mb-[0.125rem] inline-block  pl-[1.5rem]">
-    <input
+    <input @style(['color:#fff' => $orange])
         @class([
             "relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none",
             "border-2 border-solid rounded-full",
