@@ -36,7 +36,7 @@ abstract class BaseBladeComponent extends Component
             ?? $attributes['id'] ?? $attributes['name'] ?? $this->label;
     }
 
-    protected function published($name): bool
+    public static function published($name): bool
     {
         $component = str($name)->explode('.')->join('/');
         $filename = resource_path('views/components/' . $component . '.blade.php');
