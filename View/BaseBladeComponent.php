@@ -2,6 +2,7 @@
 
 namespace Modules\DvUi\View;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\View\Component;
 use Modules\DvUi\Entities\ComponentCheck;
 
@@ -33,5 +34,12 @@ abstract class BaseBladeComponent extends Component
     {
         return collect($attributes)->first(fn($value, $key) => str($key)->contains('wire:model'))
             ?? $attributes['id'] ?? $attributes['name'] ?? $this->label;
+    }
+
+    public static function published($name): bool
+    {
+        $component = str($name)->explode('.')->join('/');
+        $filename = resource_path('views/components/' . $component . '.blade.php');
+        return File::exists($filename);
     }
 }

@@ -25,7 +25,12 @@ trait ComponentCheck
 
     public function onlyClassesStartWith($string, ComponentSlot $target = null)
     {
-        $classes = $target ? $target->attributes->get('class') : $this->attributes['class'];
+        return static::classesStartWith($string, $target, $this->attributes['class']);
+    }
+
+    static public function classesStartWith($string, ComponentSlot $target = null, $classes = [])
+    {
+        $classes = $target ? $target->attributes->get('class') : $classes;
         return str($classes)
             ->explode(' ')
             ->filter(fn($c) => str_starts_with($c, $string))
@@ -43,7 +48,8 @@ trait ComponentCheck
     public function somethingStartsWith($term, ComponentSlot $target = null): bool
     {
         $classes = $target ? $target->attributes->get('class') : $this->attributes['class'];
-        return str($classes)->explode(' ')
+        return str($classes)
+            ->explode(' ')
             ->filter(fn($class) => str_starts_with($class, $term))
             ->isNotEmpty();
     }
