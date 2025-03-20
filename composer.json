@@ -1,6 +1,8 @@
 {
-    "name": "dvidev/dvui",
-    "description": "Blade components UI",
+    "name": "dvidev/dvui-module",
+    "type": "laravel-module",
+    "version": "2.0.1",
+    "description": "Base Blade components UI",
     "authors": [
         {
             "name": "Davi Menezes",
