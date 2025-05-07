@@ -1,8 +1,7 @@
 {
     "name": "dvidev/dvui-module",
+    "description": "Base Blade components UI - Module",
     "type": "laravel-module",
-    "version": "2.0.1",
-    "description": "Base Blade components UI",
     "authors": [
         {
             "name": "Davi Menezes",
@@ -20,6 +19,9 @@
     "autoload": {
         "psr-4": {
             "Modules\\DvUi\\": ""
-        }
+        },
+        "files": [
+            "helpers.php"
+        ]
     }
 }
