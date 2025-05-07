@@ -4,5 +4,5 @@ use Modules\DvUi\Services\Plugins\Toastr\Toastr;
 
 function toastr($instance): Toastr
 {
-    return Modules\DvUi\Services\Plugins\Toastr\Toastr::instance($instance);
+    return Toastr::instance($instance);
 }
