@@ -19,9 +19,6 @@
     "autoload": {
         "psr-4": {
             "Modules\\DvUi\\": ""
-        },
-        "files": [
-            "helpers.php"
-        ]
+        }
     }
 }
