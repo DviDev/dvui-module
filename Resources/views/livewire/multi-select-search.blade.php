@@ -32,8 +32,8 @@
         <x-flowbite::form.input
             placeholder="{{ $placeholder }}"
             title="{{$title}}"
-                                id="{{$id}}"
-                                x-model="searchTerm"
+            id="{{$id}}"
+            x-model="searchTerm"
             @input="checkAndSetSearch()"
         />
 
