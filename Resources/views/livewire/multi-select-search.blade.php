@@ -29,14 +29,15 @@
         }"
 >
     <div>
-        <x-flowbite::form.input placeholder="cnae (ramo de atividade)"
+        <x-flowbite::form.input
+            placeholder="{{ $placeholder }}"
+            title="{{$title}}"
                                 id="{{$id}}"
-                                title="Pesquise por {{ implode(', ', $searchFields) }}..."
                                 x-model="searchTerm"
-                                @input="checkAndSetSearch()"/>
+            @input="checkAndSetSearch()"
+        />
 
-        <p class="text-xs text-red-600" x-text="msg"></p>
-
+        <p class="text-xs text-red-600" x-text="msg" x-show="msg" x-cloak></p>
     </div>
 
     {{-- Lista de Resultados da Busca --}}
@@ -44,7 +45,7 @@
         "max-h-60 overflow-y-auto",
         "border border-gray-200 rounded-md"
         ])
-         x-show="searchResults.length > 0 || loading"
+         x-show="searchResults.length > 0 || loading" x-cloak
     >
         <div x-show="loading || searchResults.length > 0" x-cloak>
             <div class="space-y-2 mt-1 p-2" x-show="loading && searchResults.length == 0" x-cloak>
