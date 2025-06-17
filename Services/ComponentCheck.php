@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\Entities;
+namespace Modules\DvUi\Services;
 
 use Illuminate\View\ComponentSlot;
 
