@@ -41,7 +41,7 @@ class MultiSelectSearch extends Component
         $this->searchKey = $searchKey;
         $this->displayKey = $displayKey;
         $this->query_limit = $limit;
-        $this->id = $id ?? 'input_' . now()->timestamp . \Str::random(5);
+        $this->id = $id;
     }
 
     public function updatedSearchTerm(): void
@@ -52,22 +52,13 @@ class MultiSelectSearch extends Component
             return;
         }
 
-        $model = app($this->modelClass);
+        $getting_via_db = false;
 
-        $query = $model::query()
-            ->when($this->searchTerm, function (Builder $query) {
-                foreach ($this->searchFields as $field) {
-                    $query->orWhere($field, 'like', '%' . $this->searchTerm . '%');
-                }
-            });
-        if ($this->query_limit) {
-            $query->limit($this->query_limit); // Limita o número de resultados para otimização
+        $this->searchResults = $this->getItems($getting_via_db);
+
+        if ($getting_via_db) {
+            $this->dispatch('SearchTerm-Updated', ['componentId' => $this->id])->self();
         }
-        $this->searchResults = $query->get()
-            ->toArray(); // Converte para array para evitar problemas de reatividade com objetos Eloquent complexos
-
-        $this->dispatch('SearchTerm-Updated', ['componentId' => $this->id]);
-
         $this->componentLoading = false;
     }
 
@@ -148,5 +139,27 @@ class MultiSelectSearch extends Component
         return [
             'searchTerm' => collect($this->searchFields)->join(', '),
         ];
+    }
+
+    protected function getItems(&$get_via_db)
+    {
+        $cache_key = 'multi-select-search-' . $this->id . '-' . $this->searchTerm;
+        return cache()->rememberForever($cache_key, function () use (&$get_via_db) {
+            $get_via_db = true;
+
+            $model = app($this->modelClass);
+
+            $query = $model::query()
+                ->when($this->searchTerm, function (Builder $query) {
+                    foreach ($this->searchFields as $field) {
+                        $query->orWhere($field, 'like', '%' . $this->searchTerm . '%');
+                    }
+                });
+            if ($this->query_limit) {
+                $query->limit($this->query_limit); // Limita o número de resultados para otimização
+            }
+            return $query->get()
+                ->toArray(); // Converte para array para evitar problemas de reatividade com objetos Eloquent complexos
+        });
     }
 }
