@@ -25,5 +25,10 @@ return [
         'text-7',
         'text-8',
         'text-9'
+    ],
+    'components' => [
+        'multi-select-search' => [
+            'show_selected_items' => env('DVUI_MULTI_SELECT_SEARCH_SHOW_SELECTED_ITEMS', true),
+        ],
     ]
 ];

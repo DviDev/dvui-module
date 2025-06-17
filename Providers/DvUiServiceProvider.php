@@ -2,9 +2,10 @@
 
 namespace Modules\DvUi\Providers;
 
-use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
+use Modules\DvUi\Livewire\MultiSelectSearch;
 use Modules\DvUi\View\Components;
 use Modules\DvUi\View\Components\Alert;
 use Modules\DvUi\View\Components\Badge;
@@ -479,12 +480,14 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::form.fileinput', Components\Form\FileInput::class);
         Blade::component('dvui::form.input', Components\Form\Input::class);
         Blade::component('dvui::form.textarea', Components\Form\Textarea::class);
+        Blade::component('dvui::form.select', Components\Form\Select::class);
+        Blade::component('dvui::form.select.item', Components\Form\Select\Item::class);
+        Livewire::component('dvui::form.multi-select-search', MultiSelectSearch::class);
+
         Blade::component('dvui::list.group', Components\List\Group\Group::class);
         Blade::component('dvui::list.group.item', Components\List\Group\Item::class);
         Blade::component('dvui::list.group.link', Components\List\Group\Link::class);
         Blade::component('dvui::offcanvas.button', Components\Offcanvas\Button::class);
-        Blade::component('dvui::form.select', Components\Form\Select::class);
-        Blade::component('dvui::form.select.item', Components\Form\Select\Item::class);
         Blade::component('dvui::stepper', Components\Stepper\Stepper::class);
         Blade::component('dvui::stepper.item', Components\Stepper\Item::class);
         Blade::component('dvui::stepper.item.content', Components\Stepper\Item\Content::class);

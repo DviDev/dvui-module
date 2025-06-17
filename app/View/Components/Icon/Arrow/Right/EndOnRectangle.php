@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DvUi\App\View\Components\Icon\Arrow\Right;
+namespace Modules\DvUi\View\Components\Icon\Arrow\Right;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
