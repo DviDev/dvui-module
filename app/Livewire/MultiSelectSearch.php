@@ -5,8 +5,11 @@ namespace Modules\DvUi\Livewire;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 
-class MultiSelectSearchDois extends Component
+class MultiSelectSearch extends Component
 {
+    public string $placeholder;
+    public string $title;
+
     public string $modelClass;
     public array $searchFields;
     // Key to identify the selected item (ex: 'id', 'code', 'name')
@@ -118,7 +121,7 @@ class MultiSelectSearchDois extends Component
 
     public function render()
     {
-        return view('dvui::livewire.multi-select-search_dois');
+        return view('dvui::livewire.multi-select-search');
     }
 
     // Remove um item da lista de selecionados
