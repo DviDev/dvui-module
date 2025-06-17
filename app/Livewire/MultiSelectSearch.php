@@ -141,7 +141,7 @@ class MultiSelectSearch extends Component
         ];
     }
 
-    protected function getItems(&$get_via_db)
+    protected function getItems(&$get_via_db): array
     {
         $cache_key = 'multi-select-search-' . $this->id . '-' . $this->searchTerm;
         return cache()->rememberForever($cache_key, function () use (&$get_via_db) {
