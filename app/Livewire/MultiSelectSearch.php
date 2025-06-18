@@ -22,14 +22,18 @@ class MultiSelectSearch extends Component
     public array $selectedItems = [];
     public $componentLoading = false;
     public $id;
-    protected $listeners = [
-        'multiSelectRemoveItem' => 'removeItemById',
-    ];
+    public $event;
+    public $eventItemAdded;
+    public $eventItemRemoved;
+
     private $query_limit;
 
     public function mount(
         string     $modelClass,
         array      $searchFields,
+        string $event = 'SearchTerm-Updated',
+        string $eventItemAdded = 'multiSelectSearchItemAdded',
+        string $eventItemRemoved = 'multiSelectSearchItemRemoved',
         ?string    $searchKey = 'id',
         ?string    $displayKey = 'name',
         int        $limit = null,
@@ -42,6 +46,9 @@ class MultiSelectSearch extends Component
         $this->displayKey = $displayKey;
         $this->query_limit = $limit;
         $this->id = $id;
+        $this->event = $event;
+        $this->eventItemAdded = $eventItemAdded;
+        $this->eventItemRemoved = $eventItemRemoved;
     }
 
     public function updatedSearchTerm(): void
@@ -57,35 +64,9 @@ class MultiSelectSearch extends Component
         $this->searchResults = $this->getItems($getting_via_db);
 
         if ($getting_via_db) {
-            $this->dispatch('SearchTerm-Updated', ['componentId' => $this->id])->self();
+            $this->dispatch($this->event)->self();
         }
         $this->componentLoading = false;
-    }
-
-    public function addItem(int $itemId): void
-    {
-        $model = app($this->modelClass);
-        $item = $model::query()->firstWhere($this->searchKey, $itemId);
-        if ($item) {
-            $itemArray = $item->toArray();
-            // Verifica se o item já foi selecionado para evitar duplicatas
-            if (!in_array($itemArray[$this->searchKey], array_column($this->selectedItems, $this->searchKey))) {
-                $this->selectedItems[] = $itemArray;
-                // Emite um evento para o componente pai com o item selecionado
-                $this->dispatch('multi-select-item-added', item: $itemArray, componentId: $this->getId());
-            }
-        }
-        //$this->searchTerm = ''; // Limpa o campo de busca após a seleção
-        //$this->searchResults = []; // Limpa os resultados da busca
-    }
-
-    public function removeItem(int $itemKey): void
-    {
-        $this->selectedItems = array_filter($this->selectedItems, function ($item) use ($itemKey) {
-            return $item[$this->searchKey] !== $itemKey;
-        });
-        // Emite um evento para o componente pai com o item removido
-        $this->dispatch('multi-select-item-removed', itemKey: $itemKey, componentId: $this->getId());
     }
 
     public function toggleSelection($itemId): void
@@ -97,14 +78,14 @@ class MultiSelectSearch extends Component
             //addItem
             if (!in_array($itemArray[$this->searchKey], array_column($this->selectedItems, $this->searchKey))) {
                 $this->selectedItems[] = $itemArray;
-                $this->dispatch('multi-select-item-added', item: $itemArray, componentId: $this->getId());
+                $this->dispatch($this->eventItemAdded, item: $itemArray);
                 return;
             }
 
             //remove
             $this->selectedItems = collect($this->selectedItems)->filter(fn($i) => $i[$this->searchKey] !== $itemId)->all();
 
-            $this->dispatch('multi-select-item-removed', itemKey: $itemId, componentId: $this->getId());
+            $this->dispatch($this->eventItemRemoved, itemKey: $itemId);
         }
     }
 
@@ -141,7 +122,7 @@ class MultiSelectSearch extends Component
         ];
     }
 
-    protected function getItems(&$get_via_db): array
+    protected function getItems(&$get_via_db)
     {
         $cache_key = 'multi-select-search-' . $this->id . '-' . $this->searchTerm;
         return cache()->rememberForever($cache_key, function () use (&$get_via_db) {
