@@ -65,16 +65,17 @@
             </div>
         </div>
         @foreach ($searchResults as $result)
+            @php $item_id = $this->getItemId($result[$searchKey]); @endphp
             <div class="flex items-center p-2 hover:bg-gray-50 border-b last:border-b-0">
                 <input
                     type="checkbox"
-                    id="item-{{ $result[$searchKey] }}"
+                    id="{{ $item_id }}"
                     value="{{ $result[$searchKey] }}"
                     wire:click="toggleSelection({{ $result[$searchKey] }})"
                     @checked(in_array($result[$searchKey], array_column($selectedItems, $searchKey)))
                     class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
                 >
-                <label for="item-{{ $result[$searchKey] }}" class="ml-2 block text-xs text-gray-900 cursor-pointer">
+                <label for="{{ $item_id }}" class="ml-2 block text-xs text-gray-900 cursor-pointer">
                     {{ $result[$displayKey] ?? 'N/A' }}
                     @if($searchKey !== $displayKey)
                         <div class="text-gray-500 text-xs"> ({{ $result[$searchKey] }})</div>
