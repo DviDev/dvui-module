@@ -121,7 +121,7 @@ class MultiSelectSearch extends Component
                 $query->limit($query_limit); // Limita o número de resultados para otimização
             }
             return $query
-                ->get()
+                ->get($this->searchFields)
                 ->toArray(); // Converte para array para evitar problemas de reatividade com objetos Eloquent complexos
         });
     }
