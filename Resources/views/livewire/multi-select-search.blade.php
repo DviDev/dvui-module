@@ -1,5 +1,6 @@
 @props([
     'show_selected_items' => config('dvui.components.multi-select-search.show_selected_items'),
+    'label' => null,
 ])
 <div
     x-data="{
@@ -7,6 +8,7 @@
             msg: '',
             loading: $wire.entangle('componentLoading'),
             searchResults: $wire.entangle('searchResults'),
+            list_open: false,
             checkAndSetSearch: function() {
                 if (this.searchTerm.length == 0) {
                     this.msg = '';
@@ -27,8 +29,12 @@
                 }, 900)
             }
         }"
+    @click="list_open = true" @click.outside="list_open = false"
 >
     <div>
+        @if($label)
+            <x-flowbite::form.label :id="$id" :label="$label"/>
+        @endif
         <x-flowbite::form.input
             placeholder="{{ $placeholder }}"
             title="{{$title}}"
@@ -45,7 +51,8 @@
         "max-h-60 overflow-y-auto",
         "border border-gray-200 rounded-md"
         ])
-         x-show="searchResults.length > 0 || loading" x-cloak
+         x-show="list_open" x-cloak
+{{--         x-show="searchResults.length > 0 || loading" x-cloak--}}
     >
         <div x-show="loading || searchResults.length > 0" x-cloak>
             <div class="space-y-2 mt-1 p-2" x-show="loading && searchResults.length == 0" x-cloak>

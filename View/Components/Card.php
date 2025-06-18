@@ -3,7 +3,7 @@
 namespace Modules\DvUi\View\Components;
 
 use Illuminate\View\ComponentSlot;
-use Modules\DvUi\Entities\ComponentCheck;
+use Modules\DvUi\Services\ComponentCheck;
 use Modules\DvUi\View\BaseBladeComponent;
 
 class Card extends BaseBladeComponent
