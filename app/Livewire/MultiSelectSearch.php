@@ -3,6 +3,7 @@
 namespace Modules\DvUi\Livewire;
 
 use Illuminate\Database\Eloquent\Builder;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
 
 class MultiSelectSearch extends Component
@@ -25,6 +26,8 @@ class MultiSelectSearch extends Component
     public $eventItemAdded;
     public $eventItemRemoved;
     private $query_limit;
+    #[Locked]
+    private string|null $label;
 
     public function mount(
         string     $modelClass,
@@ -36,6 +39,7 @@ class MultiSelectSearch extends Component
         ?string    $displayKey = 'name',
         int        $limit = null,
         int|string $id = null,
+        string $label = null,
     ): void
     {
         $this->modelClass = $modelClass;
@@ -44,9 +48,13 @@ class MultiSelectSearch extends Component
         $this->displayKey = $displayKey;
         $this->query_limit = $limit;
         $this->id = $id;
+        $this->label = $label;
         $this->event = $event;
         $this->eventItemAdded = $eventItemAdded;
         $this->eventItemRemoved = $eventItemRemoved;
+
+        $getting_via_db = false;
+        $this->searchResults = $this->getItems($getting_via_db, 10);
     }
 
     public function updatedSearchTerm(): void
@@ -59,7 +67,7 @@ class MultiSelectSearch extends Component
 
         $getting_via_db = false;
 
-        $this->searchResults = $this->getItems($getting_via_db);
+        $this->searchResults = $this->getItems($getting_via_db, $this->query_limit, $this->searchTerm);
 
         if ($getting_via_db) {
             $this->dispatch($this->event)->self();
@@ -67,24 +75,26 @@ class MultiSelectSearch extends Component
         $this->componentLoading = false;
     }
 
-    protected function getItems(&$get_via_db)
+    protected function getItems(&$get_via_db, $query_limit, $searchTerm = null): array
     {
-        $cache_key = 'multi-select-search-' . $this->id . '-' . $this->searchTerm;
-        return cache()->rememberForever($cache_key, function () use (&$get_via_db) {
+        $cache_key = '_multi-select-search-' . $this->id . '-'.$query_limit.'_' . $searchTerm;
+        return cache()->rememberForever($cache_key, function () use (&$get_via_db, $query_limit, $searchTerm) {
             $get_via_db = true;
 
             $model = app($this->modelClass);
+            $query = $model::query();
 
-            $query = $model::query()
-                ->when($this->searchTerm, function (Builder $query) {
+            $query->when($this->searchTerm, function (Builder $query) {
                     foreach ($this->searchFields as $field) {
                         $query->orWhere($field, 'like', '%' . $this->searchTerm . '%');
                     }
                 });
-            if ($this->query_limit) {
-                $query->limit($this->query_limit); // Limita o número de resultados para otimização
+
+            if ($query_limit) {
+                $query->limit($query_limit); // Limita o número de resultados para otimização
             }
-            return $query->get()
+            return $query
+                ->get()
                 ->toArray(); // Converte para array para evitar problemas de reatividade com objetos Eloquent complexos
         });
     }
