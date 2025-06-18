@@ -3,7 +3,7 @@
 namespace Modules\DvUi\View\Components;
 
 use Illuminate\View\Component;
-use Modules\DvUi\Entities\ComponentCheck;
+use Modules\DvUi\Services\ComponentCheck;
 
 class Chips extends Component
 {

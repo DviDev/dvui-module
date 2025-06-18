@@ -3,7 +3,7 @@
 namespace Modules\DvUi\View\Components\Carousel;
 
 use Illuminate\View\Component;
-use Modules\DvUi\Entities\ComponentCheck;
+use Modules\DvUi\Services\ComponentCheck;
 
 class Carousel extends Component
 {
