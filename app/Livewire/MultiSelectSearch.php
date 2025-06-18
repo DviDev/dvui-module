@@ -2,6 +2,7 @@
 
 namespace Modules\DvUi\Livewire;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
@@ -57,6 +58,27 @@ class MultiSelectSearch extends Component
         $this->searchResults = $this->getItems($getting_via_db, 10);
     }
 
+    protected function rules(): array
+    {
+        return [
+            'searchTerm' => 'required|min:' . $this->searchMinlength,
+        ];
+    }
+    protected function messages(): array
+    {
+        return [
+            'searchTerm.required' => "O :attribute é obrigatório.",
+            'searchTerm.min' => 'O :attribute é muito curto.',
+        ];
+    }
+
+    protected function validationAttributes(): array
+    {
+        return [
+            'searchTerm' => collect($this->searchFields)->join(', '),
+        ];
+    }
+
     public function updatedSearchTerm(): void
     {
         // Limpar resultados se o termo de busca estiver vazio
@@ -75,6 +97,11 @@ class MultiSelectSearch extends Component
         $this->componentLoading = false;
     }
 
+    public function render(): View
+    {
+        return view('dvui::livewire.multi-select-search');
+    }
+
     protected function getItems(&$get_via_db, $query_limit, $searchTerm = null): array
     {
         $cache_key = '_multi-select-search-' . $this->id . '-'.$query_limit.'_' . $searchTerm;
@@ -85,21 +112,19 @@ class MultiSelectSearch extends Component
             $query = $model::query();
 
             $query->when($this->searchTerm, function (Builder $query) {
-                    foreach ($this->searchFields as $field) {
-                        $query->orWhere($field, 'like', '%' . $this->searchTerm . '%');
-                    }
-                });
+                foreach ($this->searchFields as $field) {
+                    $query->orWhere($field, 'like', '%' . $this->searchTerm . '%');
+                }
+            });
 
             if ($query_limit) {
                 $query->limit($query_limit); // Limita o número de resultados para otimização
             }
             return $query
-                ->get()
+                ->get($this->searchFields)
                 ->toArray(); // Converte para array para evitar problemas de reatividade com objetos Eloquent complexos
         });
     }
-
-    // Adiciona um item à lista de selecionados
 
     public function toggleSelection($itemId): void
     {
@@ -121,34 +146,8 @@ class MultiSelectSearch extends Component
         }
     }
 
-    // Remove um item da lista de selecionados
-
-    public function render()
+    public function getItemId($key): string
     {
-        return view('dvui::livewire.multi-select-search');
-    }
-
-    protected function rules(): array
-    {
-        return [
-            'searchTerm' => 'required|min:' . $this->searchMinlength,
-        ];
-    }
-
-    // Renderiza a view do componente
-
-    protected function messages(): array
-    {
-        return [
-            'searchTerm.required' => "O :attribute é obrigatório.",
-            'searchTerm.min' => 'O :attribute é muito curto.',
-        ];
-    }
-
-    protected function validationAttributes(): array
-    {
-        return [
-            'searchTerm' => collect($this->searchFields)->join(', '),
-        ];
+        return $this->id . '-item-'.$key;
     }
 }
