@@ -9,7 +9,6 @@ class MultiSelectSearch extends Component
 {
     public string $placeholder;
     public string $title;
-
     public string $modelClass;
     public array $searchFields;
     // Key to identify the selected item (ex: 'id', 'code', 'name')
@@ -25,7 +24,6 @@ class MultiSelectSearch extends Component
     public $event;
     public $eventItemAdded;
     public $eventItemRemoved;
-
     private $query_limit;
 
     public function mount(
@@ -69,59 +67,6 @@ class MultiSelectSearch extends Component
         $this->componentLoading = false;
     }
 
-    public function toggleSelection($itemId): void
-    {
-        $model = app($this->modelClass);
-        $model = $model::query()->firstWhere($this->searchKey, $itemId);
-        if ($model) {
-            $itemArray = $model->toArray();
-            //addItem
-            if (!in_array($itemArray[$this->searchKey], array_column($this->selectedItems, $this->searchKey))) {
-                $this->selectedItems[] = $itemArray;
-                $this->dispatch($this->eventItemAdded, item: $itemArray);
-                return;
-            }
-
-            //remove
-            $this->selectedItems = collect($this->selectedItems)->filter(fn($i) => $i[$this->searchKey] !== $itemId)->all();
-
-            $this->dispatch($this->eventItemRemoved, itemKey: $itemId);
-        }
-    }
-
-    // Adiciona um item à lista de selecionados
-
-    public function render()
-    {
-        return view('dvui::livewire.multi-select-search');
-    }
-
-    // Remove um item da lista de selecionados
-
-    protected function rules(): array
-    {
-        return [
-            'searchTerm' => 'required|min:' . $this->searchMinlength,
-        ];
-    }
-
-    protected function messages(): array
-    {
-        return [
-            'searchTerm.required' => "O :attribute é obrigatório.",
-            'searchTerm.min' => 'O :attribute é muito curto.',
-        ];
-    }
-
-    // Renderiza a view do componente
-
-    protected function validationAttributes(): array
-    {
-        return [
-            'searchTerm' => collect($this->searchFields)->join(', '),
-        ];
-    }
-
     protected function getItems(&$get_via_db)
     {
         $cache_key = 'multi-select-search-' . $this->id . '-' . $this->searchTerm;
@@ -142,5 +87,58 @@ class MultiSelectSearch extends Component
             return $query->get()
                 ->toArray(); // Converte para array para evitar problemas de reatividade com objetos Eloquent complexos
         });
+    }
+
+    // Adiciona um item à lista de selecionados
+
+    public function toggleSelection($itemId): void
+    {
+        $model = app($this->modelClass);
+        $model = $model::query()->firstWhere($this->searchKey, $itemId);
+        if ($model) {
+            $itemArray = $model->toArray();
+            //addItem
+            if (!in_array($itemArray[$this->searchKey], array_column($this->selectedItems, $this->searchKey))) {
+                $this->selectedItems[] = $itemArray;
+                $this->dispatch($this->eventItemAdded, item: $itemArray);
+                return;
+            }
+
+            //remove
+            $this->selectedItems = collect($this->selectedItems)->filter(fn($i) => $i[$this->searchKey] !== $itemId)->all();
+
+            $this->dispatch($this->eventItemRemoved, itemKey: $itemId);
+        }
+    }
+
+    // Remove um item da lista de selecionados
+
+    public function render()
+    {
+        return view('dvui::livewire.multi-select-search');
+    }
+
+    protected function rules(): array
+    {
+        return [
+            'searchTerm' => 'required|min:' . $this->searchMinlength,
+        ];
+    }
+
+    // Renderiza a view do componente
+
+    protected function messages(): array
+    {
+        return [
+            'searchTerm.required' => "O :attribute é obrigatório.",
+            'searchTerm.min' => 'O :attribute é muito curto.',
+        ];
+    }
+
+    protected function validationAttributes(): array
+    {
+        return [
+            'searchTerm' => collect($this->searchFields)->join(', '),
+        ];
     }
 }
