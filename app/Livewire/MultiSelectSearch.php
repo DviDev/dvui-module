@@ -29,9 +29,9 @@ class MultiSelectSearch extends Component
     public function mount(
         string     $modelClass,
         array      $searchFields,
-        string $event = 'SearchTerm-Updated',
-        string $eventItemAdded = 'multiSelectSearchItemAdded',
-        string $eventItemRemoved = 'multiSelectSearchItemRemoved',
+        string     $event = 'SearchTerm-Updated',
+        string     $eventItemAdded = 'multiSelectSearchItemAdded',
+        string     $eventItemRemoved = 'multiSelectSearchItemRemoved',
         ?string    $searchKey = 'id',
         ?string    $displayKey = 'name',
         int        $limit = null,
