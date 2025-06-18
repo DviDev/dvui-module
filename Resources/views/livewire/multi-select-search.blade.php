@@ -1,5 +1,6 @@
 @props([
     'show_selected_items' => config('dvui.components.multi-select-search.show_selected_items'),
+    'label' => null,
 ])
 <div
     x-data="{
@@ -29,6 +30,9 @@
         }"
 >
     <div>
+        <x-flowbite::form.label :id="$id" :label="$label"/>
+        @if($label)
+        @endif
         <x-flowbite::form.input
             placeholder="{{ $placeholder }}"
             title="{{$title}}"
