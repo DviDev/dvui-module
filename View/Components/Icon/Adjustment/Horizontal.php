@@ -2,12 +2,10 @@
 
 namespace Modules\DvUi\View\Components\Icon\Adjustment;
 
-use Illuminate\View\Component;
 use Modules\DvUi\View\Components\Icon\Icon;
 
 class Horizontal extends Icon
 {
-
     /**
      * Get the view / contents that represent the component.
      *

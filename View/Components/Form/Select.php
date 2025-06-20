@@ -6,7 +6,6 @@ use Modules\DvUi\View\BaseBladeComponent;
 
 class Select extends BaseBladeComponent
 {
-
     /**
      * Get the view / contents that represent the component.
      *

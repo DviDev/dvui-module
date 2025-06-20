@@ -10,9 +10,7 @@ class Field extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public ?string $label = null, public ?string $id = null, public array $attr = [])
-    {
-    }
+    public function __construct(public ?string $label = null, public ?string $id = null, public array $attr = []) {}
 
     /**
      * Get the view/contents that represent the component.

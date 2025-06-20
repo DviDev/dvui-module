@@ -9,6 +9,7 @@ class Alert extends Component
 {
     /**
      * Create a new component instance.
+     *
      * @return void
      */
     public function __construct(
@@ -21,9 +22,7 @@ class Alert extends Component
         public bool $purple = false,
         public bool $indigo = false,
         public bool $gray = false,
-    )
-    {
-    }
+    ) {}
 
     /**
      * Get the view / contents that represent the component.

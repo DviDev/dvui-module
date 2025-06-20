@@ -9,10 +9,7 @@ class Badge extends Component
 {
     use ComponentCheck;
 
-    public function __construct()
-    {
-//        $this->init();
-    }
+    public function __construct() {}
 
     public function render()
     {

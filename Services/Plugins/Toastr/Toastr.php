@@ -7,28 +7,46 @@ use Livewire\Component;
 class Toastr
 {
     protected Component $component;
+
     protected string $msg;
+
     protected string $type;
+
     protected Position $positionClass;
+
     protected bool $closeButton;
+
     protected bool $newestOnTop;
+
     protected bool $debug;
+
     protected bool $progressBar;
+
     protected bool $preventDuplicates;
+
     protected $onclick;
+
     protected int $showDuration;
+
     protected int $hideDuration;
+
     protected int $timeOut;
+
     protected int $extendedTimeOut;
+
     protected string $showEasing;
+
     protected string $hideEasing;
+
     protected string $showMethod;
+
     protected string $hideMethod;
 
     public static function instance(Component $component): self
     {
         $obj = new self;
         $obj->component = $component;
+
         return $obj;
     }
 
@@ -43,6 +61,7 @@ class Toastr
     {
         $this->msg = $msg;
         $this->type = 'info';
+
         return $this;
     }
 
@@ -63,90 +82,105 @@ class Toastr
     public function position(Position $position): self
     {
         $this->positionClass = $position;
+
         return $this;
     }
 
     public function dismissible(): self
     {
         $this->closeButton = true;
+
         return $this;
     }
 
     public function newestOnTop(): self
     {
         $this->newestOnTop = true;
+
         return $this;
     }
 
     public function debug(): self
     {
         $this->debug = true;
+
         return $this;
     }
 
     public function progressBar(): self
     {
         $this->progressBar = true;
+
         return $this;
     }
 
     public function preventDuplicates(): self
     {
         $this->preventDuplicates = true;
+
         return $this;
     }
 
     public function onclick($action): self
     {
         $this->onclick = $action;
+
         return $this;
     }
 
     public function showDuration(int $milliseconds): self
     {
         $this->showDuration = $milliseconds;
+
         return $this;
     }
 
     public function hideDuration(int $milliseconds): self
     {
         $this->hideDuration = $milliseconds;
+
         return $this;
     }
 
     public function timeOut(int $milliseconds): self
     {
         $this->timeOut = $milliseconds;
+
         return $this;
     }
 
     public function extendedTimeOut(int $milliseconds): self
     {
         $this->extendedTimeOut = $milliseconds;
+
         return $this;
     }
 
     public function showEasing(string $method): self
     {
         $this->showEasing = $method;
+
         return $this;
     }
 
     public function hideEasing(string $method): self
     {
         $this->hideEasing = $method;
+
         return $this;
     }
 
     public function showMethod(string $method): self
     {
         $this->showMethod = $method;
+
         return $this;
     }
 
     public function hideMethod(string $method): self
     {
         $this->hideMethod = $method;
+
         return $this;
     }
 

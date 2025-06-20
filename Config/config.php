@@ -10,7 +10,7 @@ return [
         'text-green',
         'text-pink',
         'text-red',
-        'text-slate'
+        'text-slate',
     ],
     'text-sizes' => [
         'text-xs',
@@ -24,11 +24,11 @@ return [
         'text-6',
         'text-7',
         'text-8',
-        'text-9'
+        'text-9',
     ],
     'components' => [
         'multi-select-search' => [
             'show_selected_items' => env('DVUI_MULTI_SELECT_SEARCH_SHOW_SELECTED_ITEMS', true),
         ],
-    ]
+    ],
 ];

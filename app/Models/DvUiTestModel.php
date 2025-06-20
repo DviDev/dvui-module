@@ -10,14 +10,17 @@ use Modules\DvUi\Entities\DvUiTest\DvUiTestProps;
 
 /**
  * @author Davi Menezes (davimenezes.dev@gmail.com)
+ *
  * @link https://github.com/DaviMenezes
+ *
  * @property-read DvUiTestModel $model
+ *
  * @method DvUiTestEntityModel toEntity()
  */
 class DvUiTestModel extends BaseModel
 {
-    use HasFactory;
     use DvUiTestProps;
+    use HasFactory;
 
     public static function table($alias = null): string
     {
@@ -26,7 +29,8 @@ class DvUiTestModel extends BaseModel
 
     protected static function newFactory(): BaseFactory
     {
-        return new class extends BaseFactory {
+        return new class extends BaseFactory
+        {
             protected $model = DvUiTestModel::class;
         };
     }
