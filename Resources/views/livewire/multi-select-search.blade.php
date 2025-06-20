@@ -46,14 +46,12 @@
         <p class="text-xs text-red-600" x-text="msg" x-show="msg" x-cloak></p>
     </div>
 
-    {{-- Lista de Resultados da Busca --}}
+    {{-- Search result list --}}
     <div @class(["mt-1",
         "max-h-60 overflow-y-auto",
         "border border-gray-200 rounded-md"
         ])
-         x-show="list_open" x-cloak
-{{--         x-show="searchResults.length > 0 || loading" x-cloak--}}
-    >
+         x-show="list_open" x-cloak>
         <div x-show="loading || searchResults.length > 0" x-cloak>
             <div class="space-y-2 mt-1 p-2" x-show="loading && searchResults.length == 0" x-cloak>
                 <x-flowbite::skeleton/>
@@ -71,15 +69,16 @@
                     type="checkbox"
                     id="{{ $item_id }}"
                     value="{{ $result[$searchKey] }}"
-                    wire:click="toggleSelection({{ $result[$searchKey] }})"
+                    wire:click="toggleSelection('{{ $result[$searchKey] }}')"
                     @checked(in_array($result[$searchKey], array_column($selectedItems, $searchKey)))
                     class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
                 >
                 <label for="{{ $item_id }}" class="ml-2 block text-xs text-gray-900 cursor-pointer">
-                    {{ $result[$displayKey] ?? 'N/A' }}
-                    @if($searchKey !== $displayKey)
-                        <div class="text-gray-500 text-xs"> ({{ $result[$searchKey] }})</div>
-                    @endif
+                    <span class="flex space-x-1">
+                        @foreach($displayKey as $key)
+                            <span>{{$result[$key]}}</span>
+                        @endforeach
+                    </span>
                 </label>
             </div>
         @endforeach
@@ -96,17 +95,11 @@
                             "bg-indigo-100",
                             "text-indigo-800 text-[10px] font-medium uppercase leading-4 text-center",
                             ])>
-                        {{ $selectedItem[$displayKey] ?? 'N/A' }}
-                        {{--<button
-                            type="button"
-                            wire:click="removeItem('{{ $selectedItem[$searchKey] }}')"
-                            class="flex-shrink-0 ml-1.5 h-3.5 w-3.5 rounded-full inline-flex items-center justify-center text-indigo-400 hover:bg-indigo-200 hover:text-indigo-500 focus:outline-none focus:bg-indigo-500 focus:text-white"
-                        >
-                            <span class="sr-only">Remover {{ $selectedItem[$displayKey] }}</span>
-                            <svg class="h-2 w-2" stroke="currentColor" fill="none" viewBox="0 0 8 8">
-                                <path stroke-linecap="round" stroke-width="1.5" d="M1 1l6 6m0-6L1 7" />
-                            </svg>
-                        </button>--}}
+                        <span class="flex space-x-1">
+                            @foreach($displayKey as $key)
+                                    <span>{{$result[$key]}}</span>
+                                @endforeach
+                        </span>
                     </span>
                 @endforeach
             </div>

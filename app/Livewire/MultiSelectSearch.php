@@ -14,21 +14,38 @@ class MultiSelectSearch extends Component
     public string $modelClass;
     public array $searchFields;
     // Key to identify the selected item (ex: 'id', 'code', 'name')
-    public ?string $searchKey = null;
+    public string $searchKey;
     // Key to display the item (ex: 'name', 'description')
-    public ?string $displayKey = null;
+    public array $displayKey = [];
     public string $searchTerm = '';
     public array $searchResults = [];
     public $searchMinlength = 5;
+    public ?string $groupBy = null;
     public array $selectedItems = [];
     public $componentLoading = false;
     public $id;
     public $event;
     public $eventItemAdded;
     public $eventItemRemoved;
+    public $listenerEventLoadItems;
     private $query_limit;
+    private ?int $initialQueryLimit;
     #[Locked]
     private string|null $label;
+
+    protected function getListeners()
+    {
+        return [
+            $this->listenerEventLoadItems => 'listenerEventLoadItems',
+        ];
+    }
+
+    public function listenerEventLoadItems($items, $component_id): void
+    {
+        if ($this->id == $component_id) {
+            $this->searchResults = $items;
+        }
+    }
 
     public function mount(
         string     $modelClass,
@@ -36,11 +53,13 @@ class MultiSelectSearch extends Component
         string     $event = 'SearchTerm-Updated',
         string     $eventItemAdded = 'multiSelectSearchItemAdded',
         string     $eventItemRemoved = 'multiSelectSearchItemRemoved',
-        ?string    $searchKey = 'id',
-        ?string    $displayKey = 'name',
+        string     $listenerEventLoadItems = 'multiSelectSearchLoadItems',
+        string    $searchKey = 'id',
+        array    $displayKey = ['name'],
         int        $limit = null,
         int|string $id = null,
         string $label = null,
+        ?int $initialQueryLimit = 10
     ): void
     {
         $this->modelClass = $modelClass;
@@ -53,9 +72,12 @@ class MultiSelectSearch extends Component
         $this->event = $event;
         $this->eventItemAdded = $eventItemAdded;
         $this->eventItemRemoved = $eventItemRemoved;
+        $this->listenerEventLoadItems  = $listenerEventLoadItems;
+        $this->initialQueryLimit = $initialQueryLimit;
 
         $getting_via_db = false;
-        $this->searchResults = $this->getItems($getting_via_db, 10);
+
+        $this->searchResults = $this->getItems($getting_via_db, $this->initialQueryLimit);
     }
 
     protected function rules(): array
@@ -104,11 +126,13 @@ class MultiSelectSearch extends Component
 
     protected function getItems(&$get_via_db, $query_limit, $searchTerm = null): array
     {
-        $cache_key = '_multi-select-search-' . $this->id . '-'.$query_limit.'_' . $searchTerm;
+        $cache_key = '_multi-select-search-' . $this->id .'-gb-'.$this->groupBy.'-ql-'.$query_limit.'_' . $searchTerm;
+        // cache()->delete($cache_key);
         return cache()->rememberForever($cache_key, function () use (&$get_via_db, $query_limit, $searchTerm) {
             $get_via_db = true;
 
             $model = app($this->modelClass);
+            /**@var \Illuminate\Database\Eloquent\Builder $query*/
             $query = $model::query();
 
             $query->when($this->searchTerm, function (Builder $query) {
@@ -116,6 +140,10 @@ class MultiSelectSearch extends Component
                     $query->orWhere($field, 'like', '%' . $this->searchTerm . '%');
                 }
             });
+
+            if ($this->groupBy) {
+                $query->groupBy($this->groupBy);
+            }
 
             if ($query_limit) {
                 $query->limit($query_limit); // Limita o número de resultados para otimização
