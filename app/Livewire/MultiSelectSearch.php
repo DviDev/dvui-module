@@ -108,8 +108,8 @@ class MultiSelectSearch extends Component
     protected function messages(): array
     {
         return [
-            'searchTerm.required' => 'O :attribute é obrigatório.',
-            'searchTerm.min' => 'O :attribute é muito curto.',
+            'searchTerm.required' => 'The :attribute is required.',
+            'searchTerm.min' => 'The :attribute is too short.',
         ];
     }
 
