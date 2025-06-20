@@ -6,7 +6,6 @@ use Illuminate\View\Component;
 
 class Star extends Component
 {
-//    public bool $s3 = false;
     /**
      * Create a new component instance.
      *
@@ -24,9 +23,7 @@ class Star extends Component
         public bool $default = false,
         public bool $star = false,
         public bool $fill = false,
-    )
-    {
-    }
+    ) {}
 
     /**
      * Get the view / contents that represent the component.

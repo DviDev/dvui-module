@@ -25,10 +25,7 @@ class Icon extends Component
         public bool $solid = false,
         public bool $mini = false,
         public bool $micro = false,
-    )
-    {
-        //
-    }
+    ) {}
 
     public function render()
     {
@@ -38,15 +35,15 @@ class Icon extends Component
     public function withoutSizes()
     {
         return
-            !$this->s1
-            && !$this->s2
-            && !$this->s3
-            && !$this->s4
-            && !$this->s5
-            && !$this->s6
-            && !$this->s7
-            && !$this->s8
-            && !$this->s9
-            && !$this->s10;
+            ! $this->s1
+            && ! $this->s2
+            && ! $this->s3
+            && ! $this->s4
+            && ! $this->s5
+            && ! $this->s6
+            && ! $this->s7
+            && ! $this->s8
+            && ! $this->s9
+            && ! $this->s10;
     }
 }

@@ -12,14 +12,12 @@ class Radio extends Component
      * @return void
      */
     public function __construct(
-        public string  $name,
-        public bool    $checked = false,
+        public string $name,
+        public bool $checked = false,
         public ?string $label = null,
-        public bool    $primary = false,
-        public bool    $orange = false
-    )
-    {
-    }
+        public bool $primary = false,
+        public bool $orange = false
+    ) {}
 
     /**
      * Get the view / contents that represent the component.

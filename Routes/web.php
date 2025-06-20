@@ -11,11 +11,12 @@
 |
 */
 
-Route::middleware('auth')->prefix('dvui')->group(function() {
-    Route::get('/icons', function() {
+Route::middleware('auth')->prefix('dvui')->group(function () {
+    Route::get('/icons', function () {
         if (config('app.env') == 'local') {
             cache()->delete('dvui.page.icons');
         }
-        return cache()->remember('dvui.page.icons', now()->addDay(), fn() => view('dvui::components.pages.page_icons')->render());
+
+        return cache()->remember('dvui.page.icons', now()->addDay(), fn () => view('dvui::components.pages.page_icons')->render());
     });
 });
