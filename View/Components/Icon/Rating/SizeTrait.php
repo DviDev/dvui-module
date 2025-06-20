@@ -1,6 +1,7 @@
 <?php
 
 namespace Modules\DvUi\View\Components\Icon\Rating;
+
 /**
  * @property $s1
  * @property $s2
@@ -13,7 +14,4 @@ namespace Modules\DvUi\View\Components\Icon\Rating;
  * @property $s9
  * @property $s10
  */
-trait SizeTrait
-{
-
-}
+trait SizeTrait {}

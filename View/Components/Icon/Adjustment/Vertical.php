@@ -6,7 +6,6 @@ use Modules\DvUi\View\Components\Icon\Icon;
 
 class Vertical extends Icon
 {
-
     /**
      * Get the view / contents that represent the component.
      *

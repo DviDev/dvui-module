@@ -7,6 +7,4 @@ namespace Modules\DvUi\Entities\DvUiTest;
  * @property $property1
  * @property $property2
  */
-trait DvUiTestProps
-{
-}
+trait DvUiTestProps {}

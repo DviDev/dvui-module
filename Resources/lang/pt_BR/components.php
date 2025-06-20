@@ -1,4 +1,5 @@
 <?php
+
 return [
-    'selected items' => 'Itens selecionados'
+    'selected items' => 'Itens selecionados',
 ];

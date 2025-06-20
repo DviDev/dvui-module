@@ -30,12 +30,12 @@ use Modules\DvUi\View\Components\Link;
 class DvUiServiceProvider extends ServiceProvider
 {
     /**
-     * @var string $moduleName
+     * @var string
      */
     protected $moduleName = 'DvUi';
 
     /**
-     * @var string $moduleNameLower
+     * @var string
      */
     protected $moduleNameLower = 'dvui';
 
@@ -50,7 +50,6 @@ class DvUiServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
-
 
         $this->registerComponents();
     }
@@ -73,7 +72,7 @@ class DvUiServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower . '.php'),
+            module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower.'.php'),
         ], 'config');
         $this->mergeConfigFrom(
             module_path($this->moduleName, 'Config/config.php'), $this->moduleNameLower
@@ -87,13 +86,14 @@ class DvUiServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = resource_path('views/modules/' . $this->moduleNameLower);
+        $viewPath = resource_path('views/modules/'.$this->moduleNameLower);
 
         $sourcePath = module_path($this->moduleName, 'Resources/views');
 
-        $this->publishes([
-            $sourcePath => $viewPath
-        ], ['views', $this->moduleNameLower . '-module-views']);
+        $this->publishes(
+            [$sourcePath => $viewPath],
+            ['views', $this->moduleNameLower.'-module-views']
+        );
 
         $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
     }
@@ -105,7 +105,7 @@ class DvUiServiceProvider extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $langPath = resource_path('lang/modules/' . $this->moduleNameLower);
+        $langPath = resource_path('lang/modules/'.$this->moduleNameLower);
 
         if (is_dir($langPath)) {
             $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
@@ -130,16 +130,17 @@ class DvUiServiceProvider extends ServiceProvider
     {
         $paths = [];
         foreach (\Config::get('view.paths') as $path) {
-            if (is_dir($path . '/modules/' . $this->moduleNameLower)) {
-                $paths[] = $path . '/modules/' . $this->moduleNameLower;
+            if (is_dir($path.'/modules/'.$this->moduleNameLower)) {
+                $paths[] = $path.'/modules/'.$this->moduleNameLower;
             }
         }
+
         return $paths;
     }
 
     protected function registerComponents()
     {
-        //if the component uses a class, inform here
+        // if the component uses a class, inform here
         Blade::component('dvui::alert', Alert::class);
         Blade::component('dvui::badge', Badge::class);
         Blade::component('dvui::button', Button::class);
@@ -150,7 +151,7 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::chips', Chips::class);
         Blade::component('dvui::dropdown', Dropdown::class);
         Blade::component('dvui::dropdown.item', DropdownItem::class);
-        #region[icons]
+        // region[icons]
         Blade::component('dvui::icon', Icon\Icon::class);
         Blade::component('dvui::icon.adjustment.horizontal', Horizontal::class);
         Blade::component('dvui::icon.adjustment.vertical', Vertical::class);
@@ -476,7 +477,7 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::icon.wallet', Icon\Wallet\Wallet::class);
         Blade::component('dvui::icon.wifi', Icon\Wifi\Wifi::class);
         Blade::component('dvui::icon.window', Icon\Window\Window::class);
-        #endregion
+        // endregion
         Blade::component('dvui::form.fileinput', Components\Form\FileInput::class);
         Blade::component('dvui::form.input', Components\Form\Input::class);
         Blade::component('dvui::form.textarea', Components\Form\Textarea::class);
