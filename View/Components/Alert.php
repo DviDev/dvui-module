@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components;
 
 use Illuminate\View\Component;
+
 use function view;
 
 class Alert extends Component
