@@ -42,6 +42,7 @@
             x-model="searchTerm"
             @input="checkAndSetSearch()"
         />
+        @error('searchTerm') <p class="text-xs text-red-600">{{ $message }}</p> @enderror
 
         <p class="text-xs text-red-600" x-text="msg" x-show="msg" x-cloak></p>
     </div>
@@ -51,15 +52,12 @@
         "max-h-60 overflow-y-auto",
         "border border-gray-200 rounded-md"
         ])
-         x-show="list_open" x-cloak>
+         x-show="list_open && searchResults.length > 0" x-cloak>
         <div x-show="loading || searchResults.length > 0" x-cloak>
             <div class="space-y-2 mt-1 p-2" x-show="loading && searchResults.length == 0" x-cloak>
-                <x-flowbite::skeleton/>
-                <x-flowbite::skeleton/>
-                <x-flowbite::skeleton/>
-            </div>
-            <div class="pt-1 flex justify-center" x-show="loading && searchResults.length > 0" x-cloak>
-                <x-dvui::icon.cog class="animate-spin h-5 w-5 text-gray-400"/>
+                <x-flowbite::skeleton class="py-1"/>
+                <x-flowbite::skeleton class="py-1"/>
+                <x-flowbite::skeleton class="py-1"/>
             </div>
         </div>
         @foreach ($searchResults as $result)
