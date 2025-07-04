@@ -108,14 +108,19 @@ class MultiSelectSearch extends Component
 
             $query->when($this->searchTerm, function (Builder $query) {
 
+                $terms_array = null;
+                if (str($this->searchTerm)->contains(',')) {
+                    $terms_array = str($this->searchTerm)
+                        ->explode(',')
+                        ->map(fn($i) => trim($i))
+                        ->filter()
+                        ->unique()
+                        ->all();
+                }
+
                 foreach ($this->searchFields as $field) {
-                    if (is_array($this->searchTerm)) {
-                        $terms = collect($this->searchTerm)
-                            ->map(fn ($i) => trim($i))
-                            ->filter()
-                            ->unique()
-                            ->all();
-                        $query->orWhereIn($field, $terms);
+                    if ($terms_array) {
+                        $query->orWhereIn($field, $terms_array);
 
                         continue;
                     }
