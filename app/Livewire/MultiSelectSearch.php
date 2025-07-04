@@ -23,7 +23,7 @@ class MultiSelectSearch extends Component
     // Key to display the item (ex: 'name', 'description')
     public array $displayKey = [];
 
-    public string $searchTerm = '';
+    public string|array|int $searchTerm = '';
 
     public array $searchResults = [];
 
@@ -45,19 +45,14 @@ class MultiSelectSearch extends Component
 
     public $listenerEventLoadItems;
 
+    public $validationClasses = [];
+
     private $query_limit;
 
     private ?int $initialQueryLimit;
 
     #[Locked]
     private ?string $label;
-
-    protected function getListeners()
-    {
-        return [
-            $this->listenerEventLoadItems => 'listenerEventLoadItems',
-        ];
-    }
 
     public function listenerEventLoadItems($items, $component_id): void
     {
@@ -98,54 +93,9 @@ class MultiSelectSearch extends Component
         $this->searchResults = $this->getItems($getting_via_db, $this->initialQueryLimit);
     }
 
-    protected function rules(): array
-    {
-        return [
-            'searchTerm' => 'required|min:'.$this->searchMinlength,
-        ];
-    }
-
-    protected function messages(): array
-    {
-        return [
-            'searchTerm.required' => 'The :attribute is required.',
-            'searchTerm.min' => 'The :attribute is too short.',
-        ];
-    }
-
-    protected function validationAttributes(): array
-    {
-        return [
-            'searchTerm' => collect($this->searchFields)->join(', '),
-        ];
-    }
-
-    public function updatedSearchTerm(): void
-    {
-        // Limpar resultados se o termo de busca estiver vazio
-        if (empty($this->searchTerm)) {
-            $this->searchResults = [];
-
-            return;
-        }
-
-        $getting_via_db = false;
-
-        $this->searchResults = $this->getItems($getting_via_db, $this->query_limit, $this->searchTerm);
-
-        if ($getting_via_db) {
-            $this->dispatch($this->event)->self();
-        }
-        $this->componentLoading = false;
-    }
-
-    public function render(): View
-    {
-        return view('dvui::livewire.multi-select-search');
-    }
-
     protected function getItems(&$get_via_db, $query_limit, $searchTerm = null): array
     {
+        $searchTerm = is_array($searchTerm) ? json_encode($searchTerm) : $searchTerm;
         $cache_key = '_multi-select-search-'.$this->id.'-gb-'.$this->groupBy.'-ql-'.$query_limit.'_'.$searchTerm;
 
         // cache()->delete($cache_key);
@@ -157,7 +107,18 @@ class MultiSelectSearch extends Component
             $query = $model::query();
 
             $query->when($this->searchTerm, function (Builder $query) {
+
                 foreach ($this->searchFields as $field) {
+                    if (is_array($this->searchTerm)) {
+                        $terms = collect($this->searchTerm)
+                            ->map(fn ($i) => trim($i))
+                            ->filter()
+                            ->unique()
+                            ->all();
+                        $query->orWhereIn($field, $terms);
+
+                        continue;
+                    }
                     $query->orWhere($field, 'like', '%'.$this->searchTerm.'%');
                 }
             });
@@ -174,6 +135,31 @@ class MultiSelectSearch extends Component
                 ->get($this->searchFields)
                 ->toArray(); // Converte para array para evitar problemas de reatividade com objetos Eloquent complexos
         });
+    }
+
+    public function updatedSearchTerm($value): void
+    {
+        if (empty($this->searchTerm)) {
+            $this->searchResults = [];
+
+            return;
+        }
+        $this->resetValidation('searchTerm');
+        $this->validateOnly('searchTerm');
+
+        $getting_via_db = false;
+
+        $this->searchResults = $this->getItems($getting_via_db, $this->query_limit, $this->searchTerm);
+
+        if ($getting_via_db) {
+            $this->dispatch($this->event)->self();
+        }
+        $this->componentLoading = false;
+    }
+
+    public function render(): View
+    {
+        return view('dvui::livewire.multi-select-search');
     }
 
     public function toggleSelection($itemId): void
@@ -200,5 +186,42 @@ class MultiSelectSearch extends Component
     public function getItemId($key): string
     {
         return $this->id.'-item-'.$key;
+    }
+
+    protected function getListeners()
+    {
+        return [
+            $this->listenerEventLoadItems => 'listenerEventLoadItems',
+        ];
+    }
+
+    protected function rules(): array
+    {
+        $rules = [
+            'searchTerm' => [
+                'required',
+                'min:'.$this->searchMinlength,
+            ],
+        ];
+        foreach ($this->validationClasses as $validationClass) {
+            $rules['searchTerm'][] = new $validationClass;
+        }
+
+        return $rules;
+    }
+
+    protected function messages(): array
+    {
+        return [
+            'searchTerm.required' => 'The :attribute is required.',
+            'searchTerm.min' => 'The :attribute is too short.',
+        ];
+    }
+
+    protected function validationAttributes(): array
+    {
+        return [
+            'searchTerm' => collect($this->searchFields)->join(', '),
+        ];
     }
 }
