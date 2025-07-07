@@ -22,6 +22,9 @@
                 "",
                 "app/"
             ]
-        }
+        },
+        "files": [
+            "app/Helpers/helpers.php"
+        ]
     }
 }
