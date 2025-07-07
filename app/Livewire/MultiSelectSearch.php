@@ -124,7 +124,7 @@ class MultiSelectSearch extends Component
 
                         continue;
                     }
-                    $query->orWhere($field, 'like', '%'.$this->searchTerm.'%');
+                    $query->orWhere($field, 'like', $this->searchTerm.'%');
                 }
             });
 
