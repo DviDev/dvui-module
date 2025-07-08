@@ -23,7 +23,7 @@ class MultiSelectSearch extends Component
     // Key to display the item (ex: 'name', 'description')
     public array $displayKey = [];
 
-    public string|array|int $searchTerm = '';
+    public string|array $searchTerm = '';
 
     public array $searchResults = [];
 
@@ -122,6 +122,12 @@ class MultiSelectSearch extends Component
                     if ($terms_array) {
                         $query->orWhereIn($field, $terms_array);
 
+                        continue;
+                    }
+                    if (str($this->searchTerm)->startsWith('0')) {
+                        $this->searchTerm = (int)$this->searchTerm;
+                        $query->whereRaw("LENGTH($field) = 6");
+                        $query->where($field, 'like', $this->searchTerm.'%');
                         continue;
                     }
                     $query->orWhere($field, 'like', $this->searchTerm.'%');
