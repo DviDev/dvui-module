@@ -53,8 +53,8 @@
         "border border-gray-200 rounded-md"
         ])
          x-show="list_open && searchResults.length > 0" x-cloak>
-        <div x-show="loading || searchResults.length > 0" x-cloak>
-            <div class="space-y-2 mt-1 p-2" x-show="loading && searchResults.length == 0" x-cloak>
+        <div x-show="loading" x-cloak>
+            <div class="space-y-2 mt-1 p-2">
                 <x-flowbite::skeleton class="py-1"/>
                 <x-flowbite::skeleton class="py-1"/>
                 <x-flowbite::skeleton class="py-1"/>
