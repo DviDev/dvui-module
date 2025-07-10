@@ -102,8 +102,7 @@ class MultiSelectSearch extends Component
 
     protected function getItems(&$get_via_db, $query_limit, $searchTerm = null): array
     {
-        $searchTerm = is_array($searchTerm) ? json_encode($searchTerm) : $searchTerm;
-        $cache_key = '_multi-select-search-'.$this->id.'-gb-'.$this->groupBy.'-ql-'.$query_limit.'_'.$searchTerm;
+        $cache_key = $this->getCacheKey($searchTerm, $query_limit);
 
         // cache()->delete($cache_key);
         return cache()->rememberForever($cache_key, function () use (&$get_via_db, $query_limit) {
@@ -125,18 +124,19 @@ class MultiSelectSearch extends Component
                         ->all();
                 }
 
+                if (!empty($this->scope)) {
+                    $this->scope::apply($query, $this->searchFields, $this->searchTerm);
+                    return;
+                }
+
                 foreach ($this->searchFields as $field) {
                     if ($terms_array) {
                         $query->orWhereIn($field, $terms_array);
 
                         continue;
                     }
-                    if (!empty($this->scope)) {
-                        $query = $this->scope::apply($query, $this->searchFields, $this->searchTerm, $field);
-                        continue;
-                    }
 
-                    $query->orWhere($field, 'like', $this->searchTerm.'%');
+                    $query->orWhere($field, 'like', "%$this->searchTerm%");
                 }
             });
 
@@ -251,5 +251,11 @@ class MultiSelectSearch extends Component
             throw new \Exception($scope. ' class must implement '.MultiSelectSearchInterface::class);
         }
         $this->scope = $scope;
+    }
+
+    protected function getCacheKey(mixed $searchTerm, $query_limit): string
+    {
+        $searchTerm = is_array($searchTerm) ? json_encode($searchTerm) : $searchTerm;
+        return '_multi-select-search-' . $this->id . '-gb-' . $this->groupBy . '-ql-' . $query_limit . '_' . $searchTerm;
     }
 }
