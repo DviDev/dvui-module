@@ -6,6 +6,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
+use Modules\DvUi\Contracts\MultiSelectSearchInterface;
 
 class MultiSelectSearch extends Component
 {
@@ -54,6 +55,9 @@ class MultiSelectSearch extends Component
     #[Locked]
     private ?string $label;
 
+    /**@var string|MultiSelectSearchInterface*/
+    public ?string $scope = '';
+
     public function listenerEventLoadItems($items, $component_id): void
     {
         if ($this->id == $component_id) {
@@ -73,7 +77,8 @@ class MultiSelectSearch extends Component
         ?int $limit = null,
         int|string|null $id = null,
         ?string $label = null,
-        ?int $initialQueryLimit = 10
+        ?int $initialQueryLimit = 10,
+        ?string $scope = null
     ): void {
         $this->modelClass = $modelClass;
         $this->searchFields = $searchFields;
@@ -91,6 +96,8 @@ class MultiSelectSearch extends Component
         $getting_via_db = false;
 
         $this->searchResults = $this->getItems($getting_via_db, $this->initialQueryLimit);
+
+        $this->setScope($scope);
     }
 
     protected function getItems(&$get_via_db, $query_limit, $searchTerm = null): array
@@ -103,7 +110,7 @@ class MultiSelectSearch extends Component
             $get_via_db = true;
 
             $model = app($this->modelClass);
-            /** @var \Illuminate\Database\Eloquent\Builder $query */
+            /** @var Builder $query */
             $query = $model::query();
 
             $query->when($this->searchTerm, function (Builder $query) {
@@ -124,12 +131,11 @@ class MultiSelectSearch extends Component
 
                         continue;
                     }
-                    if (str($this->searchTerm)->startsWith('0')) {
-                        $this->searchTerm = (int)$this->searchTerm;
-                        $query->whereRaw("LENGTH($field) = 6");
-                        $query->where($field, 'like', $this->searchTerm.'%');
+                    if (!empty($this->scope)) {
+                        $query = $this->scope::apply($query, $this->searchFields, $this->searchTerm, $field);
                         continue;
                     }
+
                     $query->orWhere($field, 'like', $this->searchTerm.'%');
                 }
             });
@@ -234,5 +240,16 @@ class MultiSelectSearch extends Component
         return [
             'searchTerm' => collect($this->searchFields)->join(', '),
         ];
+    }
+
+    private function setScope(MultiSelectSearchInterface|string|null $scope): void
+    {
+        if (!$scope) {
+            return;
+        }
+        if (!in_array(MultiSelectSearchInterface::class, class_implements($scope, MultiSelectSearchInterface::class))) {
+            throw new \Exception($scope. ' class must implement '.MultiSelectSearchInterface::class);
+        }
+        $this->scope = $scope;
     }
 }
