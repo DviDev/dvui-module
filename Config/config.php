@@ -31,4 +31,6 @@ return [
             'show_selected_items' => env('DVUI_MULTI_SELECT_SEARCH_SHOW_SELECTED_ITEMS', true),
         ],
     ],
+    'active_suite' => env('DVUI_ACTIVE_SUITE', 'flowbite'),
+    'component_suite_tag' => 'dvui_component_suite_tag',
 ];
