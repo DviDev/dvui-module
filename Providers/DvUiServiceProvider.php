@@ -536,7 +536,7 @@ class DvUiServiceProvider extends ServiceProvider
         }
 
         if (!$activeSuiteProvider) {
-            \Log::error("DVUI: Active suite '{$activeSuiteIdentifier}' not found or does not implement DvuiComponentSuiteContract.");
+            \Log::error(__("DVUI: Active suite '{$activeSuiteIdentifier}' not found or does not implement DvuiComponentSuiteContract."));
             return;
         }
 
