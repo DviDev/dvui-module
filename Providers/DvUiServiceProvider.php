@@ -515,24 +515,17 @@ class DvUiServiceProvider extends ServiceProvider
 
     protected function registerComponentsViaSuite(): void
     {
-        // Obter a suíte ativa da configuração
         $activeSuiteIdentifier = config('dvui.active_suite');
-
         if (empty($activeSuiteIdentifier)) {
             \Log::warning(__("DVUI: 'active_suite' not configured. No DVUI component suite will be loaded."));
             return;
         }
 
-        // Coletar todos os Service Providers que implementam DvuiComponentSuiteContract
-        // e que foram 'taggeados' como 'dvui.component_suite'
-        $suiteProviders = $this->app->tagged(config('dvui.component_suite_tag'));
-
+        $suiteProviders = config('dvui.suite_providers');
         $activeSuiteProvider = null;
-        foreach ($suiteProviders as $provider) {
-            if ($provider instanceof DvuiComponentSuiteContract && $provider->getSuiteIdentifier() === $activeSuiteIdentifier) {
-                $activeSuiteProvider = $provider;
-                break;
-            }
+        $provider = $suiteProviders[$activeSuiteIdentifier];
+        if ((new \ReflectionClass($provider))->implementsInterface(DvuiComponentSuiteContract::class)) {
+            $activeSuiteProvider = $provider;
         }
 
         if (!$activeSuiteProvider) {
@@ -540,12 +533,9 @@ class DvUiServiceProvider extends ServiceProvider
             return;
         }
 
-        // Coletar todos os valores esperados do Enum de aliases
         $expectedDvuiAliases = collect(DvuiComponentAlias::cases())->map(fn ($enum) => $enum->value)->toArray();
 
-        // Obter os mapeamentos da suíte ativa e registrar os componentes Blade
-        $mappings = $activeSuiteProvider->getComponentMappings();
-
+        $mappings = (new $activeSuiteProvider())->getComponentMappings();
         foreach ($mappings as $alias => $componentClass) {
             if (in_array($alias, $expectedDvuiAliases)) {
                 Blade::component($componentClass, "dvui::{$alias}");
