@@ -34,6 +34,6 @@ return [
     'active_suite' => env('DVUI_ACTIVE_SUITE', 'flowbite'),
     'component_suite_tag' => 'dvui_component_suite_tag',
     'suite_providers' => [
-        'flowbite' => \Modules\Flowbite\Services\ComponentMap::class::class,
+        'flowbite' => \Modules\Flowbite\Services\ComponentMap::class,
     ],
 ];
