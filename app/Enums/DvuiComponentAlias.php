@@ -52,6 +52,7 @@ enum DvuiComponentAlias: string
     case Spinner = 'spinner';
     case Toast = 'toast';
     case LayoutAdminLayout = 'layout.adminlayout';
+    case LayoutAdminPage = 'layouts.page';
     case NavbarIndex = 'navbar.index';
     case NavbarItem = 'navbar.item';
     case LayoutSidebar = 'layout.sidebar';
