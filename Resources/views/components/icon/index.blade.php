@@ -8,8 +8,10 @@
 @php
     $classes = str($attributes->get('class'));
 @endphp
-<span @if($attributes->has('title')) title="{{$attributes->get('title')}}" @endif
-class="flex items-center">
+<span
+    @if($attributes->has('title')) title="{{$attributes->get('title')}}" @endif
+    class="flex items-center">
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     <svg xmlns="http://www.w3.org/2000/svg"
     {{$attributes->class([
        'h-1 w-1' => $s1 ?? null,

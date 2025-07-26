@@ -2,6 +2,7 @@
     'icon' => null
 ])
 <div>
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     <div {{
         $attributes
         ->merge(['class' => 'font-bold rounded-lg py-3 px-6 text-sm'])

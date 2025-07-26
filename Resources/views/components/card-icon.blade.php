@@ -1,4 +1,5 @@
 <div x-data="{show_code: false}">
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     <x-lte::card>
         <x-lte::card.header class="px-2 py-1 border-b" :navs="false">
             <div class="grow my-auto">{{$title}}</div>

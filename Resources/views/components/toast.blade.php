@@ -31,6 +31,7 @@
         "text-danger-700" => $danger
     ])
      id="static-example">
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     <div>
         <div @class([
             "pt-1 rounded-t-lg",

@@ -4,6 +4,7 @@
     'active' => false,
 ])
 <li class="nav-item" role="presentation">
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     <a href="#tabs-{{$href}}"
        {{$attributes->class([
             "active" => $active,

@@ -7,6 +7,7 @@
     'horizontal' => false
 ])
 <li>
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     @if($label)
         <div {{$attributes->class([
             "flex flex-start items-center",

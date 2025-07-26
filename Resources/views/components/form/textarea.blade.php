@@ -17,9 +17,7 @@
     $field = collect($attributes)->first(fn($value, $key) => str($key)->contains('wire:model'))
             ?? $attributes['id'] ?? $attributes['name'] ?? $label;
 @endphp
-<div class="w-full" x-data="{ model_value: $wire.{{$model_}}.{{$attributes['name']}} }"
-    {{--     data-te-input-wrapper-init--}}
->
+<div class="w-full" x-data="{ model_value: $wire.{{$model_}}.{{$attributes['name']}} }">
     <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     @if($label || $attributes->get('label'))
         <x-lte::label :for="$field" :value="$label ?? $attributes->get('label')"

@@ -18,5 +18,6 @@
     role="status"
     {{$attributes}}
 >
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     <span class="visually-hidden">__('loading')...</span>
 </div>

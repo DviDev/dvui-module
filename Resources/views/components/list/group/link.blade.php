@@ -27,4 +27,6 @@
     :text="$label"
     :dark="!$first && !$last"
 >
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
+    {{$slot}}
 </x-dvui::link>
