@@ -2,27 +2,20 @@
 
 namespace Modules\DvUi\View\Components\Form;
 
+use DvUi\app\Traits\DevResources;
 use Illuminate\View\Component;
+use Modules\DvUi\Enums\DvuiComponentAlias;
 
 class Check extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
+    use DevResources;
     public function render()
     {
         return view('dvui::components.form/check');
+    }
+
+    public function componentAlias(): DvuiComponentAlias
+    {
+        return DvuiComponentAlias::FormCheck;
     }
 }

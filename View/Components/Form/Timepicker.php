@@ -2,27 +2,21 @@
 
 namespace Modules\DvUi\View\Components\Form;
 
+use DvUi\app\Traits\DevResources;
 use Illuminate\View\Component;
+use Modules\DvUi\Enums\DvuiComponentAlias;
 
 class Timepicker extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
+    use DevResources;
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
     public function render()
     {
         return view('dvui::components.form/timepicker');
+    }
+
+    public function componentAlias(): DvuiComponentAlias
+    {
+        return DvuiComponentAlias::FormDatetimepicker;
     }
 }

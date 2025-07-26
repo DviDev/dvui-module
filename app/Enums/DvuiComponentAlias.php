@@ -111,4 +111,5 @@ enum DvuiComponentAlias: string
     case Base = 'base';
     case BlockPage = 'blockpage';
     case Video = 'video';
+    case Icon = 'icon';
 }

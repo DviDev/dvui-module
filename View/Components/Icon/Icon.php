@@ -2,15 +2,15 @@
 
 namespace Modules\DvUi\View\Components\Icon;
 
+use DvUi\app\Traits\DevResources;
 use Illuminate\View\Component;
+use Illuminate\View\View;
+use Modules\DvUi\Enums\DvuiComponentAlias;
 
 class Icon extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
+    use DevResources;
+
     public function __construct(
         public bool $s1 = false,
         public bool $s2 = false,
@@ -25,25 +25,32 @@ class Icon extends Component
         public bool $solid = false,
         public bool $mini = false,
         public bool $micro = false,
-    ) {}
+    )
+    {
+    }
 
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.index');
     }
 
-    public function withoutSizes()
+    public function withoutSizes(): bool
     {
         return
-            ! $this->s1
-            && ! $this->s2
-            && ! $this->s3
-            && ! $this->s4
-            && ! $this->s5
-            && ! $this->s6
-            && ! $this->s7
-            && ! $this->s8
-            && ! $this->s9
-            && ! $this->s10;
+            !$this->s1
+            && !$this->s2
+            && !$this->s3
+            && !$this->s4
+            && !$this->s5
+            && !$this->s6
+            && !$this->s7
+            && !$this->s8
+            && !$this->s9
+            && !$this->s10;
+    }
+
+    public function componentAlias(): DvuiComponentAlias
+    {
+        return DvuiComponentAlias::Icon;
     }
 }

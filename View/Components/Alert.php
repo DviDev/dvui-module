@@ -2,17 +2,16 @@
 
 namespace Modules\DvUi\View\Components;
 
+use DvUi\app\Traits\DevResources;
 use Illuminate\View\Component;
 
+use Modules\DvUi\Enums\DvuiComponentAlias;
 use function view;
 
 class Alert extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
+    use DevResources;
+
     public function __construct(
         public ?string $content = null,
         public bool $dismiss = false,
@@ -25,13 +24,13 @@ class Alert extends Component
         public bool $gray = false,
     ) {}
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
     public function render()
     {
         return view('dvui::components.alert');
+    }
+
+    public function componentAlias(): DvuiComponentAlias
+    {
+        return DvuiComponentAlias::Alert;
     }
 }
