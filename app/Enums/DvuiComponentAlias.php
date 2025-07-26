@@ -57,6 +57,7 @@ enum DvuiComponentAlias: string
     case NavbarItem = 'navbar.item';
     case LayoutSidebar = 'layout.sidebar';
     case Sidebar = 'sidebar';
+    case Accordion = 'accordion';
     case AccordionItem = 'accordion.item';
     case Avatar = 'avatar';
     case Banner = 'banner';
@@ -83,7 +84,7 @@ enum DvuiComponentAlias: string
     case Popover = 'popover';
     case Progress = 'progress';
     case Rating = 'rating';
-    case SpeedDial = 'speed-dial.index';
+    case SpeedDial = 'speeddial.index';
     case Stepper = 'stepper';
     case Tooltip = 'tooltip';
     case FormFile = 'form.file';
@@ -93,4 +94,21 @@ enum DvuiComponentAlias: string
     case FormChatRoonInput = 'form.chatrooninput';
     case FormToggle = 'form.toggle';
     case FormRange = 'form.range';
+    case NotificationListPage = 'page.notification.notificationlistpage';
+    case NotificationViewPage = 'page.notification.notification-view-page';
+    case FormLabel = 'form.label';
+    case FormSummernote = 'form.summernote';
+    case PagesLayoutBase = 'pages.layout.base';
+    case Search = 'search';
+    case PagesExamplesBlockStructure = 'pages.examples.blockstructure';
+    case PagesExamplesFormInputPage = 'pages.examples.forminputpage';
+    case StoreCartItemsDropdown = 'store.cart.cart-items-dropdown';
+    case TableCel = 'table.cel';
+    case TableHead = 'table.head';
+    case TableRow = 'table.row';
+    case Table = 'table';
+    case Timeline = 'timeline';
+    case Base = 'base';
+    case BlockPage = 'blockpage';
+    case Video = 'video';
 }

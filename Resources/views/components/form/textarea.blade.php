@@ -20,6 +20,7 @@
 <div class="w-full" x-data="{ model_value: $wire.{{$model_}}.{{$attributes['name']}} }"
     {{--     data-te-input-wrapper-init--}}
 >
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     @if($label || $attributes->get('label'))
         <x-lte::label :for="$field" :value="$label ?? $attributes->get('label')"
                       :required="$attributes->get('required')"/>

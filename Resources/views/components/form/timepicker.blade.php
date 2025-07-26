@@ -6,6 +6,7 @@
     $attributes->setAttributes($array);
 @endphp
 <div class="w-full">
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     <label
         {{--        for="input_{{$attributes->get('id')}}"--}}
         @class([

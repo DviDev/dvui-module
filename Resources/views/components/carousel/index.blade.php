@@ -1,6 +1,7 @@
 <div {{$attributes->class([
         "carousel relative slide",
         ])}} data-bs-ride="carousel">
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     @if(isset($indicators))
     <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
         {{$indicators}}

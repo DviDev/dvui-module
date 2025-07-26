@@ -28,6 +28,7 @@
         "dropstart" => $dropstart,
         "relative"
      ])>
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     <x-dvui::button
         :primary="$primary || (!$secondary && !$success && !$danger && !$warning && !$attention && !$info && !$light && !$dark && !$link)"
         :secondary="$secondary"

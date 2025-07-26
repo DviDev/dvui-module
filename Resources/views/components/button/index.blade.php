@@ -6,6 +6,7 @@
     $confirmation = $confirm;
 @endphp
 <div>
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     @if($confirmation)
         <x-lte::modal id="{{$id}}"
                       wire:click.prevent="{{$action}}" :msg="$confirm_msg ?? $title"

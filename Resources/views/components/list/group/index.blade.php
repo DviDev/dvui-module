@@ -12,6 +12,7 @@
      ])}}
         {{$attributes}}
     >
+        <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
         {{$slot}}
     </div>
 @else
@@ -24,6 +25,7 @@
         ])}}
         {{$attributes}}
     >
+        <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
         {{$slot}}
     </ul>
 @endif

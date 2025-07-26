@@ -2,6 +2,7 @@
     'label'
 ])
 <div class="mb-3">
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     <label
         for="formFile"
         class="mb-2 inline-block text-neutral-700 dark:text-neutral-200">

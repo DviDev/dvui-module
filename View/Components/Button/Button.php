@@ -3,6 +3,8 @@
 namespace Modules\DvUi\View\Components\Button;
 
 use Illuminate\View\Component;
+use Modules\DvUi\Enums\DvuiComponentAlias;
+use Modules\DvUi\View\BaseBladeComponent;
 
 class Button extends Component
 {
@@ -76,5 +78,10 @@ class Button extends Component
         ])->reject(fn ($color) => ! $color || ! $color['value'])->last();
 
         return $item ? $item['color'] : null;
+    }
+
+    public function componentAlias(): DvuiComponentAlias
+    {
+        return DvuiComponentAlias::Button;
     }
 }

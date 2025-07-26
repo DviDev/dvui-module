@@ -3,27 +3,26 @@
 namespace Modules\DvUi\View\Components;
 
 use Illuminate\View\ComponentSlot;
-use Modules\DvUi\Services\ComponentCheck;
+use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\View\BaseBladeComponent;
 
 class Card extends BaseBladeComponent
 {
-    use ComponentCheck;
-
     /**
      * Create a new component instance.
      *
-     * @param  null  $heading  Slot of the card heading
-     * @param  string|null  $title  Title of the card
-     * @param  string|null  $footer  Footer of the card
+     * @param null $heading Slot of the card heading
+     * @param string|null $title Title of the card
+     * @param string|null $footer Footer of the card
      */
     public function __construct(
-        public $heading = null,
+        public         $heading = null,
         public ?string $title = null,
         public ?string $content = null,
-        public mixed $footer = null,
-        public ?array $attr = null,
-    ) {
+        public mixed   $footer = null,
+        public ?array  $attr = null,
+    )
+    {
         parent::__construct($attr);
     }
 
@@ -44,9 +43,14 @@ class Card extends BaseBladeComponent
         $classes .= ' px-3';
         $classes .= ' font-bold';
         $classes .= ' border-b dark:border-gray-700';
-        $classes .= $this->onlyClassesStartWith('border', $target).' ';
-        $classes .= ! $this->classesContainColor($target) ? 'text-gray-600 ' : '';
+        $classes .= $this->onlyClassesStartWith('border', $target) . ' ';
+        $classes .= !$this->classesContainColor($target) ? 'text-gray-600 ' : '';
 
         return $classes;
+    }
+
+    public function componentAlias(): DvuiComponentAlias
+    {
+        return DvuiComponentAlias::Card;
     }
 }
