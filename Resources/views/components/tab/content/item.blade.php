@@ -8,5 +8,6 @@
     'active' => $active
     ])}}
      id="{{$id}}" role="tabpanel" aria-labelledby="{{$id.'-tab'}}" {{$attributes}}>
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     {{$content}}
 </div>

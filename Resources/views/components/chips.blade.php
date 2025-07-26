@@ -8,6 +8,7 @@
     $classes .= str($attributes->get('class'))->explode(' ')->filter(fn($c) => !in_array($c, ['w-9', 'h-9', 'h-11', 'w-11', 'w-14', 'h-14']))->implode(' ');
 @endphp
 <span class="{{$classes}}">
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     @php
         $img_classes = 'rounded-full max-w-none ';
         $img_classes .= $somethingStartsWith('border') ? 'border ' : '';

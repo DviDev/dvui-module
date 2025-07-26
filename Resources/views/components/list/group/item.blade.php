@@ -27,5 +27,6 @@
       "bg-blue-600 text-white" => $primary,
       "text-gray-400 cursor-default" => $disabled
     ])}}>
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     {{$content}}
 </li>

@@ -17,6 +17,7 @@
         $right = true;
     }
 @endphp
+<x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
 <div {{$attributes->class([
         "absolute",
         "inline-block",

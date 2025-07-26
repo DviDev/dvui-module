@@ -56,6 +56,7 @@
         'text-xl' => $xlg,
     ])}}
 >
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     @if($text)
         {{$text}}
     @else

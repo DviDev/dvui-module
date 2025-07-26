@@ -12,6 +12,7 @@
         'dark:bg-gray-800' => !$onlyClassesStartWith('bg-'),
         'rounded' => !$onlyClassesStartWith('border'),
     ])}}>
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     <!-- header -->
     @if(isset($heading))
         <div {{ $heading->attributes->class([
