@@ -2,21 +2,23 @@
 
 namespace Modules\DvUi\View\Components\Form;
 
+use DvUi\app\Traits\DevResources;
 use Illuminate\View\Component;
 use Illuminate\View\View;
+use Modules\DvUi\Enums\DvuiComponentAlias;
 
 class Field extends Component
 {
-    /**
-     * Create a new component instance.
-     */
+    use DevResources;
     public function __construct(public ?string $label = null, public ?string $id = null, public array $attr = []) {}
 
-    /**
-     * Get the view/contents that represent the component.
-     */
     public function render(): View|string
     {
         return view('dvui::components.form/field');
+    }
+
+    public function componentAlias(): DvuiComponentAlias
+    {
+        return DvuiComponentAlias::FormField;
     }
 }

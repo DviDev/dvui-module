@@ -2,30 +2,23 @@
 
 namespace Modules\DvUi\View\Components\Carousel;
 
+use DvUi\app\Traits\DevResources;
 use Illuminate\View\Component;
+use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\Services\ComponentCheck;
 
 class Carousel extends Component
 {
     use ComponentCheck;
+    use DevResources;
 
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
     public function render()
     {
         return view('dvui::components.carousel.index');
+    }
+
+    public function componentAlias(): DvuiComponentAlias
+    {
+        return DvuiComponentAlias::Carousel;
     }
 }

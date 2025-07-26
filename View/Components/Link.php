@@ -2,25 +2,13 @@
 
 namespace Modules\DvUi\View\Components;
 
+use DvUi\app\Traits\DevResources;
 use Illuminate\View\Component;
+use Modules\DvUi\Enums\DvuiComponentAlias;
 
 class Link extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
+    use DevResources;
     public function render()
     {
         return view('dvui::components.link');
@@ -50,5 +38,10 @@ class Link extends Component
             $this->attributes->has('md') ||
             $this->attributes->has('lg') ||
             $this->attributes->has('xlg');
+    }
+
+    public function componentAlias(): DvuiComponentAlias
+    {
+        return DvuiComponentAlias::Link;
     }
 }

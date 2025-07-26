@@ -509,7 +509,6 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::notification', Components\Notification::class);
         Blade::component('dvui::range', Components\Range::class);
         Blade::component('dvui::spinner', Components\Spinner::class);
-        Blade::component('dvui::test', Components\Test::class);
         Blade::component('dvui::toast', Components\Toast::class);
     }
 

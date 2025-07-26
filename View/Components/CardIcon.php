@@ -2,24 +2,26 @@
 
 namespace Modules\DvUi\View\Components;
 
+use DvUi\app\Traits\DevResources;
 use Illuminate\View\Component;
 use Illuminate\View\View;
+use Modules\DvUi\Enums\DvuiComponentAlias;
 
 class CardIcon extends Component
 {
-    /**
-     * Create a new component instance.
-     */
+    use DevResources;
     public function __construct(public $title, public $icon)
     {
         //
     }
 
-    /**
-     * Get the view/contents that represent the component.
-     */
     public function render(): View|string
     {
         return view('dvui::components.card-icon');
+    }
+
+    public function componentAlias(): DvuiComponentAlias
+    {
+        return DvuiComponentAlias::CardIcon;
     }
 }
