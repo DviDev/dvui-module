@@ -53,7 +53,7 @@ enum DvuiComponentAlias: string
     case Toast = 'toast';
     case LayoutAdminLayout = 'layout.adminlayout';
     case LayoutAdminPage = 'layouts.page';
-    case NavbarIndex = 'navbar.index';
+    case Navbar = 'navbar.index';
     case NavbarItem = 'navbar.item';
     case LayoutSidebar = 'layout.sidebar';
     case Sidebar = 'sidebar';
@@ -112,4 +112,25 @@ enum DvuiComponentAlias: string
     case BlockPage = 'blockpage';
     case Video = 'video';
     case Icon = 'icon';
+    case CardFooter = 'card.footer';
+    case CardHeader = 'card.header';
+    case MorrisDonut = 'chart.morris_donut';
+    case ChartMorris = 'chart.morris';
+    case Sparkline = 'chart.sparkline';
+    case ChartWord = 'chart.word';
+    case FormDateMask = 'form.datemask';
+    case Dashboard = 'dashboard';
+    case DashboardV1 = 'dashboard.v1';
+    case LayoutV1Page = 'layout.v1.page';
+    case LayoutPage = 'layout.page';
+    case LayoutV1 = 'layout.v1';
+    case pagesExamplesInvoice = 'pages.examples.invoice';
+    case ScriptsAlpineMask = 'scripts.alpine.mask';
+    case TodoList = 'todolist';
+    case Box = 'box';
+    case Chat = 'chat';
+    case Form = 'form';
+    case Loading = 'loading';
+    case PageAlert = 'page.alert';
+    case Toastr = 'toastr';
 }
