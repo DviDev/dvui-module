@@ -14,6 +14,7 @@
     $primary = !$orange;
 @endphp
 <div class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     <input
         @class([
             "relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-['']",

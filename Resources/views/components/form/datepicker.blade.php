@@ -11,6 +11,7 @@
     $attributes->setAttributes($array);
 @endphp
 <div @class(["w-full flex flex-col"])>
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     @if($attributes->has('label'))
         <label>{{$attributes->get('label')}}</label>
     @endif

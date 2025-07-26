@@ -7,6 +7,7 @@
     $attributes->setAttributes($array);
 @endphp
 <div class="relative flex flex-wrap items-stretch space-x-2">
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     <div
         data-te-datepicker-init
         data-te-input-wrapper-init

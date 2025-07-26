@@ -11,6 +11,7 @@
         "bg-gray-300" => ($header && $dark),
         "bg-gray-800 text-gray-300" => $dark,
         ])>
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     <a @class([
         "dropdown-item text-sm py-2 px-4 block",
         "text-gray-500 font-semibold" => ($header && !$dark),

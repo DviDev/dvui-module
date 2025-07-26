@@ -4,6 +4,7 @@ namespace Modules\DvUi\View;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\View\Component;
+use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\Services\ComponentCheck;
 
 abstract class BaseBladeComponent extends Component
@@ -42,4 +43,7 @@ abstract class BaseBladeComponent extends Component
 
         return File::exists($filename);
     }
+
+
+    abstract public function componentAlias(): DvuiComponentAlias;
 }

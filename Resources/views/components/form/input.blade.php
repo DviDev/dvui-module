@@ -16,10 +16,12 @@
             ?? $attributes['id'] ?? $attributes['name'] ?? $label;
 @endphp
 <div class="w-full">
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     @if($label || $attributes->get('label'))
-        <x-lte::label :for="$field" :value="$label ?? $attributes->get('label')" :required="$attributes->get('required')"/>
+        <x-lte::label :for="$field" :value="$label ?? $attributes->get('label')"
+                      :required="$attributes->get('required')"/>
     @endif
-        <div class="relative">
+    <div class="relative">
         <input
             type="{{$attributes->get('type') ?: 'text'}}"
             {{$attributes->class([

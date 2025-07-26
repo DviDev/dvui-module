@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components;
 
 use Illuminate\View\ComponentSlot;
+use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\Services\ComponentCheck;
 use Modules\DvUi\View\BaseBladeComponent;
 
@@ -48,5 +49,10 @@ class Card extends BaseBladeComponent
         $classes .= ! $this->classesContainColor($target) ? 'text-gray-600 ' : '';
 
         return $classes;
+    }
+
+    public function componentAlias(): DvuiComponentAlias
+    {
+        return DvuiComponentAlias::Card;
     }
 }

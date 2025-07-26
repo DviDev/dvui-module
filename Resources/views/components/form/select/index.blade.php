@@ -17,6 +17,7 @@
             ?? $attributes['id'] ?? $attributes['name'] ?? $label;
 @endphp
 <div class="w-full" wire:ignore>
+    <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     @if($attributes->has('label'))
         <x-lte::label :for="$field" :value="$attributes->get('label')" :required="$required"/>
         {{--<label for="{{$id}}" class="text-neutral-700 mb-0 relative">
