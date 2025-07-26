@@ -3,26 +3,18 @@
 namespace Modules\DvUi\View\Components\Button;
 
 use Illuminate\View\Component;
+use Modules\DvUi\Enums\DvuiComponentAlias;
+use Modules\DvUi\View\BaseBladeComponent;
 
-class Group extends Component
+class Group extends BaseBladeComponent
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
     public function render()
     {
         return view('dvui::components.button.group');
+    }
+
+    public function componentAlias(): DvuiComponentAlias
+    {
+        return DvuiComponentAlias::ButtonGroup;
     }
 }
