@@ -2,7 +2,7 @@
 
 namespace Modules\DvUi\View\Components\Icon;
 
-use DvUi\app\Traits\DevResources;
+use DvUi\Traits\DevResources;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 use Modules\DvUi\Enums\DvuiComponentAlias;

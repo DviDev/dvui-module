@@ -2,7 +2,7 @@
 
 namespace Modules\DvUi\View\Components;
 
-use DvUi\app\Traits\DevResources;
+use DvUi\Traits\DevResources;
 use Illuminate\View\ComponentSlot;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\View\BaseBladeComponent;

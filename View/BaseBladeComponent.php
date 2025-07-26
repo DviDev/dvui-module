@@ -2,7 +2,7 @@
 
 namespace Modules\DvUi\View;
 
-use DvUi\app\Traits\DevResources;
+use DvUi\Traits\DevResources;
 use Illuminate\Support\Facades\File;
 use Illuminate\View\Component;
 use Modules\DvUi\Enums\DvuiComponentAlias;

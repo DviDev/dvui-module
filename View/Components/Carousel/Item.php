@@ -2,7 +2,7 @@
 
 namespace Modules\DvUi\View\Components\Carousel;
 
-use DvUi\app\Traits\DevResources;
+use DvUi\Traits\DevResources;
 use Illuminate\View\Component;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 
