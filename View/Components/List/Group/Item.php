@@ -2,7 +2,7 @@
 
 namespace Modules\DvUi\View\Components\List\Group;
 
-use DvUi\Traits\DevResources;
+use Modules\DvUi\Traits\DevResources;
 use Illuminate\View\Component;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 
