@@ -179,4 +179,5 @@ enum DvuiComponentAlias: string
     case LayoutV2 = 'layout.v2';
     case LayoutV3 = 'layout.v3';
     case WidgetIndicatorTile = 'widget.indicator.tile';
+    case ExamplesUiElementsInvoicePage = 'examples.uielements.invoicepage';
 }
