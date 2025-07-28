@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components;
 
 use Illuminate\View\ComponentSlot;
+use Illuminate\View\View;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\View\BaseBladeComponent;
 
@@ -19,7 +20,7 @@ class Card extends BaseBladeComponent
         parent::__construct($attr);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.card');
     }

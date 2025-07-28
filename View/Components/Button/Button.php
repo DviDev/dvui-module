@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Button;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 
 class Button extends Component
@@ -52,12 +53,7 @@ class Button extends Component
         $this->pop_title = $this->pop_title ?: $this->label;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.button.index');
     }
