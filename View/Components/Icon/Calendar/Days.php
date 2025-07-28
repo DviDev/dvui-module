@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Calendar;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Days extends Component
 {
@@ -21,7 +22,7 @@ class Days extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon/calendar/days');
     }

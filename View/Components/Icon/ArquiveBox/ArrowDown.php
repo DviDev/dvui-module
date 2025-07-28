@@ -2,6 +2,7 @@
 
 namespace Modules\DvUi\View\Components\Icon\ArquiveBox;
 
+use Illuminate\View\View;
 use Modules\DvUi\View\Components\Icon\Icon;
 
 class ArrowDown extends Icon
@@ -11,7 +12,7 @@ class ArrowDown extends Icon
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon/arquivebox/arrowdown');
     }

@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Arrow\Pointing;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Out extends Component
 {
@@ -21,7 +22,7 @@ class Out extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon/arrow/pointing/out');
     }

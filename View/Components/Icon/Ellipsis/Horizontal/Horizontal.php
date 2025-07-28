@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Ellipsis\Horizontal;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Horizontal extends Component
 {
@@ -21,7 +22,7 @@ class Horizontal extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.ellipsis.horizontal.index');
     }

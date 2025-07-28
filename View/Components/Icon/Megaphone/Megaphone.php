@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Megaphone;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Megaphone extends Component
 {
@@ -21,7 +22,7 @@ class Megaphone extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.megaphone.index');
     }

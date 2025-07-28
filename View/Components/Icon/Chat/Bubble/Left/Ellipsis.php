@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Chat\Bubble\Left;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Ellipsis extends Component
 {
@@ -21,7 +22,7 @@ class Ellipsis extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon/chat/bubble/left/ellipsis');
     }

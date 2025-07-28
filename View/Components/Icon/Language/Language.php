@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Language;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Language extends Component
 {
@@ -21,7 +22,7 @@ class Language extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.language.index');
     }

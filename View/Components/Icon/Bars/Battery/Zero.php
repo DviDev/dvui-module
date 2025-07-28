@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Bars\Battery;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Zero extends Component
 {
@@ -21,7 +22,7 @@ class Zero extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon/bars/battery/zero');
     }

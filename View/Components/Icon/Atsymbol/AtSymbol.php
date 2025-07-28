@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Atsymbol;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class AtSymbol extends Component
 {
@@ -21,7 +22,7 @@ class AtSymbol extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.atsymbol.index');
     }

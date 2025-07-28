@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Square;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Square2x2 extends Component
 {
@@ -21,7 +22,7 @@ class Square2x2 extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon/square/square2x2');
     }

@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Shield;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Exclamation extends Component
 {
@@ -21,7 +22,7 @@ class Exclamation extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon/shield/exclamation');
     }

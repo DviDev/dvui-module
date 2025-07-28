@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\ReceiptPercent;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class ReceiptPercent extends Component
 {
@@ -21,7 +22,7 @@ class ReceiptPercent extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.receiptpercent.index');
     }

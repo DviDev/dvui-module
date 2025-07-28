@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Rocket;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Launch extends Component
 {
@@ -21,7 +22,7 @@ class Launch extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon/rocket/launch');
     }

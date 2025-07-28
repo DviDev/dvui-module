@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Magnifying\Glass;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Minus extends Component
 {
@@ -21,7 +22,7 @@ class Minus extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon/magnifying/glass/minus');
     }

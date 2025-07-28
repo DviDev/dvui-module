@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Phone\Arrow\Up;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Right extends Component
 {
@@ -21,7 +22,7 @@ class Right extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon/phone/arrow/up/right');
     }

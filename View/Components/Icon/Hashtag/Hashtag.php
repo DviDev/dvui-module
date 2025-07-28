@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Hashtag;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Hashtag extends Component
 {
@@ -21,7 +22,7 @@ class Hashtag extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.hashtag.index');
     }

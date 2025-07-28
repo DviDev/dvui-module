@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Rating;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Star extends Component
 {
@@ -30,7 +31,7 @@ class Star extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.rating.star');
     }

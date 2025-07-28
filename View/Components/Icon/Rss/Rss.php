@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Rss;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Rss extends Component
 {
@@ -21,7 +22,7 @@ class Rss extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.rss.index');
     }

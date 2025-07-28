@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\ArquiveBox;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Box extends Component
 {
@@ -21,7 +22,7 @@ class Box extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.arquivebox.index');
     }

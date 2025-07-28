@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Arrow\Up;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Long extends Component
 {
@@ -21,7 +22,7 @@ class Long extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon/arrow/up/long');
     }

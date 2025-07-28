@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Scale;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Scale extends Component
 {
@@ -21,7 +22,7 @@ class Scale extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.scale.index');
     }

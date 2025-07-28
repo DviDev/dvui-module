@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Chat\Bubble\Bottom;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Center extends Component
 {
@@ -21,7 +22,7 @@ class Center extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon/chat/bubble/bottom/center');
     }

@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Clipboard;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Clipboard extends Component
 {
@@ -21,7 +22,7 @@ class Clipboard extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.clipboard.index');
     }

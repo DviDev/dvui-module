@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\List;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Bullet extends Component
 {
@@ -21,7 +22,7 @@ class Bullet extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon/list/bullet');
     }

@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Pause;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Pause extends Component
 {
@@ -21,7 +22,7 @@ class Pause extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.pause.index');
     }

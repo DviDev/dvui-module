@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Clipboard\Document;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Check extends Component
 {
@@ -21,7 +22,7 @@ class Check extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.clipboard.document.check');
     }

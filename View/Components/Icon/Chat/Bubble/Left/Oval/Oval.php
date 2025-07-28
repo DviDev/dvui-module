@@ -3,6 +3,7 @@
 namespace Modules\DvUi\View\Components\Icon\Chat\Bubble\Left\Oval;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Oval extends Component
 {
@@ -21,7 +22,7 @@ class Oval extends Component
      *
      * @return \Illuminate\View\View|string
      */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.chat.bubble.left.oval.index');
     }
