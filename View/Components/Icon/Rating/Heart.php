@@ -2,18 +2,14 @@
 
 namespace Modules\DvUi\View\Components\Icon\Rating;
 
+use Illuminate\View\View;
 use Modules\DvUi\View\Components\Icon\Icon;
 
 class Heart extends Icon
 {
     use SizeTrait;
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.icon.rating.heart');
     }

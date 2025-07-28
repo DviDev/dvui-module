@@ -2,10 +2,10 @@
 
 namespace Modules\DvUi\View\Components\Form;
 
-use DvUi\Traits\DevResources;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 use Modules\DvUi\Enums\DvuiComponentAlias;
+use Modules\DvUi\Traits\DevResources;
 
 class Date extends Component
 {

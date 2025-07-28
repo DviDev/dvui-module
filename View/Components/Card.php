@@ -2,25 +2,25 @@
 
 namespace Modules\DvUi\View\Components;
 
-use DvUi\Traits\DevResources;
 use Illuminate\View\ComponentSlot;
+use Illuminate\View\View;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\View\BaseBladeComponent;
 
 class Card extends BaseBladeComponent
 {
     public function __construct(
-        public         $heading = null,
+        public        $heading = null,
         public ?string $title = null,
         public ?string $content = null,
-        public mixed   $footer = null,
-        public ?array  $attr = null,
+        public mixed  $footer = null,
+        public ?array $attr = null,
     )
     {
         parent::__construct($attr);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('dvui::components.card');
     }

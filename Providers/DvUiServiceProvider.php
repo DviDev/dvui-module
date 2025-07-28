@@ -14,6 +14,7 @@ use Modules\DvUi\View\Components\Badge;
 use Modules\DvUi\View\Components\Button\Button;
 use Modules\DvUi\View\Components\Button\Group;
 use Modules\DvUi\View\Components\Card;
+use Modules\DvUi\View\Components\CardIcon;
 use Modules\DvUi\View\Components\Carousel\Carousel;
 use Modules\DvUi\View\Components\Carousel\Item;
 use Modules\DvUi\View\Components\Chips;
@@ -141,16 +142,18 @@ class DvUiServiceProvider extends ServiceProvider
         return $paths;
     }
 
-    protected function registerComponents()
+    protected function registerComponents(): void
     {
         // if the component uses a class, inform here
         Blade::component('dvui::alert', Alert::class);
+        Blade::component('dvui::dev.info', Components\Dev\Info::class);
         Blade::component('dvui::badge', Badge::class);
         Blade::component('dvui::button', Button::class);
         Blade::component('dvui::button.group', Group::class);
         Blade::component('dvui::carousel', Carousel::class);
         Blade::component('dvui::carousel.item', Item::class);
         Blade::component('dvui::card', Card::class);
+        Blade::component('dvui::card-icon', CardIcon::class);
         Blade::component('dvui::chips', Chips::class);
         Blade::component('dvui::dropdown', Dropdown::class);
         Blade::component('dvui::dropdown.item', DropdownItem::class);
@@ -517,6 +520,7 @@ class DvUiServiceProvider extends ServiceProvider
         $activeSuiteIdentifier = config('dvui.active_suite');
         if (empty($activeSuiteIdentifier)) {
             \Log::warning(__("DVUI: 'active_suite' not configured. No DVUI component suite will be loaded."));
+
             return;
         }
 
@@ -529,16 +533,18 @@ class DvUiServiceProvider extends ServiceProvider
 
         if (!$activeSuiteProvider) {
             \Log::error(__("DVUI: Active suite '{$activeSuiteIdentifier}' not found or does not implement DvuiComponentSuiteContract."));
+
             return;
         }
 
         $expectedDvuiAliases = collect(DvuiComponentAlias::cases())->map(fn ($enum) => $enum->value)->toArray();
 
-        $mappings = (new $activeSuiteProvider())->getComponentMappings();
+        $mappings = (new $activeSuiteProvider)->getComponentMappings();
         foreach ($mappings as $alias => $componentClass) {
             if (in_array($alias, $expectedDvuiAliases)) {
                 Blade::component($componentClass, "dvui::{$alias}");
                 \Log::info(__("DVUI: Registered component dvui::{$alias} using {$componentClass} from suite {$activeSuiteIdentifier}"));
+
                 continue;
             }
             \Log::warning(__("DVUI: Alias '{$alias}' from suite '{$activeSuiteIdentifier}' is not a recognized DVUI component alias defined in DvuiComponentAlias enum."));

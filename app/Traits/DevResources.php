@@ -1,6 +1,6 @@
 <?php
 
-namespace DvUi\Traits;
+namespace Modules\DvUi\Traits;
 
 use Modules\DvUi\Enums\DvuiComponentAlias;
 

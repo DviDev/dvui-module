@@ -2,15 +2,16 @@
 
 namespace Modules\DvUi\View\Components\Button;
 
-use DvUi\Traits\DevResources;
 use Illuminate\View\Component;
+use Illuminate\View\View;
 use Modules\DvUi\Enums\DvuiComponentAlias;
-use Modules\DvUi\View\BaseBladeComponent;
+use Modules\DvUi\Traits\DevResources;
 
 class Group extends Component
 {
     use DevResources;
-    public function render()
+
+    public function render(): View
     {
         return view('dvui::components.button.group');
     }
