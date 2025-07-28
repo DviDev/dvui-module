@@ -141,10 +141,11 @@ class DvUiServiceProvider extends ServiceProvider
         return $paths;
     }
 
-    protected function registerComponents()
+    protected function registerComponents(): void
     {
         // if the component uses a class, inform here
         Blade::component('dvui::alert', Alert::class);
+        Blade::component('dvui::dev.info', Components\Dev\Info::class);
         Blade::component('dvui::badge', Badge::class);
         Blade::component('dvui::button', Button::class);
         Blade::component('dvui::button.group', Group::class);
