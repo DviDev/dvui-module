@@ -7,11 +7,6 @@ use Illuminate\View\View;
 
 class Star extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
     public function __construct(
         public bool $s3 = false,
         public bool $s4 = false,
@@ -26,11 +21,6 @@ class Star extends Component
         public bool $fill = false,
     ) {}
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
     public function render(): View
     {
         return view('dvui::components.icon.rating.star');
