@@ -2,9 +2,9 @@
 
 namespace Modules\DvUi\View\Components\Tab;
 
-use Modules\DvUi\Traits\DevResources;
 use Illuminate\View\Component;
 use Modules\DvUi\Enums\DvuiComponentAlias;
+use Modules\DvUi\Traits\DevResources;
 
 class Tab extends Component
 {

@@ -2,7 +2,8 @@
 
 namespace Modules\DvUi\Interfaces;
 
-interface DvuiComponentSuiteContract {
+interface DvuiComponentSuiteContract
+{
     public function getSuiteIdentifier(): string;
 
     public function getComponentMappings(): array;

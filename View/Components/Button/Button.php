@@ -4,7 +4,6 @@ namespace Modules\DvUi\View\Components\Button;
 
 use Illuminate\View\Component;
 use Modules\DvUi\Enums\DvuiComponentAlias;
-use Modules\DvUi\View\BaseBladeComponent;
 
 class Button extends Component
 {

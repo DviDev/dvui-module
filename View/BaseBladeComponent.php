@@ -2,16 +2,15 @@
 
 namespace Modules\DvUi\View;
 
-use Modules\DvUi\Traits\DevResources;
 use Illuminate\Support\Facades\File;
 use Illuminate\View\Component;
-use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\Services\ComponentCheck;
+use Modules\DvUi\Traits\DevResources;
 
 abstract class BaseBladeComponent extends Component
 {
-    use DevResources;
     use ComponentCheck;
+    use DevResources;
 
     public function __construct(
         public ?array $attr = null,

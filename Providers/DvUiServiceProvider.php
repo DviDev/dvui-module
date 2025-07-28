@@ -520,6 +520,7 @@ class DvUiServiceProvider extends ServiceProvider
         $activeSuiteIdentifier = config('dvui.active_suite');
         if (empty($activeSuiteIdentifier)) {
             \Log::warning(__("DVUI: 'active_suite' not configured. No DVUI component suite will be loaded."));
+
             return;
         }
 
@@ -532,16 +533,18 @@ class DvUiServiceProvider extends ServiceProvider
 
         if (!$activeSuiteProvider) {
             \Log::error(__("DVUI: Active suite '{$activeSuiteIdentifier}' not found or does not implement DvuiComponentSuiteContract."));
+
             return;
         }
 
         $expectedDvuiAliases = collect(DvuiComponentAlias::cases())->map(fn ($enum) => $enum->value)->toArray();
 
-        $mappings = (new $activeSuiteProvider())->getComponentMappings();
+        $mappings = (new $activeSuiteProvider)->getComponentMappings();
         foreach ($mappings as $alias => $componentClass) {
             if (in_array($alias, $expectedDvuiAliases)) {
                 Blade::component($componentClass, "dvui::{$alias}");
                 \Log::info(__("DVUI: Registered component dvui::{$alias} using {$componentClass} from suite {$activeSuiteIdentifier}"));
+
                 continue;
             }
             \Log::warning(__("DVUI: Alias '{$alias}' from suite '{$activeSuiteIdentifier}' is not a recognized DVUI component alias defined in DvuiComponentAlias enum."));

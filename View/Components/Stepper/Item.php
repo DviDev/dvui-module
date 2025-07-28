@@ -2,13 +2,14 @@
 
 namespace Modules\DvUi\View\Components\Stepper;
 
-use Modules\DvUi\Traits\DevResources;
 use Illuminate\View\Component;
 use Modules\DvUi\Enums\DvuiComponentAlias;
+use Modules\DvUi\Traits\DevResources;
 
 class Item extends Component
 {
     use DevResources;
+
     public function render()
     {
         return view('dvui::components.stepper/item');

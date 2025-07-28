@@ -2,9 +2,9 @@
 
 namespace Modules\DvUi\View\Components;
 
-use Modules\DvUi\Traits\DevResources;
 use Illuminate\View\Component;
 use Modules\DvUi\Enums\DvuiComponentAlias;
+use Modules\DvUi\Traits\DevResources;
 
 class Toast extends Component
 {

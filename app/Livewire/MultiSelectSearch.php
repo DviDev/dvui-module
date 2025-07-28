@@ -54,8 +54,7 @@ class MultiSelectSearch extends Component
 
     #[Locked]
     private ?string $label;
-
-    /**@var string|MultiSelectSearchInterface*/
+    /** @var string|MultiSelectSearchInterface */
     public ?string $scope = '';
 
     public function listenerEventLoadItems($items, $component_id): void
@@ -126,6 +125,7 @@ class MultiSelectSearch extends Component
 
                 if (!empty($this->scope)) {
                     $this->scope::apply($query, $this->searchFields, $this->searchTerm);
+
                     return;
                 }
 
@@ -248,7 +248,7 @@ class MultiSelectSearch extends Component
             return;
         }
         if (!in_array(MultiSelectSearchInterface::class, class_implements($scope, MultiSelectSearchInterface::class))) {
-            throw new \Exception($scope. ' class must implement '.MultiSelectSearchInterface::class);
+            throw new \Exception($scope . ' class must implement ' . MultiSelectSearchInterface::class);
         }
         $this->scope = $scope;
     }
@@ -256,6 +256,7 @@ class MultiSelectSearch extends Component
     protected function getCacheKey(mixed $searchTerm, $query_limit): string
     {
         $searchTerm = is_array($searchTerm) ? json_encode($searchTerm) : $searchTerm;
+
         return '_multi-select-search-' . $this->id . '-gb-' . $this->groupBy . '-ql-' . $query_limit . '_' . $searchTerm;
     }
 }
