@@ -14,6 +14,7 @@ use Modules\DvUi\View\Components\Badge;
 use Modules\DvUi\View\Components\Button\Button;
 use Modules\DvUi\View\Components\Button\Group;
 use Modules\DvUi\View\Components\Card;
+use Modules\DvUi\View\Components\CardIcon;
 use Modules\DvUi\View\Components\Carousel\Carousel;
 use Modules\DvUi\View\Components\Carousel\Item;
 use Modules\DvUi\View\Components\Chips;
@@ -152,6 +153,7 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::carousel', Carousel::class);
         Blade::component('dvui::carousel.item', Item::class);
         Blade::component('dvui::card', Card::class);
+        Blade::component('dvui::card-icon', CardIcon::class);
         Blade::component('dvui::chips', Chips::class);
         Blade::component('dvui::dropdown', Dropdown::class);
         Blade::component('dvui::dropdown.item', DropdownItem::class);

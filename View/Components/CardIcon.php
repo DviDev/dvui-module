@@ -2,14 +2,15 @@
 
 namespace Modules\DvUi\View\Components;
 
-use Modules\DvUi\Traits\DevResources;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 use Modules\DvUi\Enums\DvuiComponentAlias;
+use Modules\DvUi\Traits\DevResources;
 
 class CardIcon extends Component
 {
     use DevResources;
+
     public function __construct(public $title, public $icon)
     {
         //

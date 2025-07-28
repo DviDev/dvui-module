@@ -349,7 +349,7 @@
 
                     {{--X--}}
                     <x-dvui::card-icon title="x.circle" icon="x.circle"/>
-                    <x-dvui::card-icon title="x.mark" icon="x.mark"/>--}}
+                    <x-dvui::card-icon title="x.mark" icon="x.mark"/>
 
                     {{--Y--}}
 
