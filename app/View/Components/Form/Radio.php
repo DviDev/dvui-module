@@ -12,12 +12,14 @@ class Radio extends Component
     use DevResources;
 
     public function __construct(
-        public string $name,
-        public bool $checked = false,
+        public string  $name,
+        public bool    $checked = false,
         public ?string $label = null,
-        public bool $primary = false,
-        public bool $orange = false
-    ) {}
+        public bool    $primary = false,
+        public bool    $orange = false
+    )
+    {
+    }
 
     public function render(): View
     {

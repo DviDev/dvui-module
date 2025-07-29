@@ -7,39 +7,22 @@ use Livewire\Component;
 class Toastr
 {
     protected Component $component;
-
     protected string $msg;
-
     protected string $type;
-
     protected Position $positionClass;
-
     protected bool $closeButton;
-
     protected bool $newestOnTop;
-
     protected bool $debug;
-
     protected bool $progressBar;
-
     protected bool $preventDuplicates;
-
     protected $onclick;
-
     protected int $showDuration;
-
     protected int $hideDuration;
-
     protected int $timeOut;
-
     protected int $extendedTimeOut;
-
     protected string $showEasing;
-
     protected string $hideEasing;
-
     protected string $showMethod;
-
     protected string $hideMethod;
 
     public static function instance(Component $component): self

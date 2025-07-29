@@ -19,17 +19,17 @@ class Link extends Component
     public function hasColor()
     {
         return
-        $this->attributes->has('primary') ||
-        $this->attributes->has('secondary') ||
-        $this->attributes->has('success') ||
-        $this->attributes->has('danger') ||
-        $this->attributes->has('warning') ||
-        $this->attributes->has('attention') ||
-        $this->attributes->has('info') ||
-        $this->attributes->has('light') ||
-        $this->attributes->has('dark') ||
-        $this->attributes->has('link') ||
-        $this->attributes->has('white');
+            $this->attributes->has('primary') ||
+            $this->attributes->has('secondary') ||
+            $this->attributes->has('success') ||
+            $this->attributes->has('danger') ||
+            $this->attributes->has('warning') ||
+            $this->attributes->has('attention') ||
+            $this->attributes->has('info') ||
+            $this->attributes->has('light') ||
+            $this->attributes->has('dark') ||
+            $this->attributes->has('link') ||
+            $this->attributes->has('white');
     }
 
     public function hasSize()

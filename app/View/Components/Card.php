@@ -10,11 +10,11 @@ use Modules\DvUi\View\BaseBladeComponent;
 class Card extends BaseBladeComponent
 {
     public function __construct(
-        public        $heading = null,
+        public         $heading = null,
         public ?string $title = null,
         public ?string $content = null,
-        public mixed  $footer = null,
-        public ?array $attr = null,
+        public mixed   $footer = null,
+        public ?array  $attr = null,
     )
     {
         parent::__construct($attr);

@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\Interfaces\DvuiComponentSuiteContract;
+use Modules\DvUi\Listeners\CreateMenuItemsListener;
 use Modules\DvUi\Livewire\MultiSelectSearch;
 use Modules\DvUi\View\Components;
 use Modules\DvUi\View\Components\Alert;
@@ -29,6 +30,7 @@ use Modules\DvUi\View\Components\Icon\ArquiveBox\XMark;
 use Modules\DvUi\View\Components\Icon\Arrow;
 use Modules\DvUi\View\Components\Icon\Arrow\Down;
 use Modules\DvUi\View\Components\Link;
+use Modules\Project\Events\CreateMenuItemsEvent;
 
 class DvUiServiceProvider extends ServiceProvider
 {
@@ -66,6 +68,7 @@ class DvUiServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        \Event::listen(CreateMenuItemsEvent::class, CreateMenuItemsListener::class);
     }
 
     /**
@@ -76,10 +79,10 @@ class DvUiServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower.'.php'),
+            module_path($this->moduleName, 'config/config.php') => config_path($this->moduleNameLower . '.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            module_path($this->moduleName, 'Config/config.php'), $this->moduleNameLower
+            module_path($this->moduleName, 'config/config.php'), $this->moduleNameLower
         );
     }
 

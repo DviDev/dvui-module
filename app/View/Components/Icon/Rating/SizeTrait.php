@@ -14,4 +14,6 @@ namespace Modules\DvUi\View\Components\Icon\Rating;
  * @property $s9
  * @property $s10
  */
-trait SizeTrait {}
+trait SizeTrait
+{
+}
