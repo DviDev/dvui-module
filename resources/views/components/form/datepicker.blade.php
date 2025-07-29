@@ -48,28 +48,3 @@ $attributes->setAttributes($array);
 @dump('wip')
 {{--<input type="date" {{$attributes}}>--}}
 </div>
-
-{{--@push('scripts')
-<script type="module">
-    import {
-        initTE,
-        Datepicker,
-        Input
-    } from "{{Vite::asset('node_modules/tw-elements/dist/js/tw-elements.es.min.js')}}"
-
-    initTE({Datepicker, Input});
-
-    const datepickerDisablePast = document.getElementById('{{$attributes->get('
-    id
-    ')}}'
-    )
-    ;
-    new Datepicker(datepickerDisablePast, {
-        disablePast: true,
-        confirmDateOnSelect: true,
-        removeClearBtn: true,
-    })
-
-
-</script>
-@endpush--}}

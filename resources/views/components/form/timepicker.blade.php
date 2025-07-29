@@ -56,21 +56,3 @@ $attributes->setAttributes($array);
         />
     </div>
 </div>
-@pushonce('scripts')
-<script type="module">
-    import {
-        initTE,
-        Input,
-        Timepicker
-    } from "{{Vite::asset('node_modules/tw-elements/dist/js/tw-elements.es.min.js')}}";
-
-    initTE({Timepicker, Input});
-
-    const inputTime = document.querySelector("#{{$attributes->get('id')}}");
-    new Timepicker(inputTime, {
-        disablePast: true,
-        confirmDateOnSelect: true,
-        removeClearBtn: true,
-    })
-</script>
-@endpushonce
