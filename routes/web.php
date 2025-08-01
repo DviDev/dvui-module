@@ -23,4 +23,11 @@ Route::middleware('auth')->prefix('dvui')->group(function () {
     })
         ->middleware(LocalEnvironmentMiddleware::class)
         ->name('dvui.icons');
+    Route::get('pages/examples/components', function () {
+        /*if (config('app.env') == 'local') {
+            cache()->delete('dvui.page.components');
+        }*/
+        return view('dvui::components.pages.examples.dynamic_components_page');
+    })->name('dvui.pages.examples.components');
+
 });

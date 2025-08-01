@@ -7,7 +7,6 @@ use Modules\Person\Entities\User\UserType;
 use Modules\Project\Entities\MenuItem\MenuItemEntityModel;
 use Modules\Project\Models\MenuModel;
 use Modules\Project\Models\ProjectActionModel;
-use Modules\Project\Models\ProjectModuleEntityDBModel;
 
 class CreateMenuItemsListener
 {
@@ -17,14 +16,27 @@ class CreateMenuItemsListener
             return;
         }
 
-        $menu = $this->createMenu($this->moduleName(), $this->moduleName(), 1);
-
-        $this->createMenuItem($menu);
+        $this->createMenuItems();
     }
 
     public function moduleName(): string
     {
         return config('dvui.name');
+    }
+
+    protected function createMenuItems(): void
+    {
+        $menu = $this->createMenu($this->moduleName(), $this->moduleName(), 1);
+        $this->createMenuItem(
+            menu: $menu,
+            name: str(__('dvui::page.icons'))->title()->value(),
+            route: route('dvui.icons')
+        );
+        $this->createMenuItem(
+            menu: $menu,
+            name: str(__('dvui::page.components'))->title()->value(),
+            route: route('dvui.pages.examples.components')
+        );
     }
 
     protected function createMenu($name, $title, $order = 1): MenuModel
@@ -35,16 +47,16 @@ class CreateMenuItemsListener
         );
     }
 
-    protected function createMenuItem(MenuModel $menuModel, ?ProjectModuleEntityDBModel $entity = null, $key = null): void
+    protected function createMenuItem(MenuModel $menu, string $name, string $route, int $order = 1): void
     {
         $p = MenuItemEntityModel::props();
-        $icons = str(__('dvui::page.icons'))->title()->value();
-        $menuModel->menuItems()->create([
-            $p->label => $icons,
+
+        $menu->menuItems()->create([
+            $p->label => $name,
             $p->num_order => 1,
-            $p->title => $icons,
+            $p->title => $name,
             $p->icon => '<i class="nav-icon fas fa-circle fa-xs text-xs"></i>',
-            $p->url => route('dvui.icons'),
+            $p->url => $route,
             $p->active => true,
             $p->action_id => $this->getAction()->id,
         ]);
@@ -58,5 +70,20 @@ class CreateMenuItemsListener
             ->createCondition(UserType::DEVELOPER);
 
         return $action;
+    }
+
+    protected function createMenuItemIcon(MenuModel $menu, MenuItemEntityModel $p): void
+    {
+        $icons = str(__('dvui::page.icons'))->title()->value();
+
+        $menu->menuItems()->create([
+            $p->label => $icons,
+            $p->num_order => 1,
+            $p->title => $icons,
+            $p->icon => '<i class="nav-icon fas fa-circle fa-xs text-xs"></i>',
+            $p->url => route('dvui.icons'),
+            $p->active => true,
+            $p->action_id => $this->getAction()->id,
+        ]);
     }
 }
