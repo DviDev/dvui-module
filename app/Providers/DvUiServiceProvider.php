@@ -5,9 +5,11 @@ namespace Modules\DvUi\Providers;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use Modules\Base\Events\DatabaseSeederEvent;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\Interfaces\DvuiComponentSuiteContract;
 use Modules\DvUi\Listeners\CreateMenuItemsListener;
+use Modules\DvUi\Listeners\SeedInitialIndependentDataListener;
 use Modules\DvUi\Livewire\MultiSelectSearch;
 use Modules\DvUi\View\Components;
 use Modules\DvUi\View\Components\Alert;
@@ -54,6 +56,7 @@ class DvUiServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
+        $this->registerAssetPath();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
 
         $this->registerComponents();
@@ -69,6 +72,7 @@ class DvUiServiceProvider extends ServiceProvider
     {
         $this->app->register(RouteServiceProvider::class);
         \Event::listen(CreateMenuItemsEvent::class, CreateMenuItemsListener::class);
+        \Event::listen(DatabaseSeederEvent::class, SeedInitialIndependentDataListener::class);
     }
 
     /**
@@ -103,6 +107,13 @@ class DvUiServiceProvider extends ServiceProvider
         );
 
         $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
+    }
+
+    private function registerAssetPath(): void
+    {
+        $assetVendorPath = public_path('assets/modules/' . $this->moduleNameLower);
+        $sourceVendorPath = module_path($this->moduleName, 'resources/assets');
+        $this->publishes([$sourceVendorPath => $assetVendorPath], 'dvui-assets');
     }
 
     /**
