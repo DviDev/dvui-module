@@ -1,13 +1,7 @@
 @use(Modules\DvUi\Enums\DvuiComponentAlias)
-@pushonce('livewire_styles')
-    @livewireStyles
-@endpushonce
-@pushonce('livewire_scripts')
-    @livewireScripts
-    @livewireScriptConfig
-@endpushonce
-<x-lte::layout.v1.page title="Icons" header="DvUi {{__('dvui::page.components')}}">
-    <div class="grow p-4 bg-gray-100">
+
+<x-lte::layout.v1.page title="DvUi {{__('dvui::page.components')}}" header="DvUi {{__('dvui::page.components')}}">
+    <div class="grow">
         <div class="grid grid-cols-2 gap-3">
 
             <x-lte::card header="{{ DvuiComponentAlias::FormInput->value}}" info outline>
@@ -15,9 +9,19 @@
                     <x-dvui::form.input label="Name" name="name" placeholder="name"/>
                 </x-lte::card.body>
             </x-lte::card>
+
             <x-lte::card header="{{ DvuiComponentAlias::FormSelect->value}}" info outline>
                 <x-lte::card.body>
-                    <x-dvui::form.input label="Name" name="name" placeholder="name"/>
+                    <x-dvui::form.select label="Name">
+                        <option>item 1</option>
+                        <option>item 2</option>
+                    </x-dvui::form.select>
+                </x-lte::card.body>
+            </x-lte::card>
+
+            <x-lte::card header="{{ DvuiComponentAlias::FormDate->value}}" info outline>
+                <x-lte::card.body>
+                    <x-dvui::form.date label="Name" id="date"/>
                 </x-lte::card.body>
             </x-lte::card>
         </div>
