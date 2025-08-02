@@ -57,7 +57,7 @@ class DvUiServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->registerAssetPath();
-        $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+        $this->loadMigrationsFrom(module_path($this->moduleName, 'database/Migrations'));
 
         $this->registerComponents();
         $this->registerComponentsViaSuite();
