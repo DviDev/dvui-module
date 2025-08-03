@@ -18,10 +18,10 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\DvUi\\": [
-                "",
-                "app/"
-            ]
+            "Modules\\DvUi\\": "app/",
+            "Modules\\DvUi\\Database\\Factories\\": "database/Factories/",
+            "Modules\\DvUi\\Database\\Seeders\\": "database/Seeders/",
+            "Modules\\DvUi\\Database\\Migrations\\": "database/Migrations/"
         },
         "files": [
             "app/Helpers/helpers.php"

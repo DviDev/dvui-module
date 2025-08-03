@@ -3,8 +3,8 @@
 namespace Modules\DvUi\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Base\Contracts\BaseModel;
 use Modules\Base\Factories\BaseFactory;
-use Modules\Base\Models\BaseModel;
 use Modules\DvUi\Entities\DvUiTest\DvUiTestEntityModel;
 use Modules\DvUi\Entities\DvUiTest\DvUiTestProps;
 

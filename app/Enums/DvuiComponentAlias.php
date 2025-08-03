@@ -65,7 +65,6 @@ enum DvuiComponentAlias: string
     case Skeleton = 'skeleton';
     case Breadcrumb = 'breadcrumb';
     case BreadcrumbItem = 'breadcrumb.item';
-    case CardIndex = 'card.index';
     case CardTab = 'card.tab';
     case CardTabItem = 'card.tab.item';
     case CardTabContent = 'card.tab.content';
