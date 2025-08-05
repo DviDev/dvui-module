@@ -54,6 +54,7 @@ class MultiSelectSearch extends Component
 
     #[Locked]
     private ?string $label;
+
     /** @var string|MultiSelectSearchInterface */
     public ?string $scope = '';
 

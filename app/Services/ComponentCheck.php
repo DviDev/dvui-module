@@ -7,7 +7,9 @@ use Illuminate\View\ComponentSlot;
 trait ComponentCheck
 {
     public $classes_;
+
     public $color_classes_;
+
     public $text_sizes_;
 
     public function init()
