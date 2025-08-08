@@ -13,6 +13,7 @@ class PublishComponents extends Command
      * @var string
      */
     protected $signature = 'app:publish-components {module}';
+
     /**
      * The console command description.
      *

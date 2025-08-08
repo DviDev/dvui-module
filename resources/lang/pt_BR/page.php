@@ -1,4 +1,5 @@
 <?php
+
 return [
     'icons' => 'ícones',
     'components' => 'componentes',
