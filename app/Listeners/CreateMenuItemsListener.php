@@ -3,10 +3,10 @@
 namespace Modules\DvUi\Listeners;
 
 use Modules\Base\Entities\Actions\Actions;
+use Modules\Permission\Models\PermissionActionModel;
 use Modules\Person\Entities\User\UserType;
 use Modules\Project\Entities\MenuItem\MenuItemEntityModel;
 use Modules\Project\Models\MenuModel;
-use Modules\Project\Models\ProjectActionModel;
 
 class CreateMenuItemsListener
 {
@@ -62,9 +62,9 @@ class CreateMenuItemsListener
         ]);
     }
 
-    protected function getAction(): ProjectActionModel
+    protected function getAction(): PermissionActionModel
     {
-        $action = ProjectActionModel::query()
+        $action = PermissionActionModel::query()
             ->create(['name' => Actions::view->name, 'title' => str(__('examples'))->title()->value()]);
         $action->firstOrCreateGroup()
             ->createCondition(UserType::DEVELOPER);
