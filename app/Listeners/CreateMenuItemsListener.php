@@ -2,9 +2,9 @@
 
 namespace Modules\DvUi\Listeners;
 
-use Modules\Base\Entities\Actions\Actions;
+use Modules\Permission\Enums\Actions;
 use Modules\Permission\Models\PermissionActionModel;
-use Modules\Person\Entities\User\UserType;
+use Modules\Person\Enums\UserType;
 use Modules\Project\Entities\MenuItem\MenuItemEntityModel;
 use Modules\Project\Models\MenuModel;
 
