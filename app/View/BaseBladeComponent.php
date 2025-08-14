@@ -13,13 +13,13 @@ abstract class BaseBladeComponent extends Component
     use DevResources;
 
     public function __construct(
-        public ?array  $attr = null,
+        public ?array $attr = null,
         public ?string $label = null,
-        public ?bool   $required = null,
-        public ?bool   $validate = null,
-        public         $value = null,
+        public ?bool  $required = null,
+        public ?bool  $validate = null,
+        public        $value = null,
         public string|int|null $id = null,
-        public ?bool   $disabled = null,
+        public ?bool  $disabled = null,
         public ?string $placeholder = null,
     )
     {

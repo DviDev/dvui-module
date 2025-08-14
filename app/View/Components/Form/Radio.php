@@ -13,10 +13,10 @@ class Radio extends Component
 
     public function __construct(
         public string $name,
-        public bool   $checked = false,
+        public bool $checked = false,
         public ?string $label = null,
-        public bool   $primary = false,
-        public bool   $orange = false
+        public bool $primary = false,
+        public bool $orange = false
     )
     {
     }
