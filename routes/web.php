@@ -22,7 +22,7 @@ Route::middleware('auth')->prefix('dvui')->group(function () {
             cache()->delete('dvui.page.icons');
         }*/
 
-        return cache()->remember('dvui.page.icons', now()->addDay(), fn() => view('dvui::components.pages.page_icons')->render());
+        return cache()->remember('dvui.page.icons', now()->addDay(), fn () => view('dvui::components.pages.page_icons')->render());
     })
         ->middleware(LocalEnvironmentMiddleware::class)
         ->name('dvui.icons');

@@ -11,9 +11,7 @@ class Field extends Component
 {
     use DevResources;
 
-    public function __construct(public ?string $label = null, public ?string $id = null, public array $attr = [])
-    {
-    }
+    public function __construct(public ?string $label = null, public ?string $id = null, public array $attr = []) {}
 
     public function render(): View|string
     {

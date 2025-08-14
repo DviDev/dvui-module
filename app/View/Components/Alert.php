@@ -6,7 +6,6 @@ use Illuminate\View\Component;
 use Illuminate\View\View;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\Traits\DevResources;
-
 use function view;
 
 class Alert extends Component
@@ -23,9 +22,7 @@ class Alert extends Component
         public bool $purple = false,
         public bool $indigo = false,
         public bool $gray = false,
-    )
-    {
-    }
+    ) {}
 
     public function render(): View
     {

@@ -47,9 +47,8 @@ class Button extends Component
         public ?string $confirm_type = null,
         public ?string $popover = null,
         public ?string $pop_title = null,
-    )
-    {
-        $this->id = $id ?? 'btn_' . rand(1000, 2000);
+    ) {
+        $this->id = $id ?? 'btn_'.rand(1000, 2000);
 
         $this->pop_title = $this->pop_title ?: $this->label;
     }
@@ -71,7 +70,7 @@ class Button extends Component
             ['color' => 'transparent', 'value' => $this->link],
             ['color' => 'light', 'value' => $this->light],
             ['color' => 'gray', 'value' => $this->dark],
-        ])->reject(fn($color) => !$color || !$color['value'])->last();
+        ])->reject(fn ($color) => ! $color || ! $color['value'])->last();
 
         return $item ? $item['color'] : null;
     }

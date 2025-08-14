@@ -17,12 +17,11 @@ abstract class BaseBladeComponent extends Component
         public ?string $label = null,
         public ?bool $required = null,
         public ?bool $validate = null,
-        public       $value = null,
+        public $value = null,
         public string|int|null $id = null,
         public ?bool $disabled = null,
         public ?string $placeholder = null,
-    )
-    {
+    ) {
         $this->attr['label'] = $label ?? $this->attr['label'] ?? null;
         $this->attr['required'] = $required ?? $this->attr['required'] ?? false;
         $this->attr['validate'] = $validate ?? $this->attr['validate'] ?? false;
@@ -34,14 +33,14 @@ abstract class BaseBladeComponent extends Component
 
     public function getFormField($attributes)
     {
-        return collect($attributes)->first(fn($value, $key) => str($key)->contains('wire:model'))
+        return collect($attributes)->first(fn ($value, $key) => str($key)->contains('wire:model'))
             ?? $attributes['id'] ?? $attributes['name'] ?? $this->label;
     }
 
     public static function published($name): bool
     {
         $component = str($name)->explode('.')->join('/');
-        $filename = resource_path('views/components/' . $component . '.blade.php');
+        $filename = resource_path('views/components/'.$component.'.blade.php');
 
         return File::exists($filename);
     }

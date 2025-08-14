@@ -17,9 +17,7 @@ class Radio extends Component
         public ?string $label = null,
         public bool $primary = false,
         public bool $orange = false
-    )
-    {
-    }
+    ) {}
 
     public function render(): View
     {

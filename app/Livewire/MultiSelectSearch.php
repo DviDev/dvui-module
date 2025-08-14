@@ -118,13 +118,13 @@ class MultiSelectSearch extends Component
                 if (str($this->searchTerm)->contains(',')) {
                     $terms_array = str($this->searchTerm)
                         ->explode(',')
-                        ->map(fn($i) => trim($i))
+                        ->map(fn ($i) => trim($i))
                         ->filter()
                         ->unique()
                         ->all();
                 }
 
-                if (!empty($this->scope)) {
+                if (! empty($this->scope)) {
                     $this->scope::apply($query, $this->searchFields, $this->searchTerm);
 
                     return;
@@ -245,11 +245,11 @@ class MultiSelectSearch extends Component
 
     private function setScope(MultiSelectSearchInterface|string|null $scope): void
     {
-        if (!$scope) {
+        if (! $scope) {
             return;
         }
-        if (!in_array(MultiSelectSearchInterface::class, class_implements($scope, MultiSelectSearchInterface::class))) {
-            throw new \Exception($scope . ' class must implement ' . MultiSelectSearchInterface::class);
+        if (! in_array(MultiSelectSearchInterface::class, class_implements($scope, MultiSelectSearchInterface::class))) {
+            throw new \Exception($scope.' class must implement '.MultiSelectSearchInterface::class);
         }
         $this->scope = $scope;
     }
@@ -258,6 +258,6 @@ class MultiSelectSearch extends Component
     {
         $searchTerm = is_array($searchTerm) ? json_encode($searchTerm) : $searchTerm;
 
-        return '_multi-select-search-' . $this->id . '-gb-' . $this->groupBy . '-ql-' . $query_limit . '_' . $searchTerm;
+        return '_multi-select-search-'.$this->id.'-gb-'.$this->groupBy.'-ql-'.$query_limit.'_'.$searchTerm;
     }
 }

@@ -19,9 +19,7 @@ class Star extends Component
         public bool $default = false,
         public bool $star = false,
         public bool $fill = false,
-    )
-    {
-    }
+    ) {}
 
     public function render(): View
     {
