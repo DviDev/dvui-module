@@ -14,32 +14,32 @@ class Button extends Component
      * @return void
      */
     public function __construct(
-        public bool   $noColor = false,
-        public bool   $primary = false,
-        public bool   $secondary = false,
-        public bool   $success = false,
-        public bool   $danger = false,
-        public bool   $warning = false,
-        public bool   $attention = false,
-        public bool   $info = false,
-        public bool   $light = false,
-        public bool   $dark = false,
-        public bool   $link = false,
+        public bool $noColor = false,
+        public bool $primary = false,
+        public bool $secondary = false,
+        public bool $success = false,
+        public bool $danger = false,
+        public bool $warning = false,
+        public bool $attention = false,
+        public bool $info = false,
+        public bool $light = false,
+        public bool $dark = false,
+        public bool $link = false,
         public string $type = 'button',
         public ?string $title = null,
         public ?string $label = null,
-        public bool   $ripple = false,
-        public bool   $rounded = false,
-        public bool   $pill = false,
-        public bool   $shadow = false,
-        public bool   $border = false,
-        public bool   $xs = false,
-        public bool   $sm = false,
-        public bool   $md = false,
-        public bool   $lg = false,
-        public bool   $xlg = false,
-        public bool   $disabled = false,
-        public bool   $full = false,
+        public bool $ripple = false,
+        public bool $rounded = false,
+        public bool $pill = false,
+        public bool $shadow = false,
+        public bool $border = false,
+        public bool $xs = false,
+        public bool $sm = false,
+        public bool $md = false,
+        public bool $lg = false,
+        public bool $xlg = false,
+        public bool $disabled = false,
+        public bool $full = false,
         public ?string $id = null,
         public ?string $icon = null,
         public ?string $confirm = null,
@@ -47,9 +47,8 @@ class Button extends Component
         public ?string $confirm_type = null,
         public ?string $popover = null,
         public ?string $pop_title = null,
-    )
-    {
-        $this->id = $id ?? 'btn_' . rand(1000, 2000);
+    ) {
+        $this->id = $id ?? 'btn_'.rand(1000, 2000);
 
         $this->pop_title = $this->pop_title ?: $this->label;
     }
@@ -71,7 +70,7 @@ class Button extends Component
             ['color' => 'transparent', 'value' => $this->link],
             ['color' => 'light', 'value' => $this->light],
             ['color' => 'gray', 'value' => $this->dark],
-        ])->reject(fn($color) => !$color || !$color['value'])->last();
+        ])->reject(fn ($color) => ! $color || ! $color['value'])->last();
 
         return $item ? $item['color'] : null;
     }

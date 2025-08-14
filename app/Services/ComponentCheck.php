@@ -37,7 +37,7 @@ trait ComponentCheck
 
         return str($classes)
             ->explode(' ')
-            ->filter(fn($c) => str_starts_with($c, $string))
+            ->filter(fn ($c) => str_starts_with($c, $string))
             ->implode(' ');
     }
 
@@ -56,7 +56,7 @@ trait ComponentCheck
 
         return str($classes)
             ->explode(' ')
-            ->filter(fn($class) => str_starts_with($class, $term))
+            ->filter(fn ($class) => str_starts_with($class, $term))
             ->isNotEmpty();
     }
 }

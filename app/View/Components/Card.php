@@ -10,13 +10,12 @@ use Modules\DvUi\View\BaseBladeComponent;
 class Card extends BaseBladeComponent
 {
     public function __construct(
-        public        $heading = null,
+        public $heading = null,
         public ?string $title = null,
         public ?string $content = null,
-        public mixed  $footer = null,
+        public mixed $footer = null,
         public ?array $attr = null,
-    )
-    {
+    ) {
         parent::__construct($attr);
     }
 
@@ -32,8 +31,8 @@ class Card extends BaseBladeComponent
         $classes .= ' px-3';
         $classes .= ' font-bold';
         $classes .= ' border-b dark:border-gray-700';
-        $classes .= $this->onlyClassesStartWith('border', $target) . ' ';
-        $classes .= !$this->classesContainColor($target) ? 'text-gray-600 ' : '';
+        $classes .= $this->onlyClassesStartWith('border', $target).' ';
+        $classes .= ! $this->classesContainColor($target) ? 'text-gray-600 ' : '';
 
         return $classes;
     }

@@ -22,9 +22,7 @@ class Alert extends Component
         public bool $purple = false,
         public bool $indigo = false,
         public bool $gray = false,
-    )
-    {
-    }
+    ) {}
 
     public function render(): View
     {

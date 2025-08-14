@@ -28,9 +28,9 @@ class PublishComponents extends Command
     {
         $module = str($this->argument('module'));
         $source = base_path("Modules/{$module->Ucfirst()->value()}/resources/views/components");
-        $destination = resource_path('views/componentes/' . $module->snake()->value());
+        $destination = resource_path('views/componentes/'.$module->snake()->value());
 
-        if (!File::exists($destination)) {
+        if (! File::exists($destination)) {
             File::makeDirectory($destination, 0755, true);
         }
 
@@ -38,9 +38,9 @@ class PublishComponents extends Command
 
         // Classes
         $source = base_path("Modules/{$module->ucfirst()->value()}/app/View/Components");
-        $destination = app_path('View/Components/' . $module->ucfirst()->value());
+        $destination = app_path('View/Components/'.$module->ucfirst()->value());
 
-        if (!File::exists($destination)) {
+        if (! File::exists($destination)) {
             File::makeDirectory($destination, 0755, true);
         }
 

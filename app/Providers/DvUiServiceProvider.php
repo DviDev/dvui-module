@@ -83,7 +83,7 @@ class DvUiServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            module_path($this->moduleName, 'config/config.php') => config_path($this->moduleNameLower . '.php'),
+            module_path($this->moduleName, 'config/config.php') => config_path($this->moduleNameLower.'.php'),
         ], 'config');
         $this->mergeConfigFrom(
             module_path($this->moduleName, 'config/config.php'), $this->moduleNameLower
@@ -111,7 +111,7 @@ class DvUiServiceProvider extends ServiceProvider
 
     private function registerAssetPath(): void
     {
-        $assetVendorPath = public_path('assets/modules/' . $this->moduleNameLower);
+        $assetVendorPath = public_path('assets/modules/'.$this->moduleNameLower);
         $sourceVendorPath = module_path($this->moduleName, 'resources/assets');
         $this->publishes([$sourceVendorPath => $assetVendorPath], 'dvui-assets');
     }
@@ -545,7 +545,7 @@ class DvUiServiceProvider extends ServiceProvider
             $activeSuiteProvider = $provider;
         }
 
-        if (!$activeSuiteProvider) {
+        if (! $activeSuiteProvider) {
             \Log::error(__("DVUI: Active suite '{$activeSuiteIdentifier}' not found or does not implement DvuiComponentSuiteContract."));
 
             return;
