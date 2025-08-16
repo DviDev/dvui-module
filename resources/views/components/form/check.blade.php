@@ -8,7 +8,7 @@
 ])
 @php
 $array = collect($attr)->except(['id'])->merge($attributes->getAttributes())->all();
-$array['id'] = $attributes->get('id') ?? 'check_'.random_int(10, 99);
+$array['id'] = $attributes->get('id') ?? 'check_'.now()->timestamp.\Str::random(5);
 $attributes->setAttributes($array);
 
 $primary = !$orange;

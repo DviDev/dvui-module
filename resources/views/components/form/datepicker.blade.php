@@ -4,7 +4,7 @@
 @php
 $items = collect($attr)->merge($attributes->getAttributes());
 if (!$items->has('id')) {
-$items->put('id', 'comp_date_'.random_int(900, 1000));
+$items->put('id', 'comp_date_'.now()->timestamp.\Str::random(5));
 }
 $array = $items ->all();
 
