@@ -11,7 +11,7 @@ if ($label) {
 $array->put('label', $label);
 }
 $attributes->setAttributes($array->filter()->all());
-$id = 'comp_'.random_int(random_int(1,5), random_int(5,9));
+$id = 'comp_'.now()->timestamp.\Str::random(5);
 
 $field = collect($attributes)->first(fn($value, $key) => str($key)->contains('wire:model'))
 ?? $attributes['id'] ?? $attributes['name'] ?? $label;
