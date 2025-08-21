@@ -6,13 +6,13 @@ use Modules\Permission\Enums\Actions;
 use Modules\Permission\Models\PermissionActionModel;
 use Modules\Person\Enums\UserType;
 use Modules\Project\Entities\MenuItem\MenuItemEntityModel;
-use Modules\Project\Models\MenuModel;
+use Modules\Project\Models\ProjectModuleMenuModel;
 
 class CreateMenuItemsListener
 {
     public function handle($event): void
     {
-        if (MenuModel::query()->where('name', $this->moduleName())->exists()) {
+        if (ProjectModuleMenuModel::query()->where('name', $this->moduleName())->exists()) {
             return;
         }
 
@@ -39,15 +39,15 @@ class CreateMenuItemsListener
         );
     }
 
-    protected function createMenu($name, $title, $order = 1): MenuModel
+    protected function createMenu($name, $title, $order = 1): ProjectModuleMenuModel
     {
-        return MenuModel::firstOrCreate(
+        return ProjectModuleMenuModel::firstOrCreate(
             ['name' => $name],
             ['title' => $title, 'num_order' => $order, 'active' => true]
         );
     }
 
-    protected function createMenuItem(MenuModel $menu, string $name, string $route, int $order = 1): void
+    protected function createMenuItem(ProjectModuleMenuModel $menu, string $name, string $route, int $order = 1): void
     {
         $p = MenuItemEntityModel::props();
 
@@ -72,7 +72,7 @@ class CreateMenuItemsListener
         return $action;
     }
 
-    protected function createMenuItemIcon(MenuModel $menu, MenuItemEntityModel $p): void
+    protected function createMenuItemIcon(ProjectModuleMenuModel $menu, MenuItemEntityModel $p): void
     {
         $icons = str(__('dvui::page.icons'))->title()->value();
 
