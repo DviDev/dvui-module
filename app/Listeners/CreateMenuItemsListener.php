@@ -5,7 +5,7 @@ namespace Modules\DvUi\Listeners;
 use Modules\Permission\Enums\Actions;
 use Modules\Permission\Models\PermissionActionModel;
 use Modules\Person\Enums\UserType;
-use Modules\Project\Entities\MenuItem\MenuItemEntityModel;
+use Modules\Project\Entities\ProjectModuleMenuItem\ProjectModuleMenuItemEntityModel;
 use Modules\Project\Models\ProjectModuleMenuModel;
 
 class CreateMenuItemsListener
@@ -49,7 +49,7 @@ class CreateMenuItemsListener
 
     protected function createMenuItem(ProjectModuleMenuModel $menu, string $name, string $route, int $order = 1): void
     {
-        $p = MenuItemEntityModel::props();
+        $p = ProjectModuleMenuItemEntityModel::props();
 
         $menu->menuItems()->create([
             $p->label => $name,
@@ -72,7 +72,7 @@ class CreateMenuItemsListener
         return $action;
     }
 
-    protected function createMenuItemIcon(ProjectModuleMenuModel $menu, MenuItemEntityModel $p): void
+    protected function createMenuItemIcon(ProjectModuleMenuModel $menu, ProjectModuleMenuItemEntityModel $p): void
     {
         $icons = str(__('dvui::page.icons'))->title()->value();
 
