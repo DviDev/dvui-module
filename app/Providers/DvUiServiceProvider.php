@@ -40,7 +40,6 @@ class DvUiServiceProvider extends ServiceProvider
      * @var string
      */
     protected $moduleName = 'DvUi';
-
     /**
      * @var string
      */
@@ -83,7 +82,7 @@ class DvUiServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            module_path($this->moduleName, 'config/config.php') => config_path($this->moduleNameLower.'.php'),
+            module_path($this->moduleName, 'config/config.php') => config_path($this->moduleNameLower . '.php'),
         ], 'config');
         $this->mergeConfigFrom(
             module_path($this->moduleName, 'config/config.php'), $this->moduleNameLower
@@ -97,13 +96,13 @@ class DvUiServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = resource_path('views/modules/'.$this->moduleNameLower);
+        $viewPath = resource_path('views/modules/' . $this->moduleNameLower);
 
         $sourcePath = module_path($this->moduleName, 'Resources/views');
 
         $this->publishes(
             [$sourcePath => $viewPath],
-            ['views', $this->moduleNameLower.'-module-views']
+            ['views', $this->moduleNameLower . '-module-views']
         );
 
         $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
@@ -111,7 +110,7 @@ class DvUiServiceProvider extends ServiceProvider
 
     private function registerAssetPath(): void
     {
-        $assetVendorPath = public_path('assets/modules/'.$this->moduleNameLower);
+        $assetVendorPath = public_path('assets/modules/' . $this->moduleNameLower);
         $sourceVendorPath = module_path($this->moduleName, 'resources/assets');
         $this->publishes([$sourceVendorPath => $assetVendorPath], 'dvui-assets');
     }
@@ -123,7 +122,7 @@ class DvUiServiceProvider extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $langPath = resource_path('lang/modules/'.$this->moduleNameLower);
+        $langPath = resource_path('lang/modules/' . $this->moduleNameLower);
 
         if (is_dir($langPath)) {
             $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
@@ -148,8 +147,8 @@ class DvUiServiceProvider extends ServiceProvider
     {
         $paths = [];
         foreach (\Config::get('view.paths') as $path) {
-            if (is_dir($path.'/modules/'.$this->moduleNameLower)) {
-                $paths[] = $path.'/modules/'.$this->moduleNameLower;
+            if (is_dir($path . '/modules/' . $this->moduleNameLower)) {
+                $paths[] = $path . '/modules/' . $this->moduleNameLower;
             }
         }
 
@@ -545,20 +544,18 @@ class DvUiServiceProvider extends ServiceProvider
             $activeSuiteProvider = $provider;
         }
 
-        if (! $activeSuiteProvider) {
+        if (!$activeSuiteProvider) {
             \Log::error(__("DVUI: Active suite '{$activeSuiteIdentifier}' not found or does not implement DvuiComponentSuiteContract."));
 
             return;
         }
 
-        $expectedDvuiAliases = collect(DvuiComponentAlias::cases())->map(fn ($enum) => $enum->value)->toArray();
+        $expectedDvuiAliases = collect(DvuiComponentAlias::cases())->map(fn($enum) => $enum->value)->toArray();
 
         $mappings = (new $activeSuiteProvider)->getComponentMappings();
         foreach ($mappings as $alias => $componentClass) {
             if (in_array($alias, $expectedDvuiAliases)) {
                 Blade::component($componentClass, "dvui::{$alias}");
-                \Log::info(__("DVUI: Registered component dvui::{$alias} using {$componentClass} from suite {$activeSuiteIdentifier}"));
-
                 continue;
             }
             \Log::warning(__("DVUI: Alias '{$alias}' from suite '{$activeSuiteIdentifier}' is not a recognized DVUI component alias defined in DvuiComponentAlias enum."));
