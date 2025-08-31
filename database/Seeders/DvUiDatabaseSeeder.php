@@ -8,6 +8,7 @@ use Modules\Base\Entities\Config\ConfigEntityModel;
 use Modules\Base\Models\ConfigModel;
 use Modules\Person\Enums\UserType;
 use Modules\Person\Models\UserTypeModel;
+use Modules\Person\Services\SeedFirstOrCreateUser;
 
 class DvUiDatabaseSeeder extends BaseSeeder
 {
@@ -22,7 +23,7 @@ class DvUiDatabaseSeeder extends BaseSeeder
 
         $superAdminTypeModel = UserTypeModel::query()->where('name', UserType::SUPER_ADMIN->value)->first();
 
-        $superAdmin = BaseSeeder::firstOrCreateUser($superAdminTypeModel);
+        $superAdmin = new SeedFirstOrCreateUser()->firstOrCreateUser($superAdminTypeModel);
 
         $config = ConfigEntityModel::props();
         ConfigModel::query()->firstOrCreate([$config->name => 'app_logo'], [

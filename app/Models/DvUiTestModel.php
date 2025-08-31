@@ -2,7 +2,6 @@
 
 namespace Modules\DvUi\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\Base\Contracts\BaseModel;
 use Modules\Base\Factories\BaseFactory;
 use Modules\DvUi\Entities\DvUiTest\DvUiTestEntityModel;
@@ -20,7 +19,6 @@ use Modules\DvUi\Entities\DvUiTest\DvUiTestProps;
 class DvUiTestModel extends BaseModel
 {
     use DvUiTestProps;
-    use HasFactory;
 
     public static function table($alias = null): string
     {
@@ -29,8 +27,7 @@ class DvUiTestModel extends BaseModel
 
     protected static function newFactory(): BaseFactory
     {
-        return new class extends BaseFactory
-        {
+        return new class extends BaseFactory {
             protected $model = DvUiTestModel::class;
         };
     }
