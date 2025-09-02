@@ -1,7 +1,5 @@
 @php
-use Modules\Base\View\Components\Form\BaseFormBladeComponent;
-
-BaseFormBladeComponent::prepare($attributes);
+    prepareAttributes($attributes);
 @endphp
 <x-dvui::form.field :validate="$attributes->get('validate')" :required="$attributes->get('required')" {{$attributes}}>
     <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
