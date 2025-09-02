@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Artisan;
 use Modules\Base\Events\BaseSeederInitialIndependentDataEvent;
 use Modules\DvUi\Database\Seeders\DvUiDatabaseSeeder;
 
-class SeedInitialIndependentDataListener implements ShouldQueue
+class SeedInitialIndependentDataDvUiListener implements ShouldQueue
 {
     public function handle(BaseSeederInitialIndependentDataEvent $event): void
     {
