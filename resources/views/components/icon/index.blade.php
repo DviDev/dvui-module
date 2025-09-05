@@ -10,7 +10,7 @@ $classes = str($attributes->get('class'));
 @endphp
 <span
     @if($attributes->has('title')) title="{{$attributes->get('title')}}" @endif
-    class="flex items-center">
+    @class(["flex items-center" => true])>
     <x-dvui::dev.info suite="dvui" :alias="$componentAlias->value"/>
     <svg xmlns="http://www.w3.org/2000/svg"
          {{$attributes->class([
