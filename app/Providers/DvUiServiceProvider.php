@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Modules\Base\Events\BaseSeederInitialIndependentDataEvent;
+use Modules\DBMap\Events\ScanTableEvent;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\Interfaces\DvuiComponentSuiteContract;
 use Modules\DvUi\Listeners\CreateMenuItemsListener;
+use Modules\DvUi\Listeners\ScanTableDvUiListener;
 use Modules\DvUi\Listeners\SeedInitialIndependentDataDvUiListener;
 use Modules\DvUi\Livewire\MultiSelectSearch;
 use Modules\DvUi\View\Components;
@@ -73,6 +75,7 @@ class DvUiServiceProvider extends ServiceProvider
         $this->app->register(RouteServiceProvider::class);
         \Event::listen(CreateMenuItemsEvent::class, CreateMenuItemsListener::class);
         \Event::listen(BaseSeederInitialIndependentDataEvent::class, SeedInitialIndependentDataDvUiListener::class);
+        \Event::listen(ScanTableEvent::class, ScanTableDvUiListener::class);
     }
 
     /**
