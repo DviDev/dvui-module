@@ -8,6 +8,6 @@ class ScanTableDvUiListener
 {
     public function handle($event): void
     {
-        new ScanTableDomain()->scan('dvui');
+        (new ScanTableDomain)->scan('dvui');
     }
 }
