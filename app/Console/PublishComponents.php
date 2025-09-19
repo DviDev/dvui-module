@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-class PublishComponents extends Command
+final class PublishComponents extends Command
 {
     /**
      * The name and signature of the console command.

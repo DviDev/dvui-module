@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Cube;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Transparent extends Component
+final class Transparent extends Component
 {
     public function render(): View
     {

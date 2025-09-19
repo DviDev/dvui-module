@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Chart\Pie;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Pie extends Component
+final class Pie extends Component
 {
     public function render(): View
     {

@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Folder;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Folder extends Component
+final class Folder extends Component
 {
     public function render(): View
     {

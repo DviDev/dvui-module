@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Document;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Duplicate extends Component
+final class Duplicate extends Component
 {
     public function render(): View
     {

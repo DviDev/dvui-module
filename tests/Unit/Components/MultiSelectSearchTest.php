@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\TestCase;
 use Modules\DvUi\Entities\DvUiTest\DvUiTestEntityModel;
@@ -10,7 +12,7 @@ uses(TestCase::class);
 uses(DatabaseTransactions::class);
 
 test('can render component', function () {
-    $p = DvUITestEntityModel::props();
+    $p = DvUiTestEntityModel::props();
     Schema::dropIfExists(DvUiTestModel::table());
     Schema::create(DvUiTestModel::table(), function ($table) use ($p) {
         $table->id();

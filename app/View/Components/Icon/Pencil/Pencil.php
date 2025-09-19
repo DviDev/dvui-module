@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Pencil;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Pencil extends Component
+final class Pencil extends Component
 {
     public function render(): View
     {

@@ -1,14 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\Livewire;
 
+use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
 use Modules\DvUi\Contracts\MultiSelectSearchInterface;
 
-class MultiSelectSearch extends Component
+final class MultiSelectSearch extends Component
 {
     public string $placeholder;
 
@@ -48,6 +51,9 @@ class MultiSelectSearch extends Component
 
     public $validationClasses = [];
 
+    /** @var string|MultiSelectSearchInterface */
+    public ?string $scope = '';
+
     private $query_limit;
 
     private ?int $initialQueryLimit;
@@ -55,12 +61,9 @@ class MultiSelectSearch extends Component
     #[Locked]
     private ?string $label;
 
-    /** @var string|MultiSelectSearchInterface */
-    public ?string $scope = '';
-
     public function listenerEventLoadItems($items, $component_id): void
     {
-        if ($this->id == $component_id) {
+        if ($this->id === $component_id) {
             $this->searchResults = $items;
         }
     }
@@ -98,6 +101,57 @@ class MultiSelectSearch extends Component
         $this->searchResults = $this->getItems($getting_via_db, $this->initialQueryLimit);
 
         $this->setScope($scope);
+    }
+
+    public function updatedSearchTerm($value): void
+    {
+        if (empty($this->searchTerm)) {
+            $this->searchResults = [];
+
+            return;
+        }
+        $this->resetValidation('searchTerm');
+        $this->validateOnly('searchTerm');
+
+        $getting_via_db = false;
+
+        $this->searchResults = $this->getItems($getting_via_db, $this->query_limit, $this->searchTerm);
+
+        if ($getting_via_db) {
+            $this->dispatch($this->event)->self();
+        }
+        $this->componentLoading = false;
+    }
+
+    public function render(): View
+    {
+        return view('dvui::livewire.multi-select-search');
+    }
+
+    public function toggleSelection($itemId): void
+    {
+        $model = app($this->modelClass);
+        $model = $model::query()->firstWhere($this->searchKey, $itemId);
+        if ($model) {
+            $itemArray = $model->toArray();
+            // addItem
+            if (! in_array($itemArray[$this->searchKey], array_column($this->selectedItems, $this->searchKey))) {
+                $this->selectedItems[] = $itemArray;
+                $this->dispatch($this->eventItemAdded, item: $itemArray);
+
+                return;
+            }
+
+            // remove
+            $this->selectedItems = collect($this->selectedItems)->filter(fn ($i) => $i[$this->searchKey] !== $itemId)->all();
+
+            $this->dispatch($this->eventItemRemoved, itemKey: $itemId);
+        }
+    }
+
+    public function getItemId($key): string
+    {
+        return $this->id.'-item-'.$key;
     }
 
     protected function getItems(&$get_via_db, $query_limit, $searchTerm = null): array
@@ -155,57 +209,6 @@ class MultiSelectSearch extends Component
         });
     }
 
-    public function updatedSearchTerm($value): void
-    {
-        if (empty($this->searchTerm)) {
-            $this->searchResults = [];
-
-            return;
-        }
-        $this->resetValidation('searchTerm');
-        $this->validateOnly('searchTerm');
-
-        $getting_via_db = false;
-
-        $this->searchResults = $this->getItems($getting_via_db, $this->query_limit, $this->searchTerm);
-
-        if ($getting_via_db) {
-            $this->dispatch($this->event)->self();
-        }
-        $this->componentLoading = false;
-    }
-
-    public function render(): View
-    {
-        return view('dvui::livewire.multi-select-search');
-    }
-
-    public function toggleSelection($itemId): void
-    {
-        $model = app($this->modelClass);
-        $model = $model::query()->firstWhere($this->searchKey, $itemId);
-        if ($model) {
-            $itemArray = $model->toArray();
-            // addItem
-            if (! in_array($itemArray[$this->searchKey], array_column($this->selectedItems, $this->searchKey))) {
-                $this->selectedItems[] = $itemArray;
-                $this->dispatch($this->eventItemAdded, item: $itemArray);
-
-                return;
-            }
-
-            // remove
-            $this->selectedItems = collect($this->selectedItems)->filter(fn ($i) => $i[$this->searchKey] !== $itemId)->all();
-
-            $this->dispatch($this->eventItemRemoved, itemKey: $itemId);
-        }
-    }
-
-    public function getItemId($key): string
-    {
-        return $this->id.'-item-'.$key;
-    }
-
     protected function getListeners()
     {
         return [
@@ -243,21 +246,21 @@ class MultiSelectSearch extends Component
         ];
     }
 
+    protected function getCacheKey(mixed $searchTerm, $query_limit): string
+    {
+        $searchTerm = is_array($searchTerm) ? json_encode($searchTerm) : $searchTerm;
+
+        return '_multi-select-search-'.$this->id.'-gb-'.$this->groupBy.'-ql-'.$query_limit.'_'.$searchTerm;
+    }
+
     private function setScope(MultiSelectSearchInterface|string|null $scope): void
     {
         if (! $scope) {
             return;
         }
         if (! in_array(MultiSelectSearchInterface::class, class_implements($scope, MultiSelectSearchInterface::class))) {
-            throw new \Exception($scope.' class must implement '.MultiSelectSearchInterface::class);
+            throw new Exception($scope.' class must implement '.MultiSelectSearchInterface::class);
         }
         $this->scope = $scope;
-    }
-
-    protected function getCacheKey(mixed $searchTerm, $query_limit): string
-    {
-        $searchTerm = is_array($searchTerm) ? json_encode($searchTerm) : $searchTerm;
-
-        return '_multi-select-search-'.$this->id.'-gb-'.$this->groupBy.'-ql-'.$query_limit.'_'.$searchTerm;
     }
 }

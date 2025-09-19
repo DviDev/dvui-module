@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Square;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Square2x2 extends Component
+final class Square2x2 extends Component
 {
     public function render(): View
     {

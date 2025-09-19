@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Button;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 
-class Button extends Component
+final class Button extends Component
 {
     /**
      * Create a new component instance

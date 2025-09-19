@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Carousel;
 
 use Illuminate\View\Component;
@@ -8,7 +10,7 @@ use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\Services\ComponentCheck;
 use Modules\DvUi\Traits\DevResources;
 
-class Carousel extends Component
+final class Carousel extends Component
 {
     use ComponentCheck;
     use DevResources;

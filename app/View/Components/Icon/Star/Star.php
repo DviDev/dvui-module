@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Star;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Star extends Component
+final class Star extends Component
 {
     public function render(): View
     {

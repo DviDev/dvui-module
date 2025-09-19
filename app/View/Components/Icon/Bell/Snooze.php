@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Bell;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Snooze extends Component
+final class Snooze extends Component
 {
     public function render(): View
     {

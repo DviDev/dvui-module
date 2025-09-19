@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Tag;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Tag extends Component
+final class Tag extends Component
 {
     public function render(): View
     {

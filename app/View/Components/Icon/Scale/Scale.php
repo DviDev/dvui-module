@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Scale;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Scale extends Component
+final class Scale extends Component
 {
     public function render(): View
     {

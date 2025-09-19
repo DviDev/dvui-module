@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Printer;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Printer extends Component
+final class Printer extends Component
 {
     public function render(): View
     {

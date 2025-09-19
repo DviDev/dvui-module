@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Photo;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Photo extends Component
+final class Photo extends Component
 {
     public function render(): View
     {

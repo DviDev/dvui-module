@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Bars\Battery;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Half extends Component
+final class Half extends Component
 {
     public function render(): View
     {

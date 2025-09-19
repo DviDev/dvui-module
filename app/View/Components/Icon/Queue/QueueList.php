@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Queue;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class QueueList extends Component
+final class QueueList extends Component
 {
     public function render(): View
     {

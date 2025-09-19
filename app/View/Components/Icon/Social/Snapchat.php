@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Social;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Snapchat extends Component
+final class Snapchat extends Component
 {
     public function render(): View
     {

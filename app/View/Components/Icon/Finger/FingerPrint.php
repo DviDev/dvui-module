@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Finger;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class FingerPrint extends Component
+final class FingerPrint extends Component
 {
     public function render(): View
     {

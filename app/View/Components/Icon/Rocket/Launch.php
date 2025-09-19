@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Rocket;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Launch extends Component
+final class Launch extends Component
 {
     public function render(): View
     {

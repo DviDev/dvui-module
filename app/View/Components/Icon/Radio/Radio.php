@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Radio;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Radio extends Component
+final class Radio extends Component
 {
     public function render(): View
     {

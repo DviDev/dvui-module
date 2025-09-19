@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Share;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Share extends Component
+final class Share extends Component
 {
     public function render(): View
     {

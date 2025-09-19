@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Chevron\Double;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Right extends Component
+final class Right extends Component
 {
     public function render(): View
     {

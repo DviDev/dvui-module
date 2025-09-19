@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Funnel;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Funnel extends Component
+final class Funnel extends Component
 {
     public function render(): View
     {

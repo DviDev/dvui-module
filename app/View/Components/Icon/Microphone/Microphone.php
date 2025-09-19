@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Microphone;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Microphone extends Component
+final class Microphone extends Component
 {
     public function render(): View
     {

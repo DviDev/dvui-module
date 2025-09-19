@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\Services\Plugins\Toastr;
 
 enum Position: string

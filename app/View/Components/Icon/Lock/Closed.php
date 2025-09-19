@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Lock;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Closed extends Component
+final class Closed extends Component
 {
     public function render(): View
     {

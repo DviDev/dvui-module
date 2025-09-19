@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Currency;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Euro extends Component
+final class Euro extends Component
 {
     public function render(): View
     {

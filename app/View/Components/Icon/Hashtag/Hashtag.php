@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Hashtag;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Hashtag extends Component
+final class Hashtag extends Component
 {
     public function render(): View
     {

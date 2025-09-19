@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Calculator;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Calculator extends Component
+final class Calculator extends Component
 {
     public function render(): View
     {

@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Wallet;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Wallet extends Component
+final class Wallet extends Component
 {
     public function render(): View
     {

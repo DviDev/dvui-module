@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Scissors;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Scissors extends Component
+final class Scissors extends Component
 {
     public function render(): View
     {

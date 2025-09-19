@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Shield;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Check extends Component
+final class Check extends Component
 {
     public function render(): View
     {

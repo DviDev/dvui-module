@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Arrow\Right;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Uturn extends Component
+final class Uturn extends Component
 {
     public function render(): View
     {

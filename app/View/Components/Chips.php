@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components;
 
 use Illuminate\View\Component;
@@ -8,7 +10,7 @@ use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\Services\ComponentCheck;
 use Modules\DvUi\Traits\DevResources;
 
-class Chips extends Component
+final class Chips extends Component
 {
     use ComponentCheck;
     use DevResources;

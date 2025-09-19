@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Sparkles;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Sparkles extends Component
+final class Sparkles extends Component
 {
     public function render(): View
     {

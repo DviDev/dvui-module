@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\Services;
 
 use Illuminate\View\ComponentSlot;
@@ -11,6 +13,16 @@ trait ComponentCheck
     public $color_classes_;
 
     public $text_sizes_;
+
+    public static function classesStartWith($string, ?ComponentSlot $target = null, $classes = [])
+    {
+        $classes = $target ? $target->attributes->get('class') : $classes;
+
+        return str($classes)
+            ->explode(' ')
+            ->filter(fn ($c) => str_starts_with($c, $string))
+            ->implode(' ');
+    }
 
     public function init()
     {
@@ -29,16 +41,6 @@ trait ComponentCheck
     public function onlyClassesStartWith($string, ?ComponentSlot $target = null)
     {
         return static::classesStartWith($string, $target, $this->attributes['class']);
-    }
-
-    public static function classesStartWith($string, ?ComponentSlot $target = null, $classes = [])
-    {
-        $classes = $target ? $target->attributes->get('class') : $classes;
-
-        return str($classes)
-            ->explode(' ')
-            ->filter(fn ($c) => str_starts_with($c, $string))
-            ->implode(' ');
     }
 
     public function classesContain($class, ?ComponentSlot $target = null)

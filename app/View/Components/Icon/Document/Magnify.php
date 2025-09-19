@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Document;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Magnify extends Component
+final class Magnify extends Component
 {
     public function render(): View
     {

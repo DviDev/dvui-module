@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Exclamation;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Triangle extends Component
+final class Triangle extends Component
 {
     public function render(): View
     {

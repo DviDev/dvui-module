@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Cloud;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Cloud extends Component
+final class Cloud extends Component
 {
     public function render(): View
     {

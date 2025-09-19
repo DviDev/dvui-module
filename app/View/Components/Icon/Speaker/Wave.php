@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Speaker;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Wave extends Component
+final class Wave extends Component
 {
     public function render(): View
     {

@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Map;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Map extends Component
+final class Map extends Component
 {
     public function render(): View
     {

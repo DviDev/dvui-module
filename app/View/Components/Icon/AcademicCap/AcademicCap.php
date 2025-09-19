@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\AcademicCap;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class AcademicCap extends Component
+final class AcademicCap extends Component
 {
     public function render(): View
     {

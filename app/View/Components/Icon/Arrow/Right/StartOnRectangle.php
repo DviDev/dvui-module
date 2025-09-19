@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Arrow\Right;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class StartOnRectangle extends Component
+final class StartOnRectangle extends Component
 {
     public function render(): View
     {

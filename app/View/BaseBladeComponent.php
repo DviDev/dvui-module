@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View;
 
 use Illuminate\Support\Facades\File;
@@ -31,17 +33,17 @@ abstract class BaseBladeComponent extends Component
         $this->attr['placeholder'] = $this->placeholder ?? $this->attr['placeholder'] ?? null;
     }
 
-    public function getFormField($attributes)
-    {
-        return collect($attributes)->first(fn ($value, $key) => str($key)->contains('wire:model'))
-            ?? $attributes['id'] ?? $attributes['name'] ?? $this->label;
-    }
-
     public static function published($name): bool
     {
         $component = str($name)->explode('.')->join('/');
         $filename = resource_path('views/components/'.$component.'.blade.php');
 
         return File::exists($filename);
+    }
+
+    public function getFormField($attributes)
+    {
+        return collect($attributes)->first(fn ($value, $key) => str($key)->contains('wire:model'))
+            ?? $attributes['id'] ?? $attributes['name'] ?? $this->label;
     }
 }

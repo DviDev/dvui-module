@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Presentation\Chart;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Bar extends Component
+final class Bar extends Component
 {
     public function render(): View
     {

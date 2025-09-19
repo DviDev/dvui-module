@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Rating;
 
 use Illuminate\View\View;
 use Modules\DvUi\View\Components\Icon\Icon;
 
-class Heart extends Icon
+final class Heart extends Icon
 {
     use SizeTrait;
 

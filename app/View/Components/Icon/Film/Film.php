@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Film;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Film extends Component
+final class Film extends Component
 {
     public function render(): View
     {

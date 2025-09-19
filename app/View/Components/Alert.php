@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components;
 
 use Illuminate\View\Component;
@@ -9,7 +11,7 @@ use Modules\DvUi\Traits\DevResources;
 
 use function view;
 
-class Alert extends Component
+final class Alert extends Component
 {
     use DevResources;
 

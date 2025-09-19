@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Chat\Bubble\Bottom;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Center extends Component
+final class Center extends Component
 {
     public function render(): View
     {

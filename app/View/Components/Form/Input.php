@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Form;
 
 use Illuminate\View\View;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\View\BaseBladeComponent;
 
-class Input extends BaseBladeComponent
+final class Input extends BaseBladeComponent
 {
     public function render(): View
     {

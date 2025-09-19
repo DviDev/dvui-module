@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Paper;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Airplane extends Component
+final class Airplane extends Component
 {
     public function render(): View
     {

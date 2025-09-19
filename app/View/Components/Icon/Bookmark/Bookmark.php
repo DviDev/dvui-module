@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Bookmark;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Bookmark extends Component
+final class Bookmark extends Component
 {
     public function render(): View
     {

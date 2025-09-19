@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Arrow\Path;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class RoundedSquare extends Component
+final class RoundedSquare extends Component
 {
     public function render(): View
     {
