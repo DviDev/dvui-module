@@ -258,7 +258,7 @@ final class MultiSelectSearch extends Component
         if (! $scope) {
             return;
         }
-        if (! in_array(MultiSelectSearchInterface::class, class_implements($scope, MultiSelectSearchInterface::class))) {
+        if (! in_array(MultiSelectSearchInterface::class, class_implements($scope))) {
             throw new Exception($scope.' class must implement '.MultiSelectSearchInterface::class);
         }
         $this->scope = $scope;
