@@ -15,7 +15,7 @@ declare(strict_types=1);
 
 use Modules\Base\Http\Middleware\LocalEnvironmentMiddleware;
 
-Route::middleware('auth')->prefix('dvui')->group(function () {
+Route::middleware('auth')->prefix('dvui')->group(function (): void {
     if (config('app.env') !== 'local') {
         return;
     }

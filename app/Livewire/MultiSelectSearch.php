@@ -166,7 +166,7 @@ final class MultiSelectSearch extends Component
             /** @var Builder $query */
             $query = $model::query();
 
-            $query->when($this->searchTerm, function (Builder $query) {
+            $query->when($this->searchTerm, function (Builder $query): void {
 
                 $terms_array = null;
                 if (str($this->searchTerm)->contains(',')) {
