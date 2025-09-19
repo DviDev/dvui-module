@@ -9,7 +9,7 @@ use Illuminate\View\View;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\Traits\DevResources;
 
-abstract class Icon extends Component
+class Icon extends Component
 {
     use DevResources;
 
