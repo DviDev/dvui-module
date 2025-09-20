@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\Enums;
 
 enum DvuiComponentAlias: string
@@ -179,4 +181,5 @@ enum DvuiComponentAlias: string
     case LayoutV3 = 'layout.v3';
     case WidgetIndicatorTile = 'widget.indicator.tile';
     case ExamplesUiElementsInvoicePage = 'examples.uielements.invoicepage';
+    case orderListPage = 'page.order.listpage';
 }

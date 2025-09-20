@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Bell;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Alert extends Component
+final class Alert extends Component
 {
     public function render(): View
     {

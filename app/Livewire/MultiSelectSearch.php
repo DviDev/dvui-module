@@ -1,14 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\Livewire;
 
+use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
 use Modules\DvUi\Contracts\MultiSelectSearchInterface;
 
-class MultiSelectSearch extends Component
+final class MultiSelectSearch extends Component
 {
     public string $placeholder;
 
@@ -48,6 +51,9 @@ class MultiSelectSearch extends Component
 
     public $validationClasses = [];
 
+    /** @var string|MultiSelectSearchInterface */
+    public ?string $scope = '';
+
     private $query_limit;
 
     private ?int $initialQueryLimit;
@@ -55,12 +61,9 @@ class MultiSelectSearch extends Component
     #[Locked]
     private ?string $label;
 
-    /** @var string|MultiSelectSearchInterface */
-    public ?string $scope = '';
-
     public function listenerEventLoadItems($items, $component_id): void
     {
-        if ($this->id == $component_id) {
+        if ($this->id === $component_id) {
             $this->searchResults = $items;
         }
     }
@@ -98,61 +101,6 @@ class MultiSelectSearch extends Component
         $this->searchResults = $this->getItems($getting_via_db, $this->initialQueryLimit);
 
         $this->setScope($scope);
-    }
-
-    protected function getItems(&$get_via_db, $query_limit, $searchTerm = null): array
-    {
-        $cache_key = $this->getCacheKey($searchTerm, $query_limit);
-
-        // cache()->delete($cache_key);
-        return cache()->rememberForever($cache_key, function () use (&$get_via_db, $query_limit) {
-            $get_via_db = true;
-
-            $model = app($this->modelClass);
-            /** @var Builder $query */
-            $query = $model::query();
-
-            $query->when($this->searchTerm, function (Builder $query) {
-
-                $terms_array = null;
-                if (str($this->searchTerm)->contains(',')) {
-                    $terms_array = str($this->searchTerm)
-                        ->explode(',')
-                        ->map(fn ($i) => trim($i))
-                        ->filter()
-                        ->unique()
-                        ->all();
-                }
-
-                if (! empty($this->scope)) {
-                    $this->scope::apply($query, $this->searchFields, $this->searchTerm);
-
-                    return;
-                }
-
-                foreach ($this->searchFields as $field) {
-                    if ($terms_array) {
-                        $query->orWhereIn($field, $terms_array);
-
-                        continue;
-                    }
-
-                    $query->orWhere($field, 'like', "%$this->searchTerm%");
-                }
-            });
-
-            if ($this->groupBy) {
-                $query->groupBy($this->groupBy);
-            }
-
-            if ($query_limit) {
-                $query->limit($query_limit); // Limita o número de resultados para otimização
-            }
-
-            return $query
-                ->get($this->searchFields)
-                ->toArray(); // Converte para array para evitar problemas de reatividade com objetos Eloquent complexos
-        });
     }
 
     public function updatedSearchTerm($value): void
@@ -206,6 +154,61 @@ class MultiSelectSearch extends Component
         return $this->id.'-item-'.$key;
     }
 
+    protected function getItems(&$get_via_db, $query_limit, $searchTerm = null): array
+    {
+        $cache_key = $this->getCacheKey($searchTerm, $query_limit);
+
+        // cache()->delete($cache_key);
+        return cache()->rememberForever($cache_key, function () use (&$get_via_db, $query_limit) {
+            $get_via_db = true;
+
+            $model = app($this->modelClass);
+            /** @var Builder $query */
+            $query = $model::query();
+
+            $query->when($this->searchTerm, function (Builder $query): void {
+
+                $terms_array = null;
+                if (str($this->searchTerm)->contains(',')) {
+                    $terms_array = str($this->searchTerm)
+                        ->explode(',')
+                        ->map(fn ($i) => trim($i))
+                        ->filter()
+                        ->unique()
+                        ->all();
+                }
+
+                if (! empty($this->scope)) {
+                    $this->scope::apply($query, $this->searchFields, $this->searchTerm);
+
+                    return;
+                }
+
+                foreach ($this->searchFields as $field) {
+                    if ($terms_array) {
+                        $query->orWhereIn($field, $terms_array);
+
+                        continue;
+                    }
+
+                    $query->orWhere($field, 'like', "%$this->searchTerm%");
+                }
+            });
+
+            if ($this->groupBy) {
+                $query->groupBy($this->groupBy);
+            }
+
+            if ($query_limit) {
+                $query->limit($query_limit); // Limita o número de resultados para otimização
+            }
+
+            return $query
+                ->get($this->searchFields)
+                ->toArray(); // Converte para array para evitar problemas de reatividade com objetos Eloquent complexos
+        });
+    }
+
     protected function getListeners()
     {
         return [
@@ -243,21 +246,21 @@ class MultiSelectSearch extends Component
         ];
     }
 
-    private function setScope(MultiSelectSearchInterface|string|null $scope): void
-    {
-        if (! $scope) {
-            return;
-        }
-        if (! in_array(MultiSelectSearchInterface::class, class_implements($scope, MultiSelectSearchInterface::class))) {
-            throw new \Exception($scope.' class must implement '.MultiSelectSearchInterface::class);
-        }
-        $this->scope = $scope;
-    }
-
     protected function getCacheKey(mixed $searchTerm, $query_limit): string
     {
         $searchTerm = is_array($searchTerm) ? json_encode($searchTerm) : $searchTerm;
 
         return '_multi-select-search-'.$this->id.'-gb-'.$this->groupBy.'-ql-'.$query_limit.'_'.$searchTerm;
+    }
+
+    private function setScope(MultiSelectSearchInterface|string|null $scope): void
+    {
+        if (! $scope) {
+            return;
+        }
+        if (! in_array(MultiSelectSearchInterface::class, class_implements($scope))) {
+            throw new Exception($scope.' class must implement '.MultiSelectSearchInterface::class);
+        }
+        $this->scope = $scope;
     }
 }

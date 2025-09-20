@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Instagram;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Instagram extends Component
+final class Instagram extends Component
 {
     public function render(): View
     {

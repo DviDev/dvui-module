@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Dev;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Info extends Component
+final class Info extends Component
 {
     public function render(): View|string
     {

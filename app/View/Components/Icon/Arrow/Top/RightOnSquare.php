@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Arrow\Top;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class RightOnSquare extends Component
+final class RightOnSquare extends Component
 {
     public function render(): View
     {

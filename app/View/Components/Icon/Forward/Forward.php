@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Forward;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Forward extends Component
+final class Forward extends Component
 {
     public function render(): View
     {

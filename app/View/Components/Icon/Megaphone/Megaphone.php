@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Megaphone;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Megaphone extends Component
+final class Megaphone extends Component
 {
     public function render(): View
     {

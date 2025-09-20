@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Globe;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Alt extends Component
+final class Alt extends Component
 {
     public function render(): View
     {

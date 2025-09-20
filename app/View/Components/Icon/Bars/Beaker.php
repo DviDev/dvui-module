@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Bars;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Beaker extends Component
+final class Beaker extends Component
 {
     public function render(): View
     {

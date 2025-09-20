@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Globe\Europe;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Africa extends Component
+final class Africa extends Component
 {
     public function render(): View
     {

@@ -1,46 +1,48 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\Services\Plugins\Toastr;
 
 use Livewire\Component;
 
-class Toastr
+final class Toastr
 {
-    protected Component $component;
+    private Component $component;
 
-    protected string $msg;
+    private string $msg;
 
-    protected string $type;
+    private string $type;
 
-    protected Position $positionClass;
+    private Position $positionClass;
 
-    protected bool $closeButton;
+    private bool $closeButton;
 
-    protected bool $newestOnTop;
+    private bool $newestOnTop;
 
-    protected bool $debug;
+    private bool $debug;
 
-    protected bool $progressBar;
+    private bool $progressBar;
 
-    protected bool $preventDuplicates;
+    private bool $preventDuplicates;
 
-    protected $onclick;
+    private $onclick;
 
-    protected int $showDuration;
+    private int $showDuration;
 
-    protected int $hideDuration;
+    private int $hideDuration;
 
-    protected int $timeOut;
+    private int $timeOut;
 
-    protected int $extendedTimeOut;
+    private int $extendedTimeOut;
 
-    protected string $showEasing;
+    private string $showEasing;
 
-    protected string $hideEasing;
+    private string $hideEasing;
 
-    protected string $showMethod;
+    private string $showMethod;
 
-    protected string $hideMethod;
+    private string $hideMethod;
 
     public static function instance(Component $component): self
     {

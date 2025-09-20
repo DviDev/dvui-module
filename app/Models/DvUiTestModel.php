@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\Models;
 
 use Modules\Base\Contracts\BaseModel;
@@ -16,7 +18,7 @@ use Modules\DvUi\Entities\DvUiTest\DvUiTestProps;
  *
  * @method DvUiTestEntityModel toEntity()
  */
-class DvUiTestModel extends BaseModel
+final class DvUiTestModel extends BaseModel
 {
     use DvUiTestProps;
 
@@ -25,16 +27,16 @@ class DvUiTestModel extends BaseModel
         return self::dbTable('dvui_tests', $alias);
     }
 
+    public function modelEntity(): string
+    {
+        return DvUiTestEntityModel::class;
+    }
+
     protected static function newFactory(): BaseFactory
     {
         return new class extends BaseFactory
         {
             protected $model = DvUiTestModel::class;
         };
-    }
-
-    public function modelEntity(): string
-    {
-        return DvUiTestEntityModel::class;
     }
 }

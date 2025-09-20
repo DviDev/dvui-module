@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Code\Bracket;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Bracket extends Component
+final class Bracket extends Component
 {
     public function render(): View
     {

@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Clipboard;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Clipboard extends Component
+final class Clipboard extends Component
 {
     public function render(): View
     {

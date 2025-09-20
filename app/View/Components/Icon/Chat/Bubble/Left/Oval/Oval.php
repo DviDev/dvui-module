@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Chat\Bubble\Left\Oval;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Oval extends Component
+final class Oval extends Component
 {
     public function render(): View
     {

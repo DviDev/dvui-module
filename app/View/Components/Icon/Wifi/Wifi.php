@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Wifi;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Wifi extends Component
+final class Wifi extends Component
 {
     public function render(): View
     {

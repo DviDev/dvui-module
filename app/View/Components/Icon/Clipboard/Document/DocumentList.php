@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Clipboard\Document;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class DocumentList extends Component
+final class DocumentList extends Component
 {
     public function render(): View
     {

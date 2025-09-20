@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Eye;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Slash extends Component
+final class Slash extends Component
 {
     public function render(): View
     {

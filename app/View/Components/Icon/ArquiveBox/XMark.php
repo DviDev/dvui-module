@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\ArquiveBox;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class XMark extends Component
+final class XMark extends Component
 {
     public function render(): View
     {

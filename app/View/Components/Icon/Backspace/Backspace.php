@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Backspace;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Backspace extends Component
+final class Backspace extends Component
 {
     public function render(): View
     {

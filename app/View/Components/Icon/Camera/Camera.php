@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Camera;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Camera extends Component
+final class Camera extends Component
 {
     public function render(): View
     {

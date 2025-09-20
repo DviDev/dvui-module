@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Ellipsis\Envelope;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Envelope extends Component
+final class Envelope extends Component
 {
     public function render(): View
     {

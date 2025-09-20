@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Arrow\Left;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Small extends Component
+final class Small extends Component
 {
     public function render(): View
     {

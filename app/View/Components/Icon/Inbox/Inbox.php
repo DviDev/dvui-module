@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Inbox;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Inbox extends Component
+final class Inbox extends Component
 {
     public function render(): View
     {

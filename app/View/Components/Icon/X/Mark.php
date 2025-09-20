@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\X;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Mark extends Component
+final class Mark extends Component
 {
     public function render(): View
     {

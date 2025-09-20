@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Currency\Arrow;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Ripple extends Component
+final class Ripple extends Component
 {
     public function render(): View
     {

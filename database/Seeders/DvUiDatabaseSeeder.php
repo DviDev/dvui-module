@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\Database\Seeders;
 
 use Illuminate\Database\Eloquent\Model;
@@ -10,7 +12,7 @@ use Modules\Person\Enums\UserType;
 use Modules\Person\Models\UserTypeModel;
 use Modules\Person\Services\SeedFirstOrCreateUser;
 
-class DvUiDatabaseSeeder extends BaseSeeder
+final class DvUiDatabaseSeeder extends BaseSeeder
 {
     /**
      * Run the database seeds.

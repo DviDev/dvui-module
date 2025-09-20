@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Play;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Play extends Component
+final class Play extends Component
 {
     public function render(): View
     {

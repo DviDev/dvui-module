@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\Entities\DvUiTest;
 
 use Modules\Base\Entities\BaseEntityModel;
@@ -16,7 +18,7 @@ use Modules\DvUi\Models\DvUiTestModel;
  * @method static self new()
  * @method static self props($alias = null, $force = null)
  */
-class DvUiTestEntityModel extends BaseEntityModel
+final class DvUiTestEntityModel extends BaseEntityModel
 {
     use DvUiTestProps;
 }

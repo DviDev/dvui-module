@@ -1,10 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\Providers;
 
+use Config;
+use Event;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use Log;
 use Modules\Base\Events\BaseSeederInitialIndependentDataEvent;
 use Modules\DBMap\Events\ScanTableEvent;
 use Modules\DvUi\Enums\DvuiComponentAlias;
@@ -35,8 +40,9 @@ use Modules\DvUi\View\Components\Icon\Arrow;
 use Modules\DvUi\View\Components\Icon\Arrow\Down;
 use Modules\DvUi\View\Components\Link;
 use Modules\Project\Events\CreateMenuItemsEvent;
+use ReflectionClass;
 
-class DvUiServiceProvider extends ServiceProvider
+final class DvUiServiceProvider extends ServiceProvider
 {
     /**
      * @var string
@@ -73,24 +79,9 @@ class DvUiServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
-        \Event::listen(CreateMenuItemsEvent::class, CreateMenuItemsListener::class);
-        \Event::listen(BaseSeederInitialIndependentDataEvent::class, SeedInitialIndependentDataDvUiListener::class);
-        \Event::listen(ScanTableEvent::class, ScanTableDvUiListener::class);
-    }
-
-    /**
-     * Register config.
-     *
-     * @return void
-     */
-    protected function registerConfig()
-    {
-        $this->publishes([
-            module_path($this->moduleName, 'config/config.php') => config_path($this->moduleNameLower.'.php'),
-        ], 'config');
-        $this->mergeConfigFrom(
-            module_path($this->moduleName, 'config/config.php'), $this->moduleNameLower
-        );
+        Event::listen(CreateMenuItemsEvent::class, CreateMenuItemsListener::class);
+        Event::listen(BaseSeederInitialIndependentDataEvent::class, SeedInitialIndependentDataDvUiListener::class);
+        Event::listen(ScanTableEvent::class, ScanTableDvUiListener::class);
     }
 
     /**
@@ -110,13 +101,6 @@ class DvUiServiceProvider extends ServiceProvider
         );
 
         $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
-    }
-
-    private function registerAssetPath(): void
-    {
-        $assetVendorPath = public_path('assets/modules/'.$this->moduleNameLower);
-        $sourceVendorPath = module_path($this->moduleName, 'resources/assets');
-        $this->publishes([$sourceVendorPath => $assetVendorPath], 'dvui-assets');
     }
 
     /**
@@ -147,16 +131,19 @@ class DvUiServiceProvider extends ServiceProvider
         return [];
     }
 
-    private function getPublishableViewPaths(): array
+    /**
+     * Register config.
+     *
+     * @return void
+     */
+    protected function registerConfig()
     {
-        $paths = [];
-        foreach (\Config::get('view.paths') as $path) {
-            if (is_dir($path.'/modules/'.$this->moduleNameLower)) {
-                $paths[] = $path.'/modules/'.$this->moduleNameLower;
-            }
-        }
-
-        return $paths;
+        $this->publishes([
+            module_path($this->moduleName, 'config/config.php') => config_path($this->moduleNameLower.'.php'),
+        ], 'config');
+        $this->mergeConfigFrom(
+            module_path($this->moduleName, 'config/config.php'), $this->moduleNameLower
+        );
     }
 
     protected function registerComponents(): void
@@ -199,7 +186,7 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::icon.arrow.left.start-on-rectangle', Arrow\Left\StartOnRectangle::class);
         Blade::component('dvui::icon.arrow.left.small', Arrow\Left\Small::class);
         Blade::component('dvui::icon.arrow.left.uturn', Arrow\Left\Uturn::class);
-        Blade::component('dvui::icon.arrow.path', Icon\Arrow\Path\Path::class);
+        Blade::component('dvui::icon.arrow.path', Arrow\Path\Path::class);
         Blade::component('dvui::icon.arrow.path.roundedsquare', Arrow\Path\RoundedSquare::class);
         Blade::component('dvui::icon.arrow.poiting.in', Arrow\Pointing\In::class);
         Blade::component('dvui::icon.arrow.poiting.out', Arrow\Pointing\Out::class);
@@ -222,7 +209,7 @@ class DvUiServiceProvider extends ServiceProvider
         Blade::component('dvui::icon.arrow.up.tray', Arrow\Up\Tray::class);
         Blade::component('dvui::icon.arrow.up.trending', Arrow\Up\Trending::class);
         Blade::component('dvui::icon.arrow.up.uturn', Arrow\Up\Uturn::class);
-        Blade::component('dvui::icon.arrow.down', Arrow\Down::class);
+        Blade::component('dvui::icon.arrow.down', Down::class);
         Blade::component('dvui::icon.arrow.rightleft', Arrow\RigthLeft::class);
         Blade::component('dvui::icon.arrow.updown', Arrow\UpDown::class);
         Blade::component('dvui::icon.backspace.path', Icon\Backspace\Path::class);
@@ -536,7 +523,7 @@ class DvUiServiceProvider extends ServiceProvider
     {
         $activeSuiteIdentifier = config('dvui.active_suite');
         if (empty($activeSuiteIdentifier)) {
-            \Log::warning(__("DVUI: 'active_suite' not configured. No DVUI component suite will be loaded."));
+            Log::warning(__("DVUI: 'active_suite' not configured. No DVUI component suite will be loaded."));
 
             return;
         }
@@ -544,12 +531,12 @@ class DvUiServiceProvider extends ServiceProvider
         $suiteProviders = config('dvui.suite_providers');
         $activeSuiteProvider = null;
         $provider = $suiteProviders[$activeSuiteIdentifier];
-        if ((new \ReflectionClass($provider))->implementsInterface(DvuiComponentSuiteContract::class)) {
+        if ((new ReflectionClass($provider))->implementsInterface(DvuiComponentSuiteContract::class)) {
             $activeSuiteProvider = $provider;
         }
 
         if (! $activeSuiteProvider) {
-            \Log::error(__("DVUI: Active suite '{$activeSuiteIdentifier}' not found or does not implement DvuiComponentSuiteContract."));
+            Log::error(__("DVUI: Active suite '{$activeSuiteIdentifier}' not found or does not implement DvuiComponentSuiteContract."));
 
             return;
         }
@@ -563,7 +550,26 @@ class DvUiServiceProvider extends ServiceProvider
 
                 continue;
             }
-            \Log::warning(__("DVUI: Alias '{$alias}' from suite '{$activeSuiteIdentifier}' is not a recognized DVUI component alias defined in DvuiComponentAlias enum."));
+            Log::warning(__("DVUI: Alias '{$alias}' from suite '{$activeSuiteIdentifier}' is not a recognized DVUI component alias defined in DvuiComponentAlias enum."));
         }
+    }
+
+    private function registerAssetPath(): void
+    {
+        $assetVendorPath = public_path('assets/modules/'.$this->moduleNameLower);
+        $sourceVendorPath = module_path($this->moduleName, 'resources/assets');
+        $this->publishes([$sourceVendorPath => $assetVendorPath], 'dvui-assets');
+    }
+
+    private function getPublishableViewPaths(): array
+    {
+        $paths = [];
+        foreach (Config::get('view.paths') as $path) {
+            if (is_dir($path.'/modules/'.$this->moduleNameLower)) {
+                $paths[] = $path.'/modules/'.$this->moduleNameLower;
+            }
+        }
+
+        return $paths;
     }
 }

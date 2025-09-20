@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Language;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Language extends Component
+final class Language extends Component
 {
     public function render(): View
     {

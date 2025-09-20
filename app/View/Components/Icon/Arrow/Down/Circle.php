@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Arrow\Down;
 
 use Illuminate\View\View;
 use Modules\DvUi\View\Components\Icon\Icon;
 
-class Circle extends Icon
+final class Circle extends Icon
 {
     public function render(): View
     {

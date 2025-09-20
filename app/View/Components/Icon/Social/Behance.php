@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Social;
 
 use Illuminate\View\View;
 use Modules\DvUi\View\Components\Icon\Icon;
 use Modules\DvUi\View\Components\Icon\Rating\SizeTrait;
 
-class Behance extends Icon
+final class Behance extends Icon
 {
     use SizeTrait;
 

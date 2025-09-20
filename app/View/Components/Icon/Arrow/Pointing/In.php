@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Arrow\Pointing;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class In extends Component
+final class In extends Component
 {
     public function render(): View
     {

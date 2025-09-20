@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Signal;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Slach extends Component
+final class Slach extends Component
 {
     public function render(): View
     {

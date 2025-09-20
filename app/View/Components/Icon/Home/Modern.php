@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Home;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Modern extends Component
+final class Modern extends Component
 {
     public function render(): View
     {

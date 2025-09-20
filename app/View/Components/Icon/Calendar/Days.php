@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Calendar;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Days extends Component
+final class Days extends Component
 {
     public function render(): View
     {

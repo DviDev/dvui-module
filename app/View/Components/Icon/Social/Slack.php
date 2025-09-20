@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Social;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Slack extends Component
+final class Slack extends Component
 {
     public function render(): View
     {

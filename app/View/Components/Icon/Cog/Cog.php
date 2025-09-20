@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Cog;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Cog extends Component
+final class Cog extends Component
 {
     public function render(): View
     {

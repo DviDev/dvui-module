@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Wrench;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Wrench extends Component
+final class Wrench extends Component
 {
     public function render(): View
     {

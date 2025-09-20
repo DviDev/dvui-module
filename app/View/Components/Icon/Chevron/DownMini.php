@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Chevron;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class DownMini extends Component
+final class DownMini extends Component
 {
     public function render(): View
     {

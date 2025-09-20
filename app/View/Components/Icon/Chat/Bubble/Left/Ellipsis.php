@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Chat\Bubble\Left;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Ellipsis extends Component
+final class Ellipsis extends Component
 {
     public function render(): View
     {

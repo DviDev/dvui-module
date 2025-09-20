@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Swatch;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Swatch extends Component
+final class Swatch extends Component
 {
     public function render(): View
     {

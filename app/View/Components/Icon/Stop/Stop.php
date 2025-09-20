@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Stop;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Stop extends Component
+final class Stop extends Component
 {
     public function render(): View
     {

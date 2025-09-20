@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Social;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Pinterest extends Component
+final class Pinterest extends Component
 {
     public function render(): View
     {

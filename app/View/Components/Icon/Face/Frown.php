@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Face;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Frown extends Component
+final class Frown extends Component
 {
     public function render(): View
     {

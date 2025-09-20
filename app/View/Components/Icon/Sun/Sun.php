@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Sun;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Sun extends Component
+final class Sun extends Component
 {
     public function render(): View
     {

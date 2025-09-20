@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Currency;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Rupee extends Component
+final class Rupee extends Component
 {
     public function render(): View
     {

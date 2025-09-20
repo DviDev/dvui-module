@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Hand;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Raised extends Component
+final class Raised extends Component
 {
     public function render(): View
     {

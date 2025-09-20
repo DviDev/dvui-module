@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Puzzle;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Piece extends Component
+final class Piece extends Component
 {
     public function render(): View
     {

@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Arrow\Up;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Trending extends Component
+final class Trending extends Component
 {
     public function render(): View
     {

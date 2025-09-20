@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\TestCase;
 use Modules\DvUi\Entities\DvUiTest\DvUiTestEntityModel;
@@ -9,10 +11,10 @@ use Modules\DvUi\Models\DvUiTestModel;
 uses(TestCase::class);
 uses(DatabaseTransactions::class);
 
-test('can render component', function () {
-    $p = DvUITestEntityModel::props();
+test('can render component', function (): void {
+    $p = DvUiTestEntityModel::props();
     Schema::dropIfExists(DvUiTestModel::table());
-    Schema::create(DvUiTestModel::table(), function ($table) use ($p) {
+    Schema::create(DvUiTestModel::table(), function ($table) use ($p): void {
         $table->id();
         $table->string($p->property1);
         $table->string($p->property2);
@@ -36,6 +38,6 @@ test('can render component', function () {
 
     Schema::dropIfExists(DvUiTestModel::table());
 });
-test('can pagination dynamically', function () {
+test('can pagination dynamically', function (): void {
     expect(false)->toBeTrue();
 });

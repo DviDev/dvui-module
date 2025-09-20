@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'name' => 'DvUi',
     'text-colors' => [
@@ -33,6 +35,6 @@ return [
     ],
     'active_suite' => env('DVUI_ACTIVE_SUITE', 'flowbite'),
     'suite_providers' => [
-        'flowbite' => \Modules\Flowbite\Services\ComponentMap::class,
+        'flowbite' => Modules\Flowbite\Services\ComponentMap::class,
     ],
 ];

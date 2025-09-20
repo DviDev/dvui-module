@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\User;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Circle extends Component
+final class Circle extends Component
 {
     public function render(): View
     {

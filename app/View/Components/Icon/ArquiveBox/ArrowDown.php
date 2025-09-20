@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\ArquiveBox;
 
 use Illuminate\View\View;
 use Modules\DvUi\View\Components\Icon\Icon;
 
-class ArrowDown extends Icon
+final class ArrowDown extends Icon
 {
     public function render(): View
     {

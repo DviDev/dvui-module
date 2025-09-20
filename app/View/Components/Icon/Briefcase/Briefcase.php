@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Briefcase;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Briefcase extends Component
+final class Briefcase extends Component
 {
     public function render(): View
     {

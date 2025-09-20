@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Form;
 
 use Illuminate\View\Component;
@@ -7,7 +9,7 @@ use Illuminate\View\View;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\Traits\DevResources;
 
-class Date extends Component
+final class Date extends Component
 {
     use DevResources;
 

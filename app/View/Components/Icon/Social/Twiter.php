@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Social;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Twiter extends Component
+final class Twiter extends Component
 {
     public function render(): View
     {

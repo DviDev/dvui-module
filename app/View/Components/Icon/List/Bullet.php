@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\List;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Bullet extends Component
+final class Bullet extends Component
 {
     public function render(): View
     {

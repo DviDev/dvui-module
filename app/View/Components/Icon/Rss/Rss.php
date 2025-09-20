@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\DvUi\View\Components\Icon\Rss;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Rss extends Component
+final class Rss extends Component
 {
     public function render(): View
     {
