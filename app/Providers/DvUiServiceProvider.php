@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Log;
-use Modules\Base\Events\BaseSeederInitialIndependentDataEvent;
+use Modules\Base\Events\SeedInitialIndependentDataEvent;
 use Modules\DBMap\Events\ScanTableEvent;
 use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\Contracts\DvuiComponentSuiteContract;
@@ -80,7 +80,7 @@ final class DvUiServiceProvider extends ServiceProvider
     {
         $this->app->register(RouteServiceProvider::class);
         Event::listen(CreateMenuItemsEvent::class, CreateMenuItemsListener::class);
-        Event::listen(BaseSeederInitialIndependentDataEvent::class, SeedInitialIndependentDataDvUiListener::class);
+        Event::listen(SeedInitialIndependentDataEvent::class, SeedInitialIndependentDataDvUiListener::class);
         Event::listen(ScanTableEvent::class, ScanTableDvUiListener::class);
     }
 
