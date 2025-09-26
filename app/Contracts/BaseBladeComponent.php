@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\DvUi\View;
+namespace Modules\DvUi\Contracts;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\View\Component;
