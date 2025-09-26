@@ -6,7 +6,7 @@ namespace Modules\DvUi\View;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\View\Component;
-use Modules\DvUi\Services\ComponentCheck;
+use Modules\DvUi\Traits\ComponentCheck;
 use Modules\DvUi\Traits\DevResources;
 
 abstract class BaseBladeComponent extends Component
