@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\DvUi\Entities\DvUiTest;
 
-use Modules\Base\Entities\BaseEntityModel;
+use Modules\Base\Contracts\BaseEntityModel;
 use Modules\DvUi\Models\DvUiTestModel;
 
 /**
