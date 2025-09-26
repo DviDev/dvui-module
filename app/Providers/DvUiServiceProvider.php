@@ -13,7 +13,7 @@ use Log;
 use Modules\Base\Events\BaseSeederInitialIndependentDataEvent;
 use Modules\DBMap\Events\ScanTableEvent;
 use Modules\DvUi\Enums\DvuiComponentAlias;
-use Modules\DvUi\Interfaces\DvuiComponentSuiteContract;
+use Modules\DvUi\Contracts\DvuiComponentSuiteContract;
 use Modules\DvUi\Listeners\CreateMenuItemsListener;
 use Modules\DvUi\Listeners\ScanTableDvUiListener;
 use Modules\DvUi\Listeners\SeedInitialIndependentDataDvUiListener;

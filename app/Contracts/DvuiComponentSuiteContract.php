@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\DvUi\Interfaces;
+namespace Modules\DvUi\Contracts;
 
 interface DvuiComponentSuiteContract
 {
