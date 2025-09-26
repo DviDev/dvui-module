@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\DvUi\Services;
+namespace Modules\DvUi\Traits;
 
 use Illuminate\View\ComponentSlot;
 
