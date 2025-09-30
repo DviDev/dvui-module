@@ -7,7 +7,7 @@ namespace Modules\DvUi\View\Components;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 use Modules\DvUi\Enums\DvuiComponentAlias;
-use Modules\DvUi\Services\ComponentCheck;
+use Modules\DvUi\Traits\ComponentCheck;
 use Modules\DvUi\Traits\DevResources;
 
 final class Badge extends Component

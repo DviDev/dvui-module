@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Modules\DvUi\View;
+namespace Modules\DvUi\Contracts;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\View\Component;
-use Modules\DvUi\Services\ComponentCheck;
+use Modules\DvUi\Traits\ComponentCheck;
 use Modules\DvUi\Traits\DevResources;
 
 abstract class BaseBladeComponent extends Component

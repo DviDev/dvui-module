@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\DvUi\Services;
+namespace Modules\DvUi\Traits;
 
 use Illuminate\View\ComponentSlot;
 
@@ -14,7 +14,7 @@ trait ComponentCheck
 
     public $text_sizes_;
 
-    public static function classesStartWith($string, ?ComponentSlot $target = null, $classes = [])
+    public static function classesStartWith($string, ?ComponentSlot $target = null, $classes = []): string
     {
         $classes = $target ? $target->attributes->get('class') : $classes;
 
@@ -31,19 +31,19 @@ trait ComponentCheck
         $text_sizes_ = config('dvui.text-sizes');
     }
 
-    public function classesContainColor(?ComponentSlot $target = null)
+    public function classesContainColor(?ComponentSlot $target = null): bool
     {
         $classes = $target ? $target->attributes->get('class') : $this->attributes['class'];
 
         return str($classes)->contains(config('dvui.text-colors'));
     }
 
-    public function onlyClassesStartWith($string, ?ComponentSlot $target = null)
+    public function onlyClassesStartWith($string, ?ComponentSlot $target = null): string
     {
         return static::classesStartWith($string, $target, $this->attributes['class']);
     }
 
-    public function classesContain($class, ?ComponentSlot $target = null)
+    public function classesContain($class, ?ComponentSlot $target = null): bool
     {
         $classes = $target ? $target->attributes->get('class') : $this->attributes['class'];
 
