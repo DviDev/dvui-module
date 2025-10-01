@@ -6,8 +6,8 @@ namespace Modules\DvUi\View\Components;
 
 use Illuminate\View\ComponentSlot;
 use Illuminate\View\View;
-use Modules\DvUi\Enums\DvuiComponentAlias;
 use Modules\DvUi\Contracts\BaseBladeComponent;
+use Modules\DvUi\Enums\DvuiComponentAlias;
 
 final class Card extends BaseBladeComponent
 {
