@@ -53,7 +53,7 @@
     {{$attributes}}
 >
     @if($dropstart)
-    <x-dvui::icon.chevron.leftmini style="margin-left: -8px; padding-bottom:1px"/>
+    <x-dvui::icon.chevron.left mini style="margin-left: -8px; padding-bottom:1px"/>
     @endif
 
     @if($label)
