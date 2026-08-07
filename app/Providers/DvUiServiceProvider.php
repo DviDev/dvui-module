@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\DvUi\Providers;
 
-use Config;
 use Event;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Log;
+use Modules\Base\Contracts\BaseServiceProviderContract;
 use Modules\Base\Events\SeedInitialIndependentDataEvent;
 use Modules\DBMap\Events\ScanTableEvent;
 use Modules\DvUi\Contracts\DvuiComponentSuiteContract;
@@ -42,108 +41,27 @@ use Modules\DvUi\View\Components\Link;
 use Modules\Project\Events\CreateMenuItemsEvent;
 use ReflectionClass;
 
-final class DvUiServiceProvider extends ServiceProvider
+final class DvUiServiceProvider extends BaseServiceProviderContract
 {
-    /**
-     * @var string
-     */
-    protected $moduleName = 'DvUi';
-
-    /**
-     * @var string
-     */
-    protected $moduleNameLower = 'dvui';
-
-    /**
-     * Boot the application events.
-     *
-     * @return void
-     */
-    public function boot()
+    public function boot(): void
     {
-        $this->registerTranslations();
-        $this->registerConfig();
-        $this->registerViews();
-        $this->registerAssetPath();
-        $this->loadMigrationsFrom(module_path($this->moduleName, 'database/Migrations'));
+        parent::boot();
 
-        $this->registerComponents();
         $this->registerComponentsViaSuite();
     }
 
-    /**
-     * Register the service provider.
-     *
-     * @return void
-     */
-    public function register()
+    public function provides(): array
     {
-        $this->app->register(RouteServiceProvider::class);
+        return [
+            RouteServiceProvider::class
+        ];
+    }
+
+    protected function registerEvents(): void
+    {
         Event::listen(CreateMenuItemsEvent::class, CreateMenuItemsListener::class);
         Event::listen(SeedInitialIndependentDataEvent::class, SeedInitialIndependentDataDvUiListener::class);
         Event::listen(ScanTableEvent::class, ScanTableDvUiListener::class);
-    }
-
-    /**
-     * Register views.
-     *
-     * @return void
-     */
-    public function registerViews()
-    {
-        $viewPath = resource_path('views/modules/'.$this->moduleNameLower);
-
-        $sourcePath = module_path($this->moduleName, 'resources/views');
-
-        $this->publishes(
-            [$sourcePath => $viewPath],
-            ['views', $this->moduleNameLower.'-module-views']
-        );
-
-        $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
-    }
-
-    /**
-     * Register translations.
-     *
-     * @return void
-     */
-    public function registerTranslations()
-    {
-        $langPath = resource_path('lang/modules/'.$this->moduleNameLower);
-
-        if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
-            $this->loadJsonTranslationsFrom($langPath);
-        } else {
-            $this->loadTranslationsFrom(module_path($this->moduleName, 'Resources/lang'), $this->moduleNameLower);
-            $this->loadJsonTranslationsFrom(module_path($this->moduleName, 'Resources/lang'));
-        }
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return [];
-    }
-
-    /**
-     * Register config.
-     *
-     * @return void
-     */
-    protected function registerConfig()
-    {
-        $this->publishes([
-            module_path($this->moduleName, 'config/config.php') => config_path($this->moduleNameLower.'.php'),
-        ], 'config');
-        $this->mergeConfigFrom(
-            module_path($this->moduleName, 'config/config.php'), $this->moduleNameLower
-        );
     }
 
     protected function registerComponents(): void
@@ -554,22 +472,13 @@ final class DvUiServiceProvider extends ServiceProvider
         }
     }
 
-    private function registerAssetPath(): void
+    public function getModuleName(): string
     {
-        $assetVendorPath = public_path('assets/modules/'.$this->moduleNameLower);
-        $sourceVendorPath = module_path($this->moduleName, 'resources/assets');
-        $this->publishes([$sourceVendorPath => $assetVendorPath], 'dvui-assets');
+        return 'DvUi';
     }
 
-    private function getPublishableViewPaths(): array
+    public function getModuleNameLower(): string
     {
-        $paths = [];
-        foreach (Config::get('view.paths') as $path) {
-            if (is_dir($path.'/modules/'.$this->moduleNameLower)) {
-                $paths[] = $path.'/modules/'.$this->moduleNameLower;
-            }
-        }
-
-        return $paths;
+        return 'dvui';
     }
 }
